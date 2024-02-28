@@ -1,0 +1,18 @@
+scheme: "Dracula"
+author: "Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)"
+base00: "282936" #1c1213 background
+base01: "3a3c4e" #3a3c4e bg 2
+base02: "4d4f68" #4d4f68 bg 3
+base03: "626483" #626483 bg 4
+base04: "62d6e8" #62d6e8 cyan
+base05: "e9e9f4" #e9e9f4 foreground
+base06: "f1f2f8" #f1f2f8 white
+base07: "f7f7fb" #f7f7fb white
+base08: "ea51b2" #ea51b2 pink
+base09: "b45bcf" #b45bcf bright purple
+base0A: "00f769" #00f769 bright green
+base0B: "ebff87" #ebff87 yellow
+base0C: "a1efe4" #a1efe4 slightly different cyan
+base0D: "62d6e8" #62d6e8 cyan
+base0E: "b45bcf" #b45bcf bright purple
+base0F: "00f769" #00f769 bright green
