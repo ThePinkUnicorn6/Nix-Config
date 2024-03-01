@@ -1,5 +1,6 @@
 { inputs, pkgs, settings, ... }:
 {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
   [
     ../user/app/shell
