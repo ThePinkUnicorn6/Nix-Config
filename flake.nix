@@ -13,7 +13,7 @@
     mach-nix.url = "github:DavHau/mach-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, musnix, mach-nix, ... }@inputs:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, mach-nix, ... }:
     let
       inherit (self) outputs;
       pkgs = nixpkgs.legacyPackages.${settings.system.system};
@@ -21,14 +21,16 @@
       settings = import ./settings.nix;
       nixConf = (./hosts/${settings.system.profile}/configuration.nix);
       nixHome = (./hosts/${settings.system.profile}/home.nix);
-    in{
+
+    in if (settings.system.isNixOS) then{
+      # If the system is running nixos, use home manager as a nix module.
       nixosConfigurations = {
         system = lib.nixosSystem {
           system = settings.system.system;
           modules = [
             nixConf
-            stylix.nixosModules.stylix
             musnix.nixosModules.musnix
+            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -43,6 +45,22 @@
           specialArgs = {
             inherit inputs;
             inherit settings;
+          };
+        };
+      };
+    }
+    else {
+      # If running on another os, use home manager separatally
+      homeConfigurations = {
+        user = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            nixHome
+            stylix.homeManagerModules.stylix
+          ];
+          extraSpecialArgs = {
+            inherit settings;
+            inherit inputs;
           };
         };
       };

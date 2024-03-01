@@ -14,6 +14,9 @@
       case $1 in
         "log")
           cat "update.log";;
+        "push")
+          echo "Pushing to Origin..."
+          git push origin master;;
 
         "test")
           echo "Building test config..."
