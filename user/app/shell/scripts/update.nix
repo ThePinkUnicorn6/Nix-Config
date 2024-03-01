@@ -18,7 +18,7 @@
 
         "push")
           echo "Pushing to Origin..."
-          git push origin master;;
+          git push origin main;;
 
         "test")
           git --no-pager diff -U0
