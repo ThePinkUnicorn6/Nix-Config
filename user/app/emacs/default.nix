@@ -1,4 +1,4 @@
-{ pkgs, settings,... }:
+{ config, pkgs, settings,... }:
 {
   imports = [ 
     ../../lang/plantuml
@@ -18,4 +18,9 @@
     package = pkgs.emacs29-pgtk;
   };
   services.emacs.enable = true;
+
+  home.file.".config/emacs/themes/doom-stylix-theme.el".source = config.lib.stylix.colors {
+      template = builtins.readFile ./themes/doom-stylix-theme.el.mustache;
+      extension = ".el";
+  };
 }

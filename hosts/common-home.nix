@@ -1,4 +1,4 @@
-{ pkgs, settings, ... }:
+{ inputs, pkgs, settings, ... }:
 {
   imports =
   [
@@ -11,6 +11,7 @@
     userEmail = settings.user.email;
   };
   home.packages = with pkgs; [
+    gh
     oh-my-zsh
     alacritty
     firefox
