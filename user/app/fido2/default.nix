@@ -2,7 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    pkgs.yubikey-manager
-    pkgs.libfido2
+    yubikey-manager
+    libfido2
+    yubikey-manager-qt
   ];
 }

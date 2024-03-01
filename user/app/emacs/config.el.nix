@@ -35,7 +35,10 @@ home.file.".config/doom/config.el".text = ''
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq custom-theme-directory "~/.config/emacs/themes")
+(setq doom-theme 'doom-stylix)
+;; +unicode-init-fonts-h often errors out
+(remove-hook 'doom-init-ui-hook '+unicode-init-fonts-h)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -91,7 +94,7 @@ home.file.".config/doom/config.el".text = ''
 (setq org-latex-minted-options '(("breaklines" "true")
                                  ("breakanywhere" "true")))
 ;; Plantuml config
-(setq plantuml-executable-path "/etc/profiles/per-user/''+settings.user.username+''/bin/plantuml"))
+(setq plantuml-executable-path "/etc/profiles/per-user/''+settings.user.username+''/bin/plantuml")
 (setq plantuml-default-exec-mode 'executable)
 
 ;; KeyBinds
