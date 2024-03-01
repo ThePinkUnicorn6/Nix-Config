@@ -9,43 +9,44 @@
       set -e
       pushd ''+settings.system.dotDir+'' > /dev/null
 
-      git --no-pager diff -U0
-
       case $1 in
+        "install")
+          echo "Not implemented yet...";;
+
         "log")
           cat "update.log";;
+
         "push")
           echo "Pushing to Origin..."
           git push origin master;;
 
         "test")
+          git --no-pager diff -U0
           echo "Building test config..."
           # Add all files to commit so the flake can see them.
           git add -A
 
-          # Build test system.
-          sudo nixos-rebuild test --flake .#system  &>update.log || (cat update.log | grep --color error && false)
+          # Build test system. Will use home manager if on another os, and nixos-rebuild if not.
+
+          sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild test --flake .#system'' else ''home-manager switch --flake .#user'') + '' &>update.log || (cat update.log | grep --color error && false)
           echo "NixOS Test Built OK!";;
 
         "flake")
           echo "Updating flake lock file..."
           nix flake update .;;
 
-        "commit")
-          echo "Building config and committing..."
-          git add -A
-          read -rp "Enter commit message: " msg
-          sudo nixos-rebuild switch --flake .#system  &>update.log || (cat update.log | grep --color error && false)
-          git commit -am "$msg"
-          echo "NixOS Rebuilt OK!";;
-
         *)
+          git --no-pager diff -U0
           echo "Building config and committing..."
           git add -A
+          read -rp "Enter commit message (leave blank for generation number): " msg
+          sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild switch --flake .#system'' else ''home-manager switch --flake .#user'') + '' &>update.log || (cat update.log | grep --color error && false)
 
-          sudo nixos-rebuild switch --flake .#system  &>update.log || (cat update.log | grep --color error && false)
-          current=$(nixos-rebuild list-generations | grep current)
-          git commit -am "$current"
+          # If the user has entered no comit message, generate it.
+          if ! [[ -n "$msg" ]]; then
+            msg=$(nixos-rebuild list-generations | grep current)
+          fi
+          git commit -am "$msg"
           echo "NixOS Rebuilt OK!";;
       esac
 

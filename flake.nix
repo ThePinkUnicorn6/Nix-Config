@@ -22,7 +22,7 @@
       nixConf = (./hosts/${settings.system.profile}/configuration.nix);
       nixHome = (./hosts/${settings.system.profile}/home.nix);
 
-    in if (settings.system.isNixOS) then{
+    in{
       # If the system is running nixos, use home manager as a nix module.
       nixosConfigurations = {
         system = lib.nixosSystem {
@@ -48,9 +48,7 @@
           };
         };
       };
-    }
-    else {
-      # If running on another os, use home manager separatally
+      # Otherwise use home manager separately.
       homeConfigurations = {
         user = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
