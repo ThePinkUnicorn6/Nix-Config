@@ -113,8 +113,13 @@
             workspace_swipe=no
         }
 
-        #window rules
+        # Window swallowing
+        misc {
+          enable_swallow = true
+          swallow_regex = ^(alacritty)$
+        }
 
+        # Window rules
         windowrule=monitor 0,discord
         windowrule=workspace 6,discord
         windowrule=monitor 0,webcord
@@ -139,6 +144,7 @@
         bind=SUPER,E,exec,emacsclient --create-frame --alternate-editor=""
         bind=SUPERSHIFT,E,exec,power-menu
         bind=SUPER,V,exec,mpv $(wl-paste) & notify-send "Opening $(wl-paste) in mpv."
+
         # Screenshots
         bind=,Print,exec,grimblast --notify --cursor copy active
         bind=SHIFT,Print,exec,grimblast --notify --cursor copysave active
@@ -152,6 +158,11 @@
         bind=SUPER,right,movefocus,r
         bind=SUPER,up,movefocus,u
         bind=SUPER,down,movefocus,d
+
+        bind=SUPERSHIFT,left,swapwindow,l
+        bind=SUPERSHIFT,right,swapwindow,r
+        bind=SUPERSHIFT,up,swapwindow,u
+        bind=SUPERSHIFT,down,swapwindow,d
 
         bind=SUPER,1,workspace,1
         bind=SUPER,2,workspace,2
@@ -193,6 +204,7 @@
         # Fix Reaper
         windowrule=noanim,^(REAPER)$
         windowrulev2 = nofocus,class:REAPER,title:^$
+
     '';
   };
   # Power Menu
