@@ -28,7 +28,7 @@
 
           # Build test system. Will use home manager if on another os, and nixos-rebuild if not.
 
-          sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild test --flake .#system'' else ''home-manager switch --flake .#user'') + '' &>update.log || (cat update.log | grep --color error && false)
+          sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild test --flake .#system'' else ''home-manager switch --flake .#user'') + '' | tee update.log
           echo "NixOS Test Built OK!";;
 
         "flake")
@@ -40,7 +40,7 @@
           echo "Building config and committing..."
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
-          sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild switch --flake .#system'' else ''home-manager switch --flake .#user'') + '' &>update.log || (cat update.log | grep --color error && false)
+          sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild switch --flake .#system'' else ''home-manager switch --flake .#user'') + '' | tee update.log
 
           # If the user has entered no comit message, generate it.
           if ! [[ -n "$msg" ]]; then
