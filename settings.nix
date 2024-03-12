@@ -2,7 +2,6 @@
   system = {
     system = "x86_64-linux";
     profile = "desktop";
-    isNixOS = true;
     displayManager = "gdm";
     dotDir = "/home/USERNAME/nixos";
   };
