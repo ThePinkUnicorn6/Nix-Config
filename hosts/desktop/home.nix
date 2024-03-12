@@ -34,10 +34,6 @@
       indicator = true;
     };
   };
-  # Set openrgb colours to match theme
-  home.activation.set-openrgb-colour = lib.hm.dag.entryAfter [ "writeBoundry" ]
-    (pkgs.openrgb + ''/bin/openrgb -d "Razer Goliathus Extended" -c '' + config.lib.stylix.colors.base09);
-
   #services.syncthing.tray.enable = true;
   home.packages = with pkgs; [
     # System
