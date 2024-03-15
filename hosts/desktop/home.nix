@@ -67,6 +67,7 @@
 
     # Other
     pandoc
+    activitywatch
     g4music
     # blender
     (calibre.overrideAttrs (attrs: {

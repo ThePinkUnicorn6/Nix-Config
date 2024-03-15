@@ -66,6 +66,7 @@
     wget
     openssl
     libnotify
+    killall
   ];
 
   programs.adb.enable = true;
