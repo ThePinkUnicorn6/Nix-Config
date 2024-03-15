@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [ 
     ../wayland
@@ -37,6 +37,7 @@
     '')
   ];
 
+  # Hyprland Config
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland = { enable = true; };
@@ -196,6 +197,7 @@
         exec-once=hyprpaper
         exec-once=emacs --daemon
         exec-once=ollama serve
+        exec-once=aw-qt
 
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
@@ -207,5 +209,4 @@
 
     '';
   };
-  # Power Menu
 }
