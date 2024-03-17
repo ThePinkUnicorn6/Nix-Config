@@ -13,6 +13,7 @@
   };
   home.packages = with pkgs; [
     gh
+    unzip
     oh-my-zsh
     alacritty
     firefox
