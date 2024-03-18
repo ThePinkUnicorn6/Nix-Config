@@ -197,7 +197,7 @@
         exec-once=hyprpaper
         exec-once=emacs --daemon
         exec-once=ollama serve
-        exec-once=sleep 2 && aw-qt
+        exec-once=sleep 10 && aw-qt
 
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
