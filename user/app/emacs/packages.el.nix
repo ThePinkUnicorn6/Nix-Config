@@ -55,5 +55,11 @@ home.file.".config/doom/packages.el".text = ''
 (package! writeroom-mode)
 (package! json-mode)
 
+;;Bibtex support
+(package! org-roam-bibtex
+  :recipe (:host github :repo "org-roam/org-roam-bibtex"))
+
+;; When using org-roam via the `+roam` flag
+(unpin! org-roam)
 '';
 }
