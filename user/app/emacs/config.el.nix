@@ -103,5 +103,13 @@ home.file.".config/doom/config.el".text = ''
       :desc "Toggle writeroom mode"
       "w" #'writeroom-mode))
 
+;; Org-Roam
+(setq org-roam-directory "~/roam")
+
+;; Bibtex
+(use-package! org-roam-bibtex
+  :after org-roam
+  :config
+  (require 'org-ref)) ; optional: if using Org-ref v2 or v3 citation links
 '';
 }
