@@ -1,7 +1,7 @@
 { config, lib, pkgs, settings, ... }:
 
 {
-  services.redshift = {
+  services.gammastep = {
     enable = true;
     tray = true;
     temperature.night = 2500;
