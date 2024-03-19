@@ -20,7 +20,7 @@
     ../../user/lang/python
     ../../user/lang/python/python-packages
     ../../user/app/llm/ollama
-    ../../user/app/desktop/redshift
+    ../../user/app/desktop/gammastep
     ../../user/app/fido2
 
     ../../user/wm/${settings.user.wm}
