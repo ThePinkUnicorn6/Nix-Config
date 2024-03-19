@@ -102,13 +102,31 @@ home.file.".config/doom/config.el".text = ''
       (:prefix ("d" . "Custom binds")
       :desc "Toggle writeroom mode"
       "w" #'writeroom-mode))
+;; Latex export settings
+(with-eval-after-load 'ox-latex
+(add-to-list 'org-latex-classes
+   '("org-article"
+     "\\documentclass{article}
+      \\usepackage[reset, a4paper, height=9in, width=6in, hmarginratio=1:1, vmarginratio=1:1, marginparsep=0pt, marginparwidth=0pt, headheight=15pt]{geometry}
+      \\usepackage{lmodern}")
+   ))
+(setq org-latex-default-class "org-article")
 
 ;; Org-Roam
-(setq org-roam-directory "~/roam")
+(setq org-roam-directory "~/roam/")
 
 ;; Bibtex
-(use-package! org-roam-bibtex
-  :after org-roam
-  :config)
+(after! citar
+  (setq! citar-bibliography '("~/roam/calibre-library.bib"))
+  (setq! citar-notes-paths '("~/roam"))
+  (setq! org-cite-insert-processor 'citar)
+  (setq! org-cite-activate-processor 'citar)
+  (setq! org-cite-follow-processor 'citar))
+
+(setq org-roam-capture-templates
+      '(("b" "book" plain "%?"
+         :target
+         (file+head "books/''${citekey}.org" "\n#+TITLE: ''${title}\n#+FILETAGS: #book\n:INFO:\n:author: ''${author}\n:year: ''${year}\n:END:\n* Notes\n")
+         :unnarrowed t)))
 '';
 }
