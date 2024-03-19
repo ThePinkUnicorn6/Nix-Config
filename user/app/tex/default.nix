@@ -13,6 +13,7 @@ let
       enumitem
       fancyvrb
       upquote
+      biblatex
       mdframed
       boites
       minted;

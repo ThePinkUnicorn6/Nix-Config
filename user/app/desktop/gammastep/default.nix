@@ -4,7 +4,7 @@
   services.gammastep = {
     enable = true;
     tray = true;
-    temperature.night = 2500;
+    temperature.night = 3500;
     latitude = settings.user.location.lat;
     longitude = settings.user.location.lon;
   };
