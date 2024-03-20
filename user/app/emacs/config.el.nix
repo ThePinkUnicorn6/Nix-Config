@@ -126,7 +126,13 @@ home.file.".config/doom/config.el".text = ''
 (setq org-roam-capture-templates
       '(("b" "book" plain "%?"
          :target
-         (file+head "books/''${citekey}.org" "\n#+TITLE: ''${title}\n#+FILETAGS: #book\n:INFO:\n:author: ''${author}\n:year: ''${year}\n:END:\n* Notes\n")
+         (file+head "books/''${citekey}.org"
+                    "\n#+TITLE: ''${title}\n#+FILETAGS: #book\n:INFO:\n:author: ''${author}\n:year: ''${year}\n:END:\n* Notes\n")
+         :unnarrowed t)
+      ("d" "default" plain "%?"
+         :target
+         (file+head "%<%Y%m%d%H%M%S>-''${slug}.org"
+                    "#+title: ''${title}\n")
          :unnarrowed t)))
 '';
 }
