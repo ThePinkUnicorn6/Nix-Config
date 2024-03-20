@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, settings, ... }:
 {
   imports = [ 
     ../wayland
@@ -42,163 +42,167 @@
     enable = true;
     xwayland = { enable = true; };
     systemd.enable = true;
+    settings = {
+        monitor = if (settings.system.profile == "desktop") then [
+            "HDMI-A-1,1920x1080@60,0x550,1"
+            "DP-2,1920x1080@60,1920x0,1"
+            "DP-2,transform,3"
+        ] else [];
 
-    extraConfig = ''
-        monitor=HDMI-A-1,1920x1080@60,0x550,1
+        # Workspace monitor binding
+        workspace =  if (settings.system.profile == "desktop") then [
+            "1,monitor:HDMI-A-1"
+            "2,monitor:HDMI-A-1"
+            "3,monitor:HDMI-A-1"
+            "4,monitor:HDMI-A-1"
+            "5,monitor:HDMI-A-1"
+            "6,monitor:DP-2"
+            "7,monitor:DP-2"
+            "8,monitor:DP-2"
+            "9,monitor:DP-2"
+            "10,monitor:DP-2"
+        ] else [];
 
-        monitor=DP-2,1920x1080@60,1920x0,1
-        monitor=DP-2,transform,3
+        input = {
+            kb_layout = "gb";
+            follow_mouse = 1;
+            touchpad = {
+                natural_scroll = "no";
+            };
+        };
+        #force_default_wallpaper = 0;
 
-        # Workspase monitor binding
-        workspace=1,monitor:HDMI-A-1
-        workspace=2,monitor:HDMI-A-1
-        workspace=3,monitor:HDMI-A-1
-        workspace=4,monitor:HDMI-A-1
-        workspace=5,monitor:HDMI-A-1
-        workspace=6,monitor:DP-2
-        workspace=7,monitor:DP-2
-        workspace=8,monitor:DP-2
-        workspace=9,monitor:DP-2
-        workspace=10,monitor:DP-2
+        general = {
+            sensitivity = 1.0; # for mouse cursor
+            gaps_in = 3;
+            gaps_out = 8;
+            border_size = 2;
+            apply_sens_to_raw = 0; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+        };
+        decoration = {
+            rounding = 8;
+            blur = {
+                enabled = true;
+                size = 5;
+                passes = 2;
+                ignore_opacity = true;
+            };
+        };
 
+        animations = {
+            enabled = 1;
+            animation = [
+                "windows,1,7,default"
+                "border,1,10,default"
+                "fade,1,10,default"
+                "workspaces,1,6,default"
+            ];
+        };
 
-        input {
-            kb_file=
-            kb_layout=gb
-            kb_variant=
-            kb_model=
-            kb_options=
-            kb_rules=
+        dwindle = {
+            pseudotile = 0; # enable pseudotiling on dwindle
+            preserve_split = true;
+        };
 
-            follow_mouse=1
-
-            touchpad {
-                natural_scroll=no
-            }
-        }
-
-        general {
-            sensitivity=1.0 # for mouse cursor
-            gaps_in=3
-            gaps_out=8
-            border_size=2
-#            col.active_border=0x66ee1111
-#            col.inactive_border=0x66333333
-
-            apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-        }
-        decoration {
-            rounding = 8
-            blur {
-                enabled = true
-                size = 5
-                passes = 2
-                ignore_opacity = true
-            }
-        }
-
-        animations {
-            enabled=1
-            animation=windows,1,7,default
-            animation=border,1,10,default
-            animation=fade,1,10,default
-            animation=workspaces,1,6,default
-        }
-
-        dwindle {
-            pseudotile=0 # enable pseudotiling on dwindle
-            preserve_split=true
-        }
-
-        gestures {
-            workspace_swipe=no
-        }
+        gestures = {
+            workspace_swipe = true;
+            #workspace_swipe_touch = true;
+        };
 
         # Window swallowing
-        misc {
-          enable_swallow = true
-          swallow_regex = ^(alacritty)$
-        }
+        misc = {
+          enable_swallow = true;
+          swallow_regex = "^(alacritty)$";
+        };
 
         # Window rules
-        windowrule=monitor 0,discord
-        windowrule=workspace 6,discord
-        windowrule=monitor 0,webcord
-        windowrule=workspace 6,webcord
-        windowrule=monitor 0,whatsapp
-        windowrule=workspace 6,whatsapp
-        windowrule=monitor 1,waterfox
-        windowrule=workspace 1,waterfox
+        windowrule = [
+            "monitor 0,discord"
+            "workspace 6,discord"
+            "monitor 0,webcord"
+            "workspace 6,webcord"
+            "monitor 0,whatsapp"
+            "workspace 6,whatsapp"
+            "monitor 1,waterfox"
+            "workspace 1,waterfox"
 
-        windowrule=float,com.usebottles.bottles
-
+            "float,com.usebottles.bottles"
+        ];
         # Binds
-        bind=SUPER,RETURN,exec,alacritty
-        bind=SUPER,Q,killactive
-        bind=SUPER,L,exit
-        bind=SUPER,space,togglefloating
-        bind=SUPER,R,exec,fuzzel
-        bind=SUPER,P,pseudo
-        bind=SUPER,F,fullscreen
-        bind=SUPER,N,exec,dolphin
-        bind=SUPER,M,exec,firefox
-        bind=SUPER,E,exec,emacsclient --create-frame --alternate-editor=""
-        bind=SUPERSHIFT,E,exec,power-menu
-        bind=SUPER,V,exec,mpv $(wl-paste) & notify-send "Opening $(wl-paste) in mpv."
+        bindm = [
+            "SUPER,mouse:272,movewindow"
+            "SUPER,mouse:273,resizewindow"
+        ];
+        bind = [
+            "SUPER,RETURN,exec,alacritty"
+            "SUPER,Q,killactive"
+            "SUPER,L,exit"
+            "SUPER,space,togglefloating"
+            "SUPER,R,exec,fuzzel"
+            "SUPER,P,pseudo"
+            "SUPER,F,fullscreen"
+            "SUPER,N,exec,dolphin"
+            "SUPER,M,exec,firefox"
+            "SUPER,E,exec,emacsclient -c"
+            "SUPERSHIFT,E,exec,power-menu"
+            "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""
 
-        # Screenshots
-        bind=,Print,exec,grimblast --notify --cursor copy active
-        bind=SHIFT,Print,exec,grimblast --notify --cursor copysave active
-        bind=SUPER,S,exec,grimblast --notify --cursor copy area
-        bind=SUPERSHIFT,S,exec,grimblast --notify --cursor copysave area
+            # Screenshots
+            ",Print,exec,grimblast --notify --cursor copy active"
+            "SHIFT,Print,exec,grimblast --notify --cursor copysave active"
+            "SUPER,S,exec,grimblast --notify --cursor copy area"
+            "SUPERSHIFT,S,exec,grimblast --notify --cursor copysave area"
 
-        bindm=SUPER,mouse:272,movewindow
-        bindm=SUPER,mouse:273,resizewindow
+            "SUPER,left,movefocus,l"
+            "SUPER,right,movefocus,r"
+            "SUPER,up,movefocus,u"
+            "SUPER,down,movefocus,d"
 
-        bind=SUPER,left,movefocus,l
-        bind=SUPER,right,movefocus,r
-        bind=SUPER,up,movefocus,u
-        bind=SUPER,down,movefocus,d
+            "SUPERSHIFT,left,swapwindow,l"
+            "SUPERSHIFT,right,swapwindow,r"
+            "SUPERSHIFT,up,swapwindow,u"
+            "SUPERSHIFT,down,swapwindow,d"
 
-        bind=SUPERSHIFT,left,swapwindow,l
-        bind=SUPERSHIFT,right,swapwindow,r
-        bind=SUPERSHIFT,up,swapwindow,u
-        bind=SUPERSHIFT,down,swapwindow,d
+            "SUPER,1,workspace,1"
+            "SUPER,2,workspace,2"
+            "SUPER,3,workspace,3"
+            "SUPER,4,workspace,4"
+            "SUPER,5,workspace,5"
+            "SUPER,6,workspace,6"
+            "SUPER,7,workspace,7"
+            "SUPER,8,workspace,8"
+            "SUPER,9,workspace,9"
+            "SUPER,0,workspace,10"
 
-        bind=SUPER,1,workspace,1
-        bind=SUPER,2,workspace,2
-        bind=SUPER,3,workspace,3
-        bind=SUPER,4,workspace,4
-        bind=SUPER,5,workspace,5
-        bind=SUPER,6,workspace,6
-        bind=SUPER,7,workspace,7
-        bind=SUPER,8,workspace,8
-        bind=SUPER,9,workspace,9
-        bind=SUPER,0,workspace,10
+            "SUPERSHIFT,1,movetoworkspacesilent,1"
+            "SUPERSHIFT,2,movetoworkspacesilent,2"
+            "SUPERSHIFT,3,movetoworkspacesilent,3"
+            "SUPERSHIFT,4,movetoworkspacesilent,4"
+            "SUPERSHIFT,5,movetoworkspacesilent,5"
+            "SUPERSHIFT,6,movetoworkspacesilent,6"
+            "SUPERSHIFT,7,movetoworkspacesilent,7"
+            "SUPERSHIFT,8,movetoworkspacesilent,8"
+            "SUPERSHIFT,9,movetoworkspacesilent,9"
+            "SUPERSHIFT,0,movetoworkspacesilent,10"
 
-        bind=SUPERSHIFT,1,movetoworkspacesilent,1
-        bind=SUPERSHIFT,2,movetoworkspacesilent,2
-        bind=SUPERSHIFT,3,movetoworkspacesilent,3
-        bind=SUPERSHIFT,4,movetoworkspacesilent,4
-        bind=SUPERSHIFT,5,movetoworkspacesilent,5
-        bind=SUPERSHIFT,6,movetoworkspacesilent,6
-        bind=SUPERSHIFT,7,movetoworkspacesilent,7
-        bind=SUPERSHIFT,8,movetoworkspacesilent,8
-        bind=SUPERSHIFT,9,movetoworkspacesilent,9
-        bind=SUPERSHIFT,0,movetoworkspacesilent,10
+            "SUPER,mouse_down,workspace,e+1"
+            "SUPER,mouse_up,workspace,e-1"
+            "SUPER,f4,exec,hyprctl kill"
+        ];
+        # Autostart
+        exec-once = [
+            "waybar"
+            "mako"
+            "hyprpaper"
+            "emacs --daemon"
+            "ollama serve"
+            "sleep 10 && aw-qt"
 
-        bind=SUPER,mouse_down,workspace,e+1
-        bind=SUPER,mouse_up,workspace,e-1
-        bind=SUPER,f4,exec,hyprctl kill
-
-        #Autostart
-        exec-once=waybar
-        exec-once=mako
-        exec-once=hyprpaper
-        exec-once=emacs --daemon
-        exec-once=ollama serve
-        exec-once=sleep 10 && aw-qt
-
+            "[workspace 1 silent] firefox"
+            "[workspace 2 silent] emacs -c"
+        ];
+    };
+    extraConfig = ''
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
         windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
@@ -206,7 +210,6 @@
         # Fix Reaper
         windowrule=noanim,^(REAPER)$
         windowrulev2 = nofocus,class:REAPER,title:^$
-
     '';
   };
 }
