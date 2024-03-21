@@ -115,6 +115,18 @@
           swallow_regex = "^(alacritty)$";
         };
 
+        # Autostart
+        exec-once = [
+            "waybar"
+            "mako"
+            "hyprpaper"
+            "emacs --daemon"
+            "ollama serve"
+            "sleep 10 && aw-qt"
+
+            "[workspace 1 silent] firefox"
+            "[workspace 2 silent] sleep 5 && emacsclient -c"
+        ];
         # Window rules
         windowrule = [
             "monitor 0,discord"
@@ -188,18 +200,6 @@
             "SUPER,mouse_down,workspace,e+1"
             "SUPER,mouse_up,workspace,e-1"
             "SUPER,f4,exec,hyprctl kill"
-        ];
-        # Autostart
-        exec-once = [
-            "waybar"
-            "mako"
-            "hyprpaper"
-            "emacs --daemon"
-            "ollama serve"
-            "sleep 10 && aw-qt"
-
-            "[workspace 1 silent] firefox"
-            "[workspace 2 silent] emacs -c"
         ];
     };
     extraConfig = ''
