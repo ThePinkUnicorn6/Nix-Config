@@ -16,6 +16,9 @@
         "log")
           cat "update.log";;
 
+        "history")
+          git log -p $2;;
+
         "push")
           echo "Pushing to Origin..."
           git push origin main;;
@@ -36,9 +39,10 @@
           nix flake update .;;
 
         *)
+          git reset > /dev/null # Uncommit everything so it shows in the diff, it will be added back in a couple of lines anyway.
           git --no-pager diff -U0
-          echo "Building config and committing..."
           git add -A
+          echo "Building config and committing..."
           read -rp "Enter commit message (leave blank for generation number): " msg
           sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild switch --flake .#system'' else ''home-manager switch --flake .#user'') + '' | tee update.log
 

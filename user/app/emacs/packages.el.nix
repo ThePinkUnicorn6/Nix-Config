@@ -54,5 +54,10 @@ home.file.".config/doom/packages.el".text = ''
 ;(unpin! t)
 (package! writeroom-mode)
 (package! json-mode)
+(package! emacsql-sqlite :built-in 'prefer)
+
+(unpin! org-roam)
+(package! websocket)
+(package! org-roam-ui)
 '';
 }

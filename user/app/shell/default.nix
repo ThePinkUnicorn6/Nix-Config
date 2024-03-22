@@ -8,10 +8,6 @@ let
     gitfetch = "onefetch";
     neofetch = "disfetch";
     ls = "eza";
-    # update = "sudo nixos-rebuild switch --flake ~/nixos/flake.nix#system";
-    # update-test = "sudo nixos-rebuild test --flake ~/nixos/flake.nix#system";
-    # update-flake = "nix flake update ~/nixos && sudo nixos-rebuild switch --flake ~/nixos/flake.nix#system";
-    # update-list = "nixos-rebuild dry-build --flake ~/nixos/flake.nix#system";
     cd = "z";
   };
 in

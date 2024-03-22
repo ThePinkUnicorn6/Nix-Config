@@ -42,6 +42,7 @@
     gnome.gnome-disk-utility
     dolphin
     jdk17
+    gcc
 
     # Wine
     wine
@@ -69,7 +70,6 @@
     pandoc
     activitywatch
     g4music
-    # blender
     (calibre.overrideAttrs (attrs: {
       preFixup = (
         builtins.replaceStrings[''
