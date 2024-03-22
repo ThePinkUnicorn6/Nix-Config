@@ -97,11 +97,12 @@ home.file.".config/doom/config.el".text = ''
 (setq plantuml-executable-path "/etc/profiles/per-user/''+settings.user.username+''/bin/plantuml")
 (setq plantuml-default-exec-mode 'executable)
 
-;; KeyBinds
+;; Writeroom key bind
 (map! :leader
       (:prefix ("d" . "Custom binds")
       :desc "Toggle writeroom mode"
       "w" #'writeroom-mode))
+
 ;; Latex export settings
 (with-eval-after-load 'ox-latex
 (add-to-list 'org-latex-classes
@@ -123,6 +124,7 @@ home.file.".config/doom/config.el".text = ''
   (setq! org-cite-activate-processor 'citar)
   (setq! org-cite-follow-processor 'citar))
 
+;; Org Roam
 (setq org-roam-capture-templates
       '(("b" "book" plain "%?"
          :target
@@ -134,5 +136,19 @@ home.file.".config/doom/config.el".text = ''
          (file+head "%<%Y%m%d%H%M%S>-''${slug}.org"
                     "#+title: ''${title}\n")
          :unnarrowed t)))
+
+(use-package! websocket
+    :after org-roam)
+
+(use-package! org-roam-ui
+    :after org-roam
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
+(map! :leader
+      :desc "Toggle org-roam-ui-mode"
+      "n r u" #'org-roam-ui-mode)
 '';
 }
