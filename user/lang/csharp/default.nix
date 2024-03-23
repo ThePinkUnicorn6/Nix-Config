@@ -1,6 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    dotnet-sdk_8
+    (with dotnetCorePackages; combinePackages [
+      sdk_6_0
+      sdk_8_0
+    ])
+    omnisharp-roslyn
+    netcoredbg
   ];
 }
