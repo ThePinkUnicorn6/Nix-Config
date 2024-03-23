@@ -1,4 +1,4 @@
-{ settings, ... }:
+{ settings, pkgs, ... }:
 {
 home.file.".config/doom/config.el".text = ''
 
@@ -94,7 +94,7 @@ home.file.".config/doom/config.el".text = ''
 (setq org-latex-minted-options '(("breaklines" "true")
                                  ("breakanywhere" "true")))
 ;; Plantuml config
-(setq plantuml-executable-path "/etc/profiles/per-user/''+settings.user.username+''/bin/plantuml")
+(setq plantuml-executable-path "${pkgs.yq}/bin/plantuml")
 (setq plantuml-default-exec-mode 'executable)
 
 ;; Writeroom key bind
@@ -128,8 +128,8 @@ home.file.".config/doom/config.el".text = ''
 (setq org-roam-capture-templates
       '(("b" "book" plain "%?"
          :target
-         (file+head "books/''${citekey}.org"
-                    "\n#+TITLE: ''${title}\n#+FILETAGS: #book\n:INFO:\n:author: ''${author}\n:year: ''${year}\n:END:\n* Notes\n")
+         (file+head "''${citekey}.org"
+                    "#+TITLE: ''${title}\n#FILETAGS: #book\n:INFO:\n:author: ''${author}\n:year: ''${year}\n:END:\n* Notes\n")
          :unnarrowed t)
       ("d" "default" plain "%?"
          :target
@@ -150,5 +150,14 @@ home.file.".config/doom/config.el".text = ''
 (map! :leader
       :desc "Toggle org-roam-ui-mode"
       "n r u" #'org-roam-ui-mode)
+
+;; C sharp
+(setq lsp-csharp-omnisharp-roslyn-binary-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
+(require 'dap-netcore)
+(map! :map dap-mode-map
+      :desc "Start debugger" "<f5>" #'dap-debug)
+
+(setq dap-default-terminal-kind "external")
+
 '';
 }
