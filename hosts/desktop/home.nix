@@ -70,6 +70,7 @@
     pandoc
     activitywatch
     g4music
+    microcom
     (calibre.overrideAttrs (attrs: {
       preFixup = (
         builtins.replaceStrings[''

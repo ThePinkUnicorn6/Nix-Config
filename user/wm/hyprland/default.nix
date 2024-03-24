@@ -125,7 +125,7 @@
             "sleep 10 && aw-qt"
 
             "[workspace 1 silent] firefox"
-            "[workspace 2 silent] sleep 5 && emacsclient -c"
+            "[workspace 2 silent] sleep 5 && emacsclient --create-frame --alternate-editor=\"\" -a=\"\""
         ];
         # Window rules
         windowrule = [
@@ -155,7 +155,7 @@
             "SUPER,F,fullscreen"
             "SUPER,N,exec,dolphin"
             "SUPER,M,exec,firefox"
-            "SUPER,E,exec,emacsclient -c"
+            "SUPER,E,exec,emacsclient --create-frame --alternate-editor=\"\" -a=\"\""
             "SUPERSHIFT,E,exec,power-menu"
             "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""
 
