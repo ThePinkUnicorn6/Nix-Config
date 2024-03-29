@@ -151,7 +151,7 @@
             "SUPER,L,exit"
             "SUPER,space,togglefloating"
             "SUPER,R,exec,fuzzel"
-            "SUPER,P,pseudo"
+            "SUPERSHIFT,space,pseudo"
             "SUPER,F,fullscreen"
             "SUPER,N,exec,dolphin"
             "SUPER,M,exec,firefox"

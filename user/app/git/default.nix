@@ -1,12 +1,8 @@
-{ config, lib, pkgs, ... }:
-
+{ pkgs, settings, ... }:
 {
-  home.packages = with pkgs; [
-    gitFull
-  ];
   programs.git = {
     enable = true;
-    userName = "Example Username";
-    userEmail = "example@example.com";
+    userName = settings.user.gitName;
+    userEmail = settings.user.email;
   };
 }
