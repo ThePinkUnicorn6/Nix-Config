@@ -5,12 +5,9 @@
   [
     ../user/app/shell
     ../user/app/shell/scripts/update.nix
+    ../user/app/git
   ];
-  programs.git = {
-    enable = true;
-    userName = settings.user.gitName;
-    userEmail = settings.user.email;
-  };
+
   home.packages = with pkgs; [
     gh
     unzip

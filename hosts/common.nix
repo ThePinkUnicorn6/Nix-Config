@@ -50,7 +50,7 @@
   users.users.${settings.user.username} = {
     isNormalUser = true;
     description = settings.user.name;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" ];
   };
 
   # Allow unfree packages
