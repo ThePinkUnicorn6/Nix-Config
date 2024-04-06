@@ -58,7 +58,7 @@
     # Video
     yt-dlp
     vlc
-    
+    delfin
     # Photo
     loupe
     gthumb
@@ -71,6 +71,7 @@
     activitywatch
     g4music
     microcom
+    flowtime
     (calibre.overrideAttrs (attrs: {
       preFixup = (
         builtins.replaceStrings[''
