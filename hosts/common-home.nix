@@ -6,13 +6,13 @@
     ../user/app/shell
     ../user/app/shell/scripts/update.nix
     ../user/app/git
+    ../user/app/shell/alacritty
   ];
 
   home.packages = with pkgs; [
     gh
     unzip
     oh-my-zsh
-    alacritty
     firefox
     syncthing
     syncthingtray

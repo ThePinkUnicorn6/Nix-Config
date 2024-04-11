@@ -83,10 +83,18 @@
             rounding = 8;
             blur = {
                 enabled = true;
-                size = 5;
-                passes = 2;
+                size = 12;
+                passes = 4;
+                new_optimizations = true;
                 ignore_opacity = true;
+                xray = true;
             };
+            active_opacity = 0.95;
+            inactive_opacity = 0.9;
+            fullscreen_opacity = 1;
+            drop_shadow = true;
+            shadow_range = 30;
+            shadow_render_power = 3;
         };
 
         animations = {
