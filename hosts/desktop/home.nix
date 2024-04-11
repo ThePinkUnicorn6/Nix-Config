@@ -22,11 +22,11 @@
     ../../user/app/llm/ollama
     ../../user/app/desktop/gammastep
     ../../user/app/fido2
+    #../../user/app/distrobox
 
     ../../user/wm/${settings.user.wm}
     ../../user/style
   ];
-  programs.alacritty.enable = true;
   services = {
     syncthing.enable = true;
     kdeconnect = {
