@@ -41,6 +41,11 @@ in
     enableZshIntegration = true;
   };
 
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    icons = true;
+  };
   home.packages = with pkgs; [
     thefuck
     disfetch
@@ -52,7 +57,6 @@ in
     direnv
     nix-direnv
     tldr
-    eza
   ];
 
   programs.direnv.enable = true;
