@@ -1,4 +1,8 @@
-{ settings, pkgs, ... }:
+{ stylix, config, settings, pkgs, ... }:
+
+let
+  emacsOpacity = builtins.toString (builtins.ceil (config.stylix.opacity.applications * 100));
+in
 {
 home.file.".config/doom/config.el".text = ''
 
@@ -81,9 +85,14 @@ home.file.".config/doom/config.el".text = ''
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Theming
 (setq
     org-superstar-headline-bullets-list '("•")
 )
+
+(set-frame-parameter nil 'alpha-background ${emacsOpacity})
+(add-to-list 'default-frame-alist '(alpha-background . ${emacsOpacity}))
+
 ;; Minted code highlighting
 (setq org-latex-listings 'minted
       org-latex-packages-alist '(("" "minted"))
