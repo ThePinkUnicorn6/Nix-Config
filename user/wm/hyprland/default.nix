@@ -90,7 +90,7 @@
                 xray = true;
             };
             active_opacity = 0.95;
-            inactive_opacity = 0.85;
+            inactive_opacity = 0.9;
             fullscreen_opacity = 1;
             drop_shadow = true;
             shadow_range = 30;
