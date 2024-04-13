@@ -40,7 +40,7 @@ in{
     --search-popout-option-fade: none; /* Disable fade for search popout */
     --bg-overlay-2: var(--base00); /* These 2 are needed for proper threads coloring */
     --home-background: var(--base00);
-    --background-primary: var(--base00);
+    --background-primary: rgba(var(--base00), ''+(builtins.toString (config.stylix.opacity.applications))+'');
     --background-secondary: var(--base01);
     --background-secondary-alt: var(--base01);
     --channeltextarea-background: var(--base01);
