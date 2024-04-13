@@ -139,8 +139,8 @@
         windowrule = [
             "monitor 0,discord"
             "workspace 6,discord"
-            "monitor 0,webcord"
-            "workspace 6,webcord"
+            "monitor 0,WebCord"
+            "workspace 6,WebCord"
             "monitor 0,whatsapp"
             "workspace 6,whatsapp"
             "monitor 1,waterfox"
