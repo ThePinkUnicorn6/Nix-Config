@@ -26,7 +26,7 @@
         bright.cyan = "#"+config.lib.stylix.colors.base0F;
         bright.white = "#"+config.lib.stylix.colors.base07;
       };
-      window.opacity = 0.65;
+      window.opacity = config.stylix.opacity.terminal;
       window.padding ={
         x = 15;
         y = 15;
