@@ -22,6 +22,7 @@
     ../../user/app/llm/ollama
     ../../user/app/desktop/gammastep
     ../../user/app/fido2
+    ../../user/app/calibre
     #../../user/app/distrobox
 
     ../../user/wm/${settings.user.wm}
@@ -72,17 +73,8 @@
     g4music
     microcom
     flowtime
-    (calibre.overrideAttrs (attrs: {
-      preFixup = (
-        builtins.replaceStrings[''
-          --prefix PYTHONPATH : $PYTHONPATH \
-        ''] [''
-          --prefix LD_LIBRARY_PATH : ${pkgs.libressl.out}/lib \
-          --prefix PYTHONPATH : $PYTHONPATH \
-        '']
-      attrs.preFixup
-      );
-    }))
+    nyxt
+
 
     # Fonts
     pkgs.${settings.user.fontPkg}

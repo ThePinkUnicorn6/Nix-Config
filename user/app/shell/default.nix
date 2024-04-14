@@ -21,6 +21,9 @@ in
     initExtra = ''
       disfetch
       eval $(thefuck --alias)
+      run () {
+        nix run nixpkgs#$1
+      }
     '';
     oh-my-zsh = {
       enable = true;

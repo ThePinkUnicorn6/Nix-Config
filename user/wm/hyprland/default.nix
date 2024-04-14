@@ -36,6 +36,7 @@
         esac
     '')
   ];
+  services.copyq.enable = true;
 
   # Hyprland Config
   wayland.windowManager.hyprland = {
