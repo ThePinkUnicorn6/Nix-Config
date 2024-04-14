@@ -63,8 +63,11 @@ in
       popups = 12;
       desktop = 12;
     };
-    opacity.applications = 0.8;
-    opacity.terminal = 0.75;
+    opacity = {
+      applications = 0.8;
+      terminal = 0.75;
+      popups = 0.75;
+    };
     targets.waybar.enable = false;
     targets.alacritty.enable = false;
     fonts = {

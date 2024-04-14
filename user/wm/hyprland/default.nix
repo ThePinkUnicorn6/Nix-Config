@@ -88,6 +88,7 @@
                 new_optimizations = true;
                 ignore_opacity = true;
                 xray = true;
+                popups = true;
             };
             active_opacity = 0.95;
             inactive_opacity = 0.9;
@@ -117,8 +118,9 @@
             #workspace_swipe_touch = true;
         };
 
-        # Window swallowing
         misc = {
+          disable_splash_rendering = true;
+          disable_hyprland_logo = true;
           enable_swallow = true;
           swallow_regex = "^(alacritty)$";
         };
