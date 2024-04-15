@@ -75,7 +75,6 @@ in{
     style = ''
       * {
         border: none;
-        border-radius: 0 0 10px 10px;
         font-family: ''+settings.user.font+'';
         font-size: 15px;
         min-height: 10px;

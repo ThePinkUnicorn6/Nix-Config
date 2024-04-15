@@ -2,6 +2,7 @@
 
 window#waybar {
 	background: @base00;
+    border-radius: 0 0 10px 10px;
 }
 
 window#waybar.hidden {
