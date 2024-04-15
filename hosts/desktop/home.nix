@@ -23,6 +23,7 @@
     ../../user/app/desktop/gammastep
     ../../user/app/fido2
     ../../user/app/calibre
+    ../../user/app/browser/firefox
     #../../user/app/distrobox
 
     ../../user/wm/${settings.user.wm}

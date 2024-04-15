@@ -7,7 +7,6 @@ let
     fd = "fd -Lu";
     gitfetch = "onefetch";
     neofetch = "disfetch";
-    ls = "eza --icons";
     cd = "z";
   };
 in
