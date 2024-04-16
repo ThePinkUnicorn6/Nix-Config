@@ -1,16 +1,15 @@
 { config, pkgs, inputs, settings, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../system/gpu/amd-rx570
-      ../common.nix
-      ../../system/app/production
-      ../../system/wm/${settings.user.wm}.nix
-      ../../system/style
-      ../../system/app/fido2
-    ];
+  imports =[
+    ./hardware-configuration.nix
+    ../../system/gpu/amd-rx570
+    ../common.nix
+    ../../system/app/production
+    ../../system/wm/${settings.user.wm}.nix
+    ../../system/style
+    ../../system/app/fido2
+  ];
 
   # Bootloader.
   boot.loader = {
@@ -26,7 +25,6 @@
     nameservers = [ "100.100.100.100" "100.85.99.93" "1.1.1.1" ];
     networkmanager.dns = "none";
   };
-  security.polkit.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
