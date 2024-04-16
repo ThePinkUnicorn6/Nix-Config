@@ -52,6 +52,7 @@ in
     preload = ${config.stylix.image}
     wallpaper = HDMI-A-1,${config.stylix.image}
     wallpaper = DP-2,${config.stylix.image}
+    splash = false
   '';
 
   stylix = {

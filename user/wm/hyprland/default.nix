@@ -6,7 +6,6 @@
   ];
 
   home.packages = with pkgs; [
-    xdg-desktop-portal-hyprland
     wl-clipboard
     hyprland-protocols
     wl-clipboard
