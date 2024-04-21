@@ -106,7 +106,8 @@ home.file.".config/doom/config.el".text = ''
 (setq plantuml-executable-path "${pkgs.yq}/bin/plantuml")
 (setq plantuml-default-exec-mode 'executable)
 
-;; Writeroom key bind
+;; Writeroom
+(setq writeroom-width 120)
 (map! :leader
       (:prefix ("d" . "Custom binds")
       :desc "Toggle writeroom mode"
