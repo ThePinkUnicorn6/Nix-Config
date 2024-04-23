@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-
+    nh
     # Scripts
     (pkgs.writeScriptBin "nu" (''
       #!/usr/bin/env bash
@@ -24,10 +24,7 @@
         "test")
           # Add all files to commit so the flake can see them.
           git add -A
-
-          # Build test system. Will use home manager if on another os, and nixos-rebuild if not.
-
-          ${nh}/bin/nh os test . -H system;;
+          ${nh}/bin/nh os test . -H system $2;;
 
         "flake")
           echo "Updating flake lock file..."
@@ -36,7 +33,7 @@
         *)
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
-          ${nh}/bin/nh os switch . -H system
+          ${nh}/bin/nh os switch . -H system $1
 
           # If the user has entered no comit message, generate it.
           if ! [[ -n "$msg" ]]; then
