@@ -61,6 +61,8 @@
     yt-dlp
     vlc
     delfin
+    freetube
+
     # Photo
     loupe
     gthumb
