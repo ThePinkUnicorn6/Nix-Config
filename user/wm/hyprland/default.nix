@@ -168,6 +168,7 @@
             "SUPER,E,exec,emacsclient --create-frame --alternate-editor=\"\" -a=\"\""
             "SUPERSHIFT,E,exec,power-menu"
             "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""
+            "SUPER,Y,exec,freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\""
 
             # Screenshots
             ",Print,exec,grimblast --notify --cursor copy active"
