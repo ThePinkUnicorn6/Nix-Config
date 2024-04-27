@@ -53,7 +53,7 @@
   users.users.${settings.user.username} = {
     isNormalUser = true;
     description = settings.user.name;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" ];
   };
 
   # Allow unfree packages
@@ -63,6 +63,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     efibootmgr
+    zip
     zsh
     home-manager
     git
@@ -82,8 +83,8 @@
 
   nix.gc = {
     automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 10d";
+    dates = "daily";
+    options = "--delete-older-than 7d";
   };
 
   environment.shells = with pkgs; [ zsh ];
