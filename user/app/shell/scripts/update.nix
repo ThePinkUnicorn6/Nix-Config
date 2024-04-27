@@ -23,7 +23,7 @@
 
         "pull")
           echo "Pulling from Origin..."
-          git pull
+          git pull;;
 
         "test")
           # Add all files to commit so the flake can see them.
