@@ -20,6 +20,7 @@ let
       interval = 1;
       format-wifi = "{icon}  {bandwidthTotalBits}";
       format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
+      format-ethernet = "󰈀  {bandwidthTotalBits}";
       format-disconnected = "󰤭";
       tooltip-format = "{ifname} via {gwaddr}";
       tooltip-format-wifi = "{essid} ({signalStrength}%) on {ifname}";

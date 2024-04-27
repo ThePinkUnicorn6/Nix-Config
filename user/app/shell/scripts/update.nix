@@ -21,6 +21,10 @@
           echo "Pushing to Origin..."
           git push origin main;;
 
+        "pull")
+          echo "Pulling from Origin..."
+          git pull
+
         "test")
           # Add all files to commit so the flake can see them.
           git add -A
