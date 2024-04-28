@@ -109,9 +109,8 @@ home.file.".config/doom/config.el".text = ''
 ;; Writeroom
 (setq writeroom-width 120)
 (map! :leader
-      (:prefix ("d" . "Custom binds")
       :desc "Toggle writeroom mode"
-      "w" #'writeroom-mode))
+      "W" #'writeroom-mode)
 
 ;; Latex export settings
 (with-eval-after-load 'ox-latex
