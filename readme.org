@@ -1,0 +1,9 @@
+#+title: NIXOS Configuration
+
+Here is my nixos configuration. It uses home manager to configure programs is based around the hosts in the host directory, which pull in home manager modules from ~/user~ and system configuration modules from ~/system~. I aim to make this installable with one command at some point, and to work on non-nixos systems, but it is not there yet.
+
+Credits go to these projects which I have made use of extensively as reference or included in these dots.
+
++ https://gitlab.com/librephoenix/nixos-config :: The structure of this configuration is based around this, and has been an invaluable resource.
++ https://github.com/Aylur/dotfiles :: Was very useful as reference when setting up waybar.
++ https://github.com/soulhotel/FF-ULTIMA :: Is used to theme Firefox, making it beautiful.

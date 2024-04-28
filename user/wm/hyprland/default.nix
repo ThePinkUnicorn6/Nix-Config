@@ -180,6 +180,10 @@
             "SUPER,right,movefocus,r"
             "SUPER,up,movefocus,u"
             "SUPER,down,movefocus,d"
+            "SUPERALT,n,movefocus,l"
+            "SUPERALT,i,movefocus,r"
+            "SUPERALT,u,movefocus,u"
+            "SUPERALT,e,movefocus,d"
 
             "SUPERSHIFT,left,swapwindow,l"
             "SUPERSHIFT,right,swapwindow,r"
