@@ -11,8 +11,11 @@
     stylix.url = "github:danth/stylix";
     musnix.url = "github:musnix/musnix";
     mach-nix.url = "github:DavHau/mach-nix";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
   outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, mach-nix, ... }:
     let
       inherit (self) outputs;
