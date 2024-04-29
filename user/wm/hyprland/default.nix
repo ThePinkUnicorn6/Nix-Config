@@ -1,5 +1,7 @@
 { pkgs, lib, settings, ... }:
-{
+let
+    run-package = (pkgs.writeScriptBin "run-package" "PKG=$(fuzzel -d -l 0) && nix run nixpkgs#$PKG || notify-send \"Failed to run package: $PKG\"");
+in{
   imports = [ 
     ../wayland
     ../../app/desktop/waybar
@@ -161,6 +163,8 @@
             "SUPER,L,exit"
             "SUPER,space,togglefloating"
             "SUPER,R,exec,fuzzel"
+            # Runs any package from the nix repository without installing.
+            "SUPERSHIFT,R,exec,${run-package}/bin/run-package"
             "SUPERSHIFT,space,pseudo"
             "SUPER,F,fullscreen"
             "SUPER,N,exec,dolphin"
