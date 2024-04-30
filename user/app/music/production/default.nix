@@ -4,7 +4,7 @@
     reaper
     yabridge
     yabridgectl
-    #surge-XT
+    surge-XT
     helm
     vital
     cardinal
