@@ -9,7 +9,7 @@
   home.stateVersion = "22.11";
 
   imports = [
-    ../common-home.nix
+    ../desktop-base/user
     ../../user/app/chat/discord
     ../../user/app/music/production
     ../../user/app/video/mpv
