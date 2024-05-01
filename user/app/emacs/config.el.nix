@@ -93,6 +93,9 @@ home.file.".config/doom/config.el".text = ''
 (set-frame-parameter nil 'alpha-background ${emacsOpacity})
 (add-to-list 'default-frame-alist '(alpha-background . ${emacsOpacity}))
 
+;; Word count in line
+(setq doom-modeline-enable-word-count t)
+
 ;; Minted code highlighting
 (setq org-latex-listings 'minted
       org-latex-packages-alist '(("" "minted"))
