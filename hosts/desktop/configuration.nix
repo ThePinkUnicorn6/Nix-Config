@@ -4,7 +4,7 @@
   imports =[
     ./hardware-configuration.nix
     ../../system/gpu/amd-rx570
-    ../common.nix
+    ../desktop-base/system
     ../../system/app/production
     ../../system/wm/${settings.user.wm}.nix
     ../../system/style
