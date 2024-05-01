@@ -42,7 +42,7 @@
     gparted
     baobab
     gnome.gnome-disk-utility
-    dolphin
+    gnome.nautilus
     jdk17
     gcc
 
