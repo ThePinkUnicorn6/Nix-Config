@@ -45,6 +45,7 @@
     gnome.nautilus
     jdk17
     gcc
+    du-dust
 
     # Wine
     wine
