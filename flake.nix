@@ -19,9 +19,9 @@
   outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, mach-nix, ... }:
     let
       inherit (self) outputs;
+      settings = import ./settings.nix;
       pkgs = nixpkgs.legacyPackages.${settings.system.system};
       lib = nixpkgs.lib;
-      settings = import ./settings.nix;
       nixConf = (./hosts/${settings.system.profile}/configuration.nix);
       nixHome = (./hosts/${settings.system.profile}/home.nix);
 

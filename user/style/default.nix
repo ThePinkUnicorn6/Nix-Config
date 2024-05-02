@@ -3,9 +3,9 @@ let
   themePath = ../../themes/${settings.user.theme};
   theme = "${themePath}/${settings.user.theme}.yaml";
 
-  # If the wallpaper is not set in settings, use the theme wallpaper
-  wallfile = if settings.user.wallpaper == "" then ./. + "${themePath}/wallpaper.png" else settings.user.wallpaper;
-  # If reThemeWall is true, use image magic to change the colours if the image to use the pallet
+  # Location of the wallpaper set in settings.
+  wallfile = settings.user.wallpaper;
+  # Use imageMagic to change the colours if the image to use the colour scheme.
   wallpaper = if settings.user.reThemeWall then pkgs.runCommand "wallout.png" {} ''
         BASE00="#"$(${pkgs.yq}/bin/yq -r .base00 ${theme})
         BASE01="#"$(${pkgs.yq}/bin/yq -r .base01 ${theme})
