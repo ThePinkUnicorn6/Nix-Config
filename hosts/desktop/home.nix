@@ -43,6 +43,7 @@
     baobab
     gnome.gnome-disk-utility
     gnome.nautilus
+    gnome.file-roller
     jdk17
     gcc
     du-dust
