@@ -16,7 +16,7 @@
 
 color-scheme: dark !important; /*--<--dont touch--*/
 
-  --uc-ultima-window: rgb(43, 42, 51);
+  --uc-ultima-window: @base00;
 
   --uc-dark: #000;
   --uc-light: #fff;
