@@ -93,6 +93,8 @@ home.file.".config/doom/config.el".text = ''
 (set-frame-parameter nil 'alpha-background ${emacsOpacity})
 (add-to-list 'default-frame-alist '(alpha-background . ${emacsOpacity}))
 
+(setq display-line-numbers-type 'relative)
+
 ;; Word count in line
 (setq doom-modeline-enable-word-count t)
 
