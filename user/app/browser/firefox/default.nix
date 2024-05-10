@@ -9,31 +9,31 @@ in{
   #home.file."${chromeDir}/userContent.css".source = ./FF-ULTIMA/userContent.css;
   programs.firefox = {
     enable = true;
-    profiles.${profile} = {
-      settings = {
-        "ultima.tabs.vertical" = false;
-        "ultima.tabs.xs" = false;
-        "ultima.tabs.s" = false;
-        "ultima.tabs.l" = true;
-        "ultima.tabs.autohide" = true;
+     profiles.${profile} = {
+    #   settings = {
+    #     "ultima.tabs.vertical" = false;
+    #     "ultima.tabs.xs" = false;
+    #     "ultima.tabs.s" = false;
+    #     "ultima.tabs.l" = true;
+    #     "ultima.tabs.autohide" = true;
 
-        "ultima.sidebar.autohide" = true;
+    #     "ultima.sidebar.autohide" = true;
 
-        "ultima.xstyle.squared" = false;
-        "ultima.xstyle.containertabs.i" = false;
-        "ultima.xstyle.containertabs.ii" = false;
-        "ultima.xstyle.containertabs.iii" = true;
-        "ultima.theme.extensions" = true;
+    #     "ultima.xstyle.squared" = false;
+    #     "ultima.xstyle.containertabs.i" = false;
+    #     "ultima.xstyle.containertabs.ii" = false;
+    #     "ultima.xstyle.containertabs.iii" = true;
+    #     "ultima.theme.extensions" = true;
 
-        "ultima.OS.kde" = true;
-        "ultima.OS.gnome" = false;
-        "ultima.OS.mac" = false;
+    #     "ultima.OS.kde" = true;
+    #     "ultima.OS.gnome" = false;
+    #     "ultima.OS.mac" = false;
 
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "svg.context-properties.content.enabled" = true;
-        "toolkit.tabbox.switchByScrolling" = false;
-      };
-      # extraConfig = (builtins.readFile ./FF-ULTIMA/user.js);
+    #     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+    #     "svg.context-properties.content.enabled" = true;
+    #     "toolkit.tabbox.switchByScrolling" = false;
+    #   };
+
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         ublock-origin
         sidebery
