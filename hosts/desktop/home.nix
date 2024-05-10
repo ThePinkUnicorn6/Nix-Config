@@ -64,6 +64,7 @@
     vlc
     delfin
     freetube
+    blender
 
     # Photo
     loupe

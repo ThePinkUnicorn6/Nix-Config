@@ -1,6 +1,6 @@
 #+title: NIXOS Configuration
 
-Here is my nixos configuration. It uses home manager to configure programs is based around the hosts in the host directory, which pull in home manager modules from ~/user~ and system configuration modules from ~/system~. I aim to make this installable with one command at some point, and to work on non-nixos systems, but it is not there yet.
+Here is my nixos configuration. It uses home manager to configure programs and is based around the hosts in the host directory, which pull in home manager modules from ~/user~ and system configuration modules from ~/system~. I aim to make this installable with one command at some point, and to work on non-nixos systems, but it is not there yet.
 
 * Install
 To use, first create a file in the root of the directory called settings.nix with the following content and fill in the settings.
@@ -37,6 +37,9 @@ git add --intent-to-add flake.nix
 git update-index --assume-unchanged flake.nix
 #+end_src
 to stop git adding your settings.nix to the repository. (Thanks to this post https://discourse.nixos.org/t/can-i-use-flakes-within-a-git-repo-without-committing-flake-nix/18196/5)
+
+* Other stuff
+Most of the stuff in here is pretty standard, the only thing of interest is the script I use to re-colour the wallpaper to match the stylix theme colours, which can be found in file:./user/style/default.nix
 
 * Credits
 Credits go to these projects which I have made use of extensively as reference or made use of in these dots.
