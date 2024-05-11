@@ -7,7 +7,7 @@
     ../../../user/app/shell
     ../../../user/app/shell/scripts/update.nix
     ../../../user/app/git
-    ../../../user/app/shell/alacritty
+    ../../../user/app/shell/kitty
     ../../../user/app/browser/firefox
   ];
 
