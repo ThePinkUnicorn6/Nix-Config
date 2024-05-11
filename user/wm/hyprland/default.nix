@@ -124,7 +124,7 @@ in{
           disable_splash_rendering = true;
           disable_hyprland_logo = true;
           enable_swallow = true;
-          swallow_regex = "^(alacritty)$";
+          swallow_regex = "^(kitty|alacritty)$";
         };
 
         # Autostart
@@ -158,7 +158,7 @@ in{
             "SUPER,mouse:273,resizewindow"
         ];
         bind = [
-            "SUPER,RETURN,exec,alacritty"
+            "SUPER,RETURN,exec,kitty"
             "SUPER,Q,killactive"
             "SUPER,L,exit"
             "SUPER,space,togglefloating"
