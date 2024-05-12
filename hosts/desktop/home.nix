@@ -54,7 +54,6 @@
 
     # Text
     gnome-text-editor
-    kate
     libreoffice-fresh
     hunspell
     hunspellDicts.en_GB-ise
@@ -79,8 +78,6 @@
     g4music
     microcom
     flowtime
-    nyxt
-
 
     # Fonts
     pkgs.${settings.user.fontPkg}
