@@ -137,7 +137,6 @@ in{
             "sleep 10 && aw-qt"
 
             "[workspace 1 silent] firefox"
-            "[workspace 2 silent] sleep 5 && emacsclient --create-frame --alternate-editor=\"\" -a=\"\""
         ];
         # Window rules
         windowrule = [
