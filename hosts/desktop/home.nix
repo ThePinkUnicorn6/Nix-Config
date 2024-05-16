@@ -78,6 +78,7 @@
     g4music
     microcom
     flowtime
+    picard
 
     # Fonts
     pkgs.${settings.user.fontPkg}
