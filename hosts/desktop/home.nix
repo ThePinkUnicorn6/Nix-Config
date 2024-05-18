@@ -69,13 +69,16 @@
     loupe
     gthumb
 
+    # Audio
+    g4music
+    mpris-scrobbler
+
     # Chat
     whatsapp-for-linux
 
     # Other
     pandoc
     activitywatch
-    g4music
     microcom
     flowtime
     picard
