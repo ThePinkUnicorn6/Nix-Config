@@ -1,14 +1,15 @@
+/* MPL 2.0 https://github.com/soulhotel/FF-ULTIMA/blob/main/LICENSE */
+
 /*  
 Change tab size?
 Change autohide option?
-Remove tabs panel completely?
+Want to use sidebery instead? + More.
 Come to the modification page: https://github.com/soulhotel/FF-ULTIMA/blob/main/doc/Modification.md
 */
 
-@import url(colours.css);
 @import url(theme/all-global-positioning.css);
 
-@import url(theme/all-global-theme-fullmoon.css);
+@import url(stylix.css);
 @import url(theme/all-global-theme-dusky.css);
 
 @import url(theme/position-verttab.css);
