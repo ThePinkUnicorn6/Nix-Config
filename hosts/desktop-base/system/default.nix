@@ -3,6 +3,7 @@
   imports = [
     ../../base/system
     ../../../system/polkit
+    ../../../system/dm/${settings.system.displayManager}
   ];
 
   # Enable networking
