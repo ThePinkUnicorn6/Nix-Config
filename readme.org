@@ -33,8 +33,8 @@ To use, first create a file in the root of the directory called settings.nix wit
 #+end_src
 Then, if you want to add it to a public git repository use the commands
 #+begin_src bash
-git add --intent-to-add flake.nix
-git update-index --assume-unchanged flake.nix
+git add --intent-to-add settings.nix
+git update-index --assume-unchanged settings.nix
 #+end_src
 to stop git adding your settings.nix to the repository. (Thanks to this post https://discourse.nixos.org/t/can-i-use-flakes-within-a-git-repo-without-committing-flake-nix/18196/5)
 
