@@ -1,28 +1,28 @@
 { config, lib, pkgs, settings, ... }:
 let
-  themePath = ../../themes/${settings.user.theme};
-  theme = "${themePath}/${settings.user.theme}.yaml";
-
+  theme = "${pkgs.base16-schemes}/share/themes/${settings.user.theme}.yaml";
+ # Reads the variant string from and writes it to a file called polarity. It then reads the value of that file to get the value as a string.
+  polarity = (builtins.readFile "${(pkgs.runCommand "getPolarity" {} "${pkgs.yq}/bin/yq -r .variant ${theme} >> $out")}");
   # Location of the wallpaper set in settings.
   wallfile = settings.user.wallpaper;
   # Use imageMagic to change the colours if the image to use the colour scheme.
   wallpaper = if settings.user.reThemeWall then pkgs.runCommand "wallout.png" {} ''
-        BASE00="#"$(${pkgs.yq}/bin/yq -r .base00 ${theme})
-        BASE01="#"$(${pkgs.yq}/bin/yq -r .base01 ${theme})
-        BASE02="#"$(${pkgs.yq}/bin/yq -r .base02 ${theme})
-        BASE03="#"$(${pkgs.yq}/bin/yq -r .base03 ${theme})
-        BASE04="#"$(${pkgs.yq}/bin/yq -r .base04 ${theme})
-        BASE05="#"$(${pkgs.yq}/bin/yq -r .base05 ${theme})
-        BASE06="#"$(${pkgs.yq}/bin/yq -r .base06 ${theme})
-        BASE07="#"$(${pkgs.yq}/bin/yq -r .base07 ${theme})
-        BASE08="#"$(${pkgs.yq}/bin/yq -r .base08 ${theme})
-        BASE09="#"$(${pkgs.yq}/bin/yq -r .base09 ${theme})
-        BASE0A="#"$(${pkgs.yq}/bin/yq -r .base0A ${theme})
-        BASE0B="#"$(${pkgs.yq}/bin/yq -r .base0B ${theme})
-        BASE0C="#"$(${pkgs.yq}/bin/yq -r .base0C ${theme})
-        BASE0D="#"$(${pkgs.yq}/bin/yq -r .base0D ${theme})
-        BASE0E="#"$(${pkgs.yq}/bin/yq -r .base0E ${theme})
-        BASE0F="#"$(${pkgs.yq}/bin/yq -r .base0F ${theme})
+        BASE00="#"$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
+        BASE01="#"$(${pkgs.yq}/bin/yq -r .palette.base01 ${theme})
+        BASE02="#"$(${pkgs.yq}/bin/yq -r .palette.base02 ${theme})
+        BASE03="#"$(${pkgs.yq}/bin/yq -r .palette.base03 ${theme})
+        BASE04="#"$(${pkgs.yq}/bin/yq -r .palette.base04 ${theme})
+        BASE05="#"$(${pkgs.yq}/bin/yq -r .palette.base05 ${theme})
+        BASE06="#"$(${pkgs.yq}/bin/yq -r .palette.base06 ${theme})
+        BASE07="#"$(${pkgs.yq}/bin/yq -r .palette.base07 ${theme})
+        BASE08="#"$(${pkgs.yq}/bin/yq -r .palette.base08 ${theme})
+        BASE09="#"$(${pkgs.yq}/bin/yq -r .palette.base09 ${theme})
+        BASE0A="#"$(${pkgs.yq}/bin/yq -r .palette.base0A ${theme})
+        BASE0B="#"$(${pkgs.yq}/bin/yq -r .palette.base0B ${theme})
+        BASE0C="#"$(${pkgs.yq}/bin/yq -r .palette.base0C ${theme})
+        BASE0D="#"$(${pkgs.yq}/bin/yq -r .palette.base0D ${theme})
+        BASE0E="#"$(${pkgs.yq}/bin/yq -r .palette.base0E ${theme})
+        BASE0F="#"$(${pkgs.yq}/bin/yq -r .palette.base0F ${theme})
 
         ${pkgs.imagemagick}/bin/magick convert -size 1x8 xc:none +antialias -depth 8 -define png:color-type=2 \
         \( +clone -fill "$BASE00" -draw 'color 0,0 point' \) \
@@ -58,6 +58,7 @@ in
   stylix = {
     image = wallpaper;
     base16Scheme = theme;
+    polarity = if "${polarity}" == "light" then "light" else "dark"; # Funky indented string things mean this is the only way I could get this to work
     fonts.sizes = {
       terminal = 12;
       applications = 12;
