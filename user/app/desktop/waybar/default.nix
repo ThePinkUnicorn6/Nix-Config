@@ -1,4 +1,4 @@
-{ config, pkgs, settings, ... }:
+{ config, pkgs, settings, lib, ... }:
 let
   colours = config.lib.stylix.colors;
   moduleConfig = {
