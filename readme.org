@@ -18,7 +18,7 @@ To use, first create a file in the root of the directory called settings.nix wit
     username = ""; # The name of the user account.
     email = ""; # Your email (used for git).
     gitName = "";
-    theme = "catppuccin-mocha"; # The name of the theme in the ./themes folder.
+    theme = "catppuccin-mocha"; # The name of the theme, as in https://tinted-theming.github.io/base16-gallery/.
     wallpaper = ./; # Location of wallpaper file to use.
     reThemeWall = true; # Re-theme the colours of the image with imagemagic and dithering to mach your theme.
     wm = "hyprland";
