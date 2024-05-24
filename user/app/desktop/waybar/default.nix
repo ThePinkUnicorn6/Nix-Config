@@ -3,8 +3,11 @@ let
   colours = config.lib.stylix.colors;
   moduleConfig = {
     cpu = {
-      interval = 15;
-      format= "  {}%";
+      interval = 3;
+      format= "  {usage}%";
+    };
+    memory = {
+      format = "  {percentage}%";
     };
     clock = {
       interval = 60;
@@ -12,6 +15,9 @@ let
       max-length = 25;
     };
     wireplumber = {
+      format = "{icon}  {volume}%";
+      format-icons = ["󰕿" "󰖀" "󰕾"];
+      format-muted = "󰖁";
       scroll-step = 5;
       on-click = "pavucontrol";
       on-click-right = "amixer set Master toggle";
@@ -60,7 +66,7 @@ in{
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "clock" ];
         modules-right = [ "wireplumber" "network" "disk" "cpu" "memory" "tray"];
-        inherit (moduleConfig) cpu clock wireplumber network disk "hyprland/workspaces";
+        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces";
       };
 
       rightBar = {
