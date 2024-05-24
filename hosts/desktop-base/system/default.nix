@@ -21,6 +21,9 @@
     };
   };
 
+  # Delete tmp on boot
+  boot.tmp.cleanOnBoot = true;
+
   # Enable tailscale
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "client";

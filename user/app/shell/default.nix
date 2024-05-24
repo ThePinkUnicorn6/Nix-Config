@@ -8,6 +8,7 @@ let
     gitfetch = "onefetch";
     neofetch = "disfetch";
     cd = "z";
+    e = "emacsclient -c";
   };
 in
 {
@@ -22,6 +23,10 @@ in
       eval $(thefuck --alias)
       run () {
         nix run nixpkgs#$1
+      }
+      mcd () {
+        mkdir $1
+        cd $1
       }
     '';
     oh-my-zsh = {
