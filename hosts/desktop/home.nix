@@ -19,6 +19,7 @@
     ../../user/app/tex
     ../../user/lang/python
     ../../user/lang/python/python-packages
+    ../../user/lang/rust
     ../../user/app/llm/ollama
     ../../user/app/desktop/gammastep
     ../../user/app/fido2
