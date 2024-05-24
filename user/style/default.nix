@@ -43,7 +43,7 @@ let
         \( +clone -fill "$BASE0F" -draw 'color 0,7 point' \) \
         -append palette.png
 
-        ${pkgs.imagemagick}/bin/magick convert "${wallfile}" -dither FloydSteinberg -ordered-dither o4x4 -remap palette.png -type truecolor $out
+        ${pkgs.imagemagick}/bin/magick convert "${wallfile}" -dither FloydSteinberg -ordered-dither o8x8 -remap palette.png -type truecolor $out
   ''
     else /. + wallfile;
 in
