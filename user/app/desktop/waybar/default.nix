@@ -17,7 +17,7 @@ let
     wireplumber = {
       format = "{icon}  {volume}%";
       format-icons = ["󰕿" "󰖀" "󰕾"];
-      format-muted = "󰖁";
+      format-muted = "󰖁 ";
       scroll-step = 5;
       on-click = "pavucontrol";
       on-click-right = "amixer set Master toggle";
