@@ -70,6 +70,7 @@
     # Photo
     loupe
     gthumb
+    ansel
 
     # Audio
     g4music
