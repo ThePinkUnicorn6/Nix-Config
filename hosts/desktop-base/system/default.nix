@@ -4,6 +4,7 @@
     ../../base/system
     ../../../system/polkit
     ../../../system/dm/${settings.system.displayManager}
+    ../../../system/camera
   ];
 
   # Enable networking
@@ -40,7 +41,7 @@
   users.users.${settings.user.username} = {
     isNormalUser = true;
     description = settings.user.name;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" ];
   };
 
     # List packages installed in system profile. To search, run:
