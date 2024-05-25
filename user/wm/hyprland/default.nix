@@ -157,7 +157,7 @@ in{
             "SUPER,mouse:273,resizewindow"
         ];
         bind = [
-            "SUPER,RETURN,exec,kitty"
+            "SUPER,RETURN,exec,${pkgs.kitty}/bin/kitty"
             "SUPER,Q,killactive"
             "SUPER,L,exit"
             "SUPER,space,togglefloating"
@@ -172,7 +172,7 @@ in{
             "SUPERSHIFT,E,exec,power-menu"
             "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""
             "SUPER,Y,exec,freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\""
-
+            "CTRL_SHIFT,escape,exec,${pkgs.mission-center}/bin/missioncenter"
             # Screenshots
             ",Print,exec,grimblast --notify --cursor copy active"
             "SHIFT,Print,exec,grimblast --notify --cursor copysave active"
