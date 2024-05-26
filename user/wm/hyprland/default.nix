@@ -166,7 +166,7 @@ in{
             "SUPERSHIFT,R,exec,${run-package}/bin/run-package"
             "SUPERSHIFT,space,pseudo"
             "SUPER,F,fullscreen"
-            "SUPER,N,exec,nautilus"
+            "SUPER,N,exec,nautilus -w"
             "SUPER,M,exec,firefox"
             "SUPER,E,exec,emacsclient --create-frame --alternate-editor=\"\" -a=\"\""
             "SUPERSHIFT,E,exec,power-menu"
