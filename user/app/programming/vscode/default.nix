@@ -9,6 +9,7 @@
     ];
     userSettings = {
       "terminal.external.linuxExec" = "kitty";
+      "workbench.colorTheme" = "Default Dark+";
     };
   };
   home.sessionVariables = {
