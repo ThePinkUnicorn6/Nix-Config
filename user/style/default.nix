@@ -70,8 +70,12 @@ in
       terminal = 0.75;
       popups = 0.75;
     };
-    targets.waybar.enable = false;
-    targets.alacritty.enable = false;
+    targets = {
+      waybar.enable = false;
+      alacritty.enable = false;
+      vscode.enable = false;
+    };
+
     fonts = {
       monospace = {
         name = settings.user.font;

@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    #calibre
     (calibre.overrideAttrs (attrs: {
       preFixup = (
         builtins.replaceStrings[''
