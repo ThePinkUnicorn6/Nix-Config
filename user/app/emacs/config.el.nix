@@ -168,10 +168,13 @@ home.file.".config/doom/config.el".text = ''
 ;; C sharp
 (setq lsp-csharp-omnisharp-roslyn-binary-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
 (require 'dap-netcore)
-(map! :map dap-mode-map
+(map! :map csharp-mode-map
       :desc "Start debugger" "<f5>" #'dap-debug)
-
 (setq dap-default-terminal-kind "external")
+
+;; Rust
+(map! :map rustic-mode-map
+      :desc "Run program interactivly" "<f5>" #'rustic-cargo-comint-run)
 
 '';
 }
