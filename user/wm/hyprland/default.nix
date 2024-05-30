@@ -132,7 +132,7 @@ in{
             "waybar"
             "mako"
             "hyprpaper"
-            "emacs --daemon"
+            "sleep 5 && emacs --daemon"
             "ollama serve"
             "sleep 10 && aw-qt"
 
