@@ -9,7 +9,6 @@
     ../../../user/app/git
     ../../../user/app/shell/kitty
     ../../../user/app/browser/firefox
-    ../../../user/app/browser/librewolf
   ];
 
   home.packages = with pkgs; [
