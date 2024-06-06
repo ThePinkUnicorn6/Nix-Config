@@ -8,7 +8,7 @@
         builtins.replaceStrings[''
           --prefix PYTHONPATH : $PYTHONPATH \
         ''] [''
-          --prefix LD_LIBRARY_PATH : ${pkgs.libressl.out}/lib \
+          --prefix LD_LIBRARY_PATH : ${pkgs.openssl.out}/lib \
           --prefix PYTHONPATH : $PYTHONPATH \
         '']
           attrs.preFixup
