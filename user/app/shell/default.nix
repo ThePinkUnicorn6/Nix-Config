@@ -53,6 +53,11 @@ in
     enableZshIntegration = true;
     icons = true;
   };
+  programs.broot = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
   home.packages = with pkgs; [
     thefuck
     disfetch
