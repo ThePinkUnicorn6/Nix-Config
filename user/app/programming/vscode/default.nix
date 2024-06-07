@@ -10,6 +10,7 @@
     userSettings = {
       "terminal.external.linuxExec" = "kitty";
       "workbench.colorTheme" = "Default Dark+";
+      "csharp.debug.console" = "externalTerminal";
     };
   };
   home.sessionVariables = {
