@@ -1,4 +1,4 @@
-{ pkgs, lib, settings, ... }:
+{ pkgs, lib, settings, osConfig, ... }:
 let
     run-package = (pkgs.writeScriptBin "run-package" "PKG=$(fuzzel -d -l 0) && nix run nixpkgs#$PKG || notify-send \"Failed to run package: $PKG\"");
 in{
@@ -17,10 +17,10 @@ in{
     (pkgs.writeScriptBin "power-menu" ''
         #!/usr/bin/env bash
 
-        option0="󰏥 Suspend"
-        option1="󰐥 Shutdown"
-        option2="󰜉 Reboot"
-        option3=" Windows"
+        option0="󰏥  Suspend"
+        option1="󰐥  Shutdown"
+        option2="󰜉  Reboot"
+        option3="  Windows"
 
         options="$option0\n$option1\n$option2\n$option3"
 
@@ -45,14 +45,14 @@ in{
     xwayland = { enable = true; };
     systemd.enable = true;
     settings = {
-        monitor = if (settings.system.profile == "desktop") then [
+        monitor = if (osConfig.networking.hostName == "nixos-desktop") then [
             "HDMI-A-1,1920x1080@60,0x550,1"
             "DP-2,1920x1080@60,1920x0,1"
             "DP-2,transform,3"
         ] else [];
 
         # Workspace monitor binding
-        workspace =  if (settings.system.profile == "desktop") then [
+        workspace =  if (osConfig.networking.hostName == "nixos-desktop") then [
             "1,monitor:HDMI-A-1"
             "2,monitor:HDMI-A-1"
             "3,monitor:HDMI-A-1"

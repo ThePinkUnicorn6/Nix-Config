@@ -22,7 +22,7 @@
     { device = "/dev/disk/by-uuid/D1BE-5140";
       fsType = "vfat";
     };
-  fileSystems."/home/${settings.user.username}/shared-files" = {
+  fileSystems."/home/${settings.username}/shared-files" = {
     device = "/dev/nvme0n1p4";
     fsType = "ntfs";
   };

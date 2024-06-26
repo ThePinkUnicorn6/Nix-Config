@@ -1,6 +1,6 @@
 # Acts as a base configuration that all other hosts add to.
 
-{ config, pkgs, inputs, settings, ... }:
+{ config, pkgs, lib, inputs, settings, ... }:
 
 {
   imports = [
@@ -22,7 +22,7 @@
   };
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
+    hostName = lib.mkDefault "nixos"; # Define your hostname.
     nameservers = [ "100.100.100.100" "100.85.99.93" "1.1.1.1" "1.0.0.1" ];
   };
 

@@ -6,7 +6,7 @@
     ../../system/gpu/amd-rx570
     ../desktop-base/system
     ../../system/app/production
-    ../../system/wm/${settings.user.wm}.nix
+    ../../system/wm/${settings.wm}.nix
     ../../system/style
     ../../system/app/fido2
   ];
@@ -21,7 +21,7 @@
   };
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
+    hostName = "nixos-desktop"; # Define your hostname.
     nameservers = [ "100.100.100.100" "100.85.99.93" "1.1.1.1" ];
     networkmanager.dns = "none";
   };
