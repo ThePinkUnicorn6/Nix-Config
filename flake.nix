@@ -46,7 +46,7 @@
         in lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/desktop/configuration.nix
+            ./hosts/desktop/nix
             musnix.nixosModules.musnix
             stylix.nixosModules.stylix
             # ./options.nix
@@ -54,7 +54,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${vars.name}".imports = [ ./hosts/desktop/home.nix ];
+              home-manager.users."${vars.name}".imports = [ ./hosts/desktop/hm ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit settings;

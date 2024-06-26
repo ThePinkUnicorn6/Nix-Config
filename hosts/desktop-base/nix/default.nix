@@ -1,11 +1,13 @@
 { config, pkgs, inputs, settings, ... }:
 {
   imports = [
-    ../../base/system
-    ../../../system/polkit
-    ../../../system/dm/${settings.dm}
-    ../../../system/camera
-  ];
+    ../../base/nix
+  ] ++
+  (map (m: ../../../modules/nix + m) [
+    "/polkit"
+    "/dm/${settings.dm}"
+    "/camera"
+  ]);
 
   # Enable networking
   networking = {
@@ -36,6 +38,7 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+
   # Enable location services for gammastep;
   services.geoclue2.enable = true;
 
