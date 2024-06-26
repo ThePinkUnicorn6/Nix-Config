@@ -5,7 +5,7 @@
     [
       ./hardware-configuration.nix
       ../common.nix
-      ../../system/wm/${settings.user.wm}.nix
+      ../../system/wm/${settings.wm}.nix
       ../../system/style
     ];
 

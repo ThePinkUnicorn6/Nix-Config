@@ -1,4 +1,4 @@
-{ config, lib, pkgs, settings, ... }:
+{ osConfig, lib, pkgs, settings, ... }:
 
 {
   home.packages = with pkgs; [
@@ -8,7 +8,7 @@
       #!/usr/bin/env bash
 
       set -e
-      pushd ''+settings.system.dotDir+'' > /dev/null
+      pushd ${settings.dotDir} > /dev/null
 
       case $1 in
         "install")
@@ -28,7 +28,7 @@
         "test")
           # Add all files to commit so the flake can see them.
           git add -A
-          ${nh}/bin/nh os test . -H system $2;;
+          ${nh}/bin/nh os test -H "${osConfig.networking.hostName}" $2;;
 
         "flake")
           echo "Updating flake lock file..."
@@ -37,9 +37,9 @@
         *)
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
-          ${nh}/bin/nh os switch . -H system $1
+          ${nh}/bin/nh os switch . -H "${osConfig.networking.hostName}" $1
 
-          # If the user has entered no comit message, generate it.
+          # If the user has entered no comit messagie, generate it.
           if ! [[ -n "$msg" ]]; then
             msg=$(nixos-rebuild list-generations | grep current)
           fi

@@ -4,8 +4,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.username = settings.user.username;
-  home.homeDirectory = "/home/"+settings.user.username;
+  home.username = settings.username;
+  home.homeDirectory = "/home/"+settings.username;
   home.stateVersion = "22.11";
 
   imports = [
@@ -27,7 +27,7 @@
     ../../user/app/browser/firefox
     #../../user/app/distrobox
 
-    ../../user/wm/${settings.user.wm}
+    ../../user/wm/${settings.wm}
     ../../user/style
   ];
   services = {
@@ -87,6 +87,6 @@
     picard
 
     # Fonts
-    pkgs.${settings.user.fontPkg}
+    pkgs.${settings.fontPkg}
   ];
 }

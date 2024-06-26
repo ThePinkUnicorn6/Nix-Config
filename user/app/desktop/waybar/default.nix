@@ -82,7 +82,7 @@ in{
     style = ''
       * {
         border: none;
-        font-family: ''+settings.user.font+'';
+        font-family: ''+settings.font+'';
         font-size: 15px;
         min-height: 10px;
       }

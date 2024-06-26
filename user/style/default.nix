@@ -1,12 +1,12 @@
 { config, lib, pkgs, settings, ... }:
 let
-  theme = "${pkgs.base16-schemes}/share/themes/${settings.user.theme}.yaml";
+  theme = "${pkgs.base16-schemes}/share/themes/${settings.theme}.yaml";
  # Reads the variant string from and writes it to a file called polarity. It then reads the value of that file to get the value as a string.
   polarity = (builtins.readFile "${(pkgs.runCommand "getPolarity" {} "${pkgs.yq}/bin/yq -r .variant ${theme} >> $out")}");
   # Location of the wallpaper set in settings.
-  wallfile = settings.user.wallpaper;
+  wallfile = settings.wallpaper;
   # Use imageMagic to change the colours if the image to use the colour scheme.
-  wallpaper = if settings.user.reThemeWall then pkgs.runCommand "wallout.png" {} ''
+  wallpaper = if settings.reThemeWall then pkgs.runCommand "wallout.png" {} ''
         BASE00="#"$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
         BASE01="#"$(${pkgs.yq}/bin/yq -r .palette.base01 ${theme})
         BASE02="#"$(${pkgs.yq}/bin/yq -r .palette.base02 ${theme})
@@ -48,14 +48,15 @@ let
     else /. + wallfile;
 in
 {
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ${config.stylix.image}
-    wallpaper = HDMI-A-1,${config.stylix.image}
-    wallpaper = DP-2,${config.stylix.image}
-    splash = false
-  '';
+  # home.file.".config/hypr/hyprpaper.conf".text = ''
+  #   preload = ${config.stylix.image}
+  #   wallpaper = HDMI-A-1,${config.stylix.image}
+  #   wallpaper = DP-2,${config.stylix.image}
+  #   splash = false
+  # '';
 
   stylix = {
+    enable = true;
     image = wallpaper;
     base16Scheme = theme;
     polarity = if "${polarity}" == "light" then "light" else "dark"; # Funky indented string things mean this is the only way I could get this to work
@@ -78,16 +79,16 @@ in
 
     fonts = {
       monospace = {
-        name = settings.user.font;
-        package = pkgs.${settings.user.fontPkg};
+        name = settings.font;
+        package = pkgs.${settings.fontPkg};
       };
       serif = {
-        name = settings.user.font;
-        package = pkgs.${settings.user.fontPkg};
+        name = settings.font;
+        package = pkgs.${settings.fontPkg};
       };
       sansSerif = {
-        name = settings.user.font;
-        package = pkgs.${settings.user.fontPkg};
+        name = settings.font;
+        package = pkgs.${settings.fontPkg};
       };
     };
     cursor = {
@@ -96,18 +97,6 @@ in
     };
   };
 
-  home.packages = with pkgs; [
-     qt5ct pkgs.libsForQt5.breeze-qt5
-  ];
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME="qt5ct";
-  };
-  programs.zsh.sessionVariables = {
-    QT_QPA_PLATFORMTHEME="qt5ct";
-  };
-  programs.bash.sessionVariables = {
-    QT_QPA_PLATFORMTHEME="qt5ct";
-  };
   qt = {
     platformTheme = "qtct";
     enable = true;

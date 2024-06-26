@@ -7,7 +7,7 @@
     ../../user/app/emacs
     ../../user/app/tex
 
-    ../../user/wm/${settings.user.wm}
+    ../../user/wm/${settings.wm}
     ../../user/style
   ];
   programs.alacritty.enable = true;
@@ -35,6 +35,6 @@
     # Other
     pandoc
     # Fonts
-    pkgs.${settings.user.fontPkg}
+    pkgs.${settings.fontPkg}
   ];
 }

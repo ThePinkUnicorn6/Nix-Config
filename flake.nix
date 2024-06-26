@@ -15,53 +15,55 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    secrets = {
+      url = "git+ssh://git@github.com/ThePinkUnicorn6/nix-settings?ref=main";
+      flake = true;
+    };
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, mach-nix, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, mach-nix, secrets, ... }:
     let
       inherit (self) outputs;
-      settings = import ./settings.nix;
-      pkgs = nixpkgs.legacyPackages.${settings.system.system};
+      #settings = import ./settings.nix;
       lib = nixpkgs.lib;
-      nixConf = (./hosts/${settings.system.profile}/configuration.nix);
-      nixHome = (./hosts/${settings.system.profile}/home.nix);
-
+      vars = secrets.vars;
     in{
-      # If the system is running nixos, use home manager as a nix module.
-      nixosConfigurations = {
-        system = lib.nixosSystem {
-          system = settings.system.system;
+      nixosConfigurations =  {
+        nixos-desktop = let
+          settings = {
+            dotDir = "/home/${vars.name}/nix";
+            username = vars.name;
+            name = vars.name;
+            personal-email = vars.personal-email;
+            git-email = vars.git-email;
+            wm = "hyprland";
+            dm = "tuigreet";
+            theme = "gruvbox-dark-soft";
+            wallpaper = ./wallpapers/city_sunset.png;
+            reThemeWall = true;
+            font = "Iosevka Aile";
+            fontPkg = "iosevka";
+          };
+        in lib.nixosSystem {
+          system = "x86_64-linux";
           modules = [
-            nixConf
+            ./hosts/desktop/configuration.nix
             musnix.nixosModules.musnix
             stylix.nixosModules.stylix
+            # ./options.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${settings.user.username}".imports = [ nixHome ];
+              home-manager.users."${vars.name}".imports = [ ./hosts/desktop/home.nix ];
               home-manager.extraSpecialArgs = {
-                inherit settings;
                 inherit inputs;
+                inherit settings;
               };
-           }
+            }
           ];
           specialArgs = {
             inherit inputs;
             inherit settings;
-          };
-        };
-      };
-      # Otherwise use home manager separately.
-      homeConfigurations = {
-        user = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            nixHome
-            stylix.homeManagerModules.stylix
-          ];
-          extraSpecialArgs = {
-            inherit settings;
-            inherit inputs;
           };
         };
       };

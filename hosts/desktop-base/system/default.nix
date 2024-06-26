@@ -3,7 +3,7 @@
   imports = [
     ../../base/system
     ../../../system/polkit
-    ../../../system/dm/${settings.system.displayManager}
+    ../../../system/dm/${settings.dm}
     ../../../system/camera
   ];
 
@@ -36,11 +36,13 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+  # Enable location services for gammastep;
+  services.geoclue2.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${settings.user.username} = {
+  users.users.${settings.name} = {
     isNormalUser = true;
-    description = settings.user.name;
+    description = settings.name;
     extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" ];
   };
 
@@ -60,7 +62,7 @@
 
   programs.adb.enable = true;
 
-  services.gnome.gnome-keyring.enable = true;  
+  services.gnome.gnome-keyring.enable = true;
   services.gvfs.enable = true;
   services.devmon.enable = true;
   services.udisks2.enable = true;
