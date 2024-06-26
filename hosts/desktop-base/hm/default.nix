@@ -1,15 +1,16 @@
 { inputs, pkgs, settings, ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  imports =
-  [
-    ../../base/user
-    ../../../user/app/shell
-    ../../../user/app/shell/scripts/update.nix
-    ../../../user/app/git
-    ../../../user/app/shell/kitty
-    ../../../user/app/browser/firefox
-  ];
+  imports = [
+    ../../base/hm
+  ] ++
+  (map (m: ../../../modules/hm + m) [
+    "/app/shell"
+    "/app/shell/scripts/update.nix"
+    "/app/git"
+    "/app/shell/kitty"
+    "/app/browser/firefox"
+  ]);
 
   home.packages = with pkgs; [
     unzip

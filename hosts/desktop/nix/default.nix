@@ -1,15 +1,16 @@
 { config, pkgs, inputs, settings, ... }:
-
 {
-  imports =[
+  imports = [
     ./hardware-configuration.nix
-    ../../system/gpu/amd-rx570
-    ../desktop-base/system
-    ../../system/app/production
-    ../../system/wm/${settings.wm}.nix
-    ../../system/style
-    ../../system/app/fido2
-  ];
+    ../../desktop-base/nix
+  ]++
+  (map (m: ../../../modules/nix + m) [
+    "/gpu/amd-rx570"
+    "/app/production"
+    "/wm/${settings.wm}.nix"
+    "/style"
+    "/app/fido2"
+  ]);
 
   # Bootloader.
   boot.loader = {

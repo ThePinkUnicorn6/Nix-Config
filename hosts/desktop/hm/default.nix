@@ -9,27 +9,30 @@
   home.stateVersion = "22.11";
 
   imports = [
-    ../desktop-base/user
-    ../../user/app/chat/discord
-    ../../user/app/music/production
-    ../../user/app/video/mpv
-    ../../user/app/emacs
-    ../../user/app/programming/vscode
-    ../../user/lang/csharp
-    ../../user/app/tex
-    ../../user/lang/python
-    ../../user/lang/python/python-packages
-    ../../user/lang/rust
-    ../../user/app/llm/ollama
-    ../../user/app/desktop/gammastep
-    ../../user/app/fido2
-    ../../user/app/calibre
-    ../../user/app/browser/firefox
-    #../../user/app/distrobox
+    ../../desktop-base/hm
+  ] ++
+  (map (m: ../../../modules/hm + m) [
+    "/app/chat/discord"
+    "/app/music-prod/reaper"
+    "/app/video/mpv"
+    "/app/emacs"
+    "/app/programming/vscode"
+    "/lang/csharp"
+    "/app/tex"
+    "/lang/python"
+    "/lang/python/python-packages"
+    "/lang/rust"
+    "/app/llm/ollama"
+    "/app/desktop/gammastep"
+    "/app/fido2"
+    "/app/calibre"
+    "/app/browser/firefox"
+    #./app/distrobox
 
-    ../../user/wm/${settings.wm}
-    ../../user/style
-  ];
+    "/wm/${settings.wm}"
+    "/style"
+  ]);
+
   services = {
     syncthing.enable = true;
     kdeconnect = {
