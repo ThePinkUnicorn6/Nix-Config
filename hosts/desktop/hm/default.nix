@@ -82,6 +82,9 @@
     # Chat
     whatsapp-for-linux
 
+    # Games
+    prismlauncher
+
     # Other
     pandoc
     activitywatch
