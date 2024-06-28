@@ -12,7 +12,7 @@
     ../../desktop-base/hm
   ] ++
   (map (m: ../../../modules/hm + m) [
-    "/app/chat/discord"
+#    "/app/chat/discord"
     "/app/music-prod/reaper"
     "/app/video/mpv"
     "/app/emacs"
@@ -81,6 +81,7 @@
 
     # Chat
     whatsapp-for-linux
+    discord
 
     # Games
     prismlauncher
