@@ -61,11 +61,13 @@
   environment.systemPackages = with pkgs; [
     efibootmgr
     zip
+    unzip
     git
     wget
     openssl
-    libnotify
     killall
+    usbutils
+    pciutils
   ];
 
   # Garbage collect
