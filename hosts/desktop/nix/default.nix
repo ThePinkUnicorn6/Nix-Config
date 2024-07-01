@@ -12,6 +12,13 @@
     "/app/fido2"
   ]);
 
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.${settings.username} = {
+    isNormalUser = true;
+    description = settings.name;
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" ];
+  };
+
   # Bootloader.
   boot.loader = {
     systemd-boot = {

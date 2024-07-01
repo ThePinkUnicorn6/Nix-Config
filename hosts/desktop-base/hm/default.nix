@@ -13,14 +13,8 @@
   ]);
 
   home.packages = with pkgs; [
-    unzip
-    oh-my-zsh
     syncthing
     syncthingtray
-    usbutils
-    pciutils
     python3
-    libressl
   ];
-
 }

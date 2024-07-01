@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, settings, ... }:
+{ lib, config, pkgs, inputs, settings, ... }:
 {
   imports = [
     ../../base/nix
@@ -17,10 +17,20 @@
     };
 
     firewall = {
-      allowedTCPPorts = [ 8384 22000 ];
-      allowedTCPPortRanges = [ { from = 1714; to = 1764;} ];
-      allowedUDPPorts = [ 22000 21027 ];
-      allowedUDPPortRanges = [ { from = 1714; to = 1764;} ];
+      allowedTCPPorts = [
+        8384 # Syncthing
+        22000 # Syncthing
+      ];
+      allowedTCPPortRanges = [
+        { from = 1714; to = 1764;} # KDE Connect
+      ];
+      allowedUDPPorts = [
+        22000 # Syncthing
+        21027 # Syncthing
+      ];
+      allowedUDPPortRanges = [
+        { from = 1714; to = 1764;} # KDE Connect
+      ];
     };
   };
 
@@ -40,27 +50,16 @@
   };
 
   # Enable location services for gammastep;
-  services.geoclue2.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${settings.name} = {
-    isNormalUser = true;
-    description = settings.name;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" ];
+  services.geoclue2 = {
+    enable = true;
+    enableWifi = true;
   };
 
-    # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Packages
   environment.systemPackages = with pkgs; [
-    efibootmgr
-    zip
-    zsh
-    home-manager
-    git
-    wget
     openssl
+    libressl
     libnotify
-    killall
   ];
 
   programs.adb.enable = true;
