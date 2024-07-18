@@ -19,7 +19,7 @@
       flake = true;
     };
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, mach-nix, secrets, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, secrets, ... }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
