@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "Nixos config flake ";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -23,7 +23,6 @@
   outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, mach-nix, secrets, ... }:
     let
       inherit (self) outputs;
-      #settings = import ./settings.nix;
       lib = nixpkgs.lib;
       vars = secrets.vars;
     in{
@@ -49,7 +48,37 @@
             ./hosts/desktop/nix
             musnix.nixosModules.musnix
             stylix.nixosModules.stylix
-            # ./options.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users."${vars.name}".imports = [ ./hosts/desktop/hm ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit settings;
+              };
+            }
+          ];
+          specialArgs = {
+            inherit inputs;
+            inherit settings;
+          };
+        };
+        beta = let
+          settings = {
+            dotDir = "/home/beta/nix";
+            username = "beta";
+            name = vars.name;
+            personal-email = vars.personal-email;
+            git-email = vars.git-email;
+            domainName = "home.lan";
+          };
+        in lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/desktop/nix
+            musnix.nixosModules.musnix
+            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
