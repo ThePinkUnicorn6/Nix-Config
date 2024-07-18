@@ -2,41 +2,7 @@
 
 Here is my nixos configuration. It uses home manager to configure programs and is based around the hosts in the host directory, which pull in home manager modules from ~/user~ and system configuration modules from ~/system~. I aim to make this installable with one command at some point, and to work on non-nixos systems, but it is not there yet.
 
-* Install
-To use, first create a file in the root of the directory called settings.nix with the following content and fill in the settings.
-#+begin_src nix
-{
-  system = {
-    system = "x86_64-linux";
-    profile = "desktop";
-    isNixOS = true;
-    displayManager = "gdm";
-    dotDir = "/home/user/nixos";
-  };
-  user = {
-    name = ""; # Your name.
-    username = ""; # The name of the user account.
-    email = ""; # Your email (used for git).
-    gitName = "";
-    theme = "catppuccin-mocha"; # The name of the theme, as in https://tinted-theming.github.io/base16-gallery/.
-    wallpaper = ./; # Location of wallpaper file to use.
-    reThemeWall = true; # Re-theme the colours of the image with imagemagic and dithering to mach your theme.
-    wm = "hyprland";
-    font = "Iosevka Aile";
-    fontPkg = "iosevka";
-    location = { # Used to calculate times for gamastep.
-      lat = ;
-      lon = ;
-    };
-  };
-}
-#+end_src
-Then, if you want to add it to a public git repository use the commands
-#+begin_src bash
-git add --intent-to-add settings.nix
-git update-index --assume-unchanged settings.nix
-#+end_src
-to stop git adding your settings.nix to the repository. (Thanks to this post https://discourse.nixos.org/t/can-i-use-flakes-within-a-git-repo-without-committing-flake-nix/18196/5)
+* TODO Install
 
 * Other stuff
 Most of the stuff in here is pretty standard, the only thing of interest is the script I use to re-colour the wallpaper to match the stylix theme colours, which can be found in file:./user/style/default.nix
