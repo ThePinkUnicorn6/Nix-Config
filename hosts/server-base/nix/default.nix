@@ -12,8 +12,16 @@
   };
 
   services = {
-    tailscale.enable = true;
-    tailscale.useRoutingFeatures = "both";
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "both";
+    };
+    openssh = {
+      enable = true;
+      ports = [ 22 ];
+      settings = {
+        PasswordAuthentication = true;
+      };
+    };
   };
-
 }
