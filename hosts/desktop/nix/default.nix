@@ -19,19 +19,8 @@
     extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" ];
   };
 
-  # Bootloader.
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 10;
-    };
-    efi.canTouchEfiVariables = true;
-  };
-
   networking = {
     hostName = "nixos-desktop"; # Define your hostname.
-    nameservers = [ "100.100.100.100" "100.85.99.93" "1.1.1.1" ];
-    networkmanager.dns = "none";
   };
 
   # Configure keymap in X11

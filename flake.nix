@@ -75,14 +75,14 @@
         in lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/desktop/nix
-            musnix.nixosModules.musnix
-            stylix.nixosModules.stylix
+            ./hosts/beta/nix
+            #musnix.nixosModules.musnix
+            #stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${vars.name}".imports = [ ./hosts/desktop/hm ];
+              home-manager.users."beta".imports = [ ./hosts/beta/hm ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit settings;
