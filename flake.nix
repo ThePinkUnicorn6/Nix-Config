@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix.url = "github:danth/stylix";
     musnix.url = "github:musnix/musnix";
     firefox-addons = {
@@ -19,7 +23,7 @@
       flake = true;
     };
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, musnix, secrets, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, comin, stylix, musnix, secrets, ... }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -76,8 +80,7 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/beta/nix
-            #musnix.nixosModules.musnix
-            #stylix.nixosModules.stylix
+            comin.nixosModules.comin
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
