@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  stateVersion = config.system.stateVersion;
+in{
   containers.jellyfin = {
     autoStart = true;
     config = { config, pkgs, lib, ... }: {
@@ -10,7 +12,7 @@
       environment.systemPackages = with pkgs; [
         jellyfin-ffmpeg
       ];
+      system.stateVersion = stateVersion;
     };
-    system.stateVersion = config.system.stateVersion;
   };
 }
