@@ -8,7 +8,7 @@
 {
   imports = [
     ../../base/hm
-  ] ++
+  ]++
   (map (m: ../../../modules/hm + m) [
     "/app/shell"
     "/app/shell/scripts/update.nix"
