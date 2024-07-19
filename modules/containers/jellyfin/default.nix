@@ -11,5 +11,6 @@
         jellyfin-ffmpeg
       ];
     };
+    system.stateVersion = config.system.stateVersion;
   };
 }
