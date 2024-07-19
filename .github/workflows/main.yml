@@ -15,7 +15,7 @@ jobs:
       - name: Install SSH key
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.SECRETS_PRIVATE_KEY  }}
+          ssh-private-key: ${{ secrets.SETTINGS_PRIVATE_KEY  }}
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
         with:
