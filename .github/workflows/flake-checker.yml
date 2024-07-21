@@ -4,7 +4,7 @@ on:
 
 jobs:
   flake-checker:
-    name: Build Nix targets
+    name: flake-checker
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
