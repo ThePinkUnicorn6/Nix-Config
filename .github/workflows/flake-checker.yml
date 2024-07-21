@@ -17,4 +17,5 @@ jobs:
       - name: Check flake
         run: |-
           echo '### Flake check result' >> $GITHUB_STEP_SUMMARY
-          nix flake check --keep-going --log-format raw >> $GITHUB_STEP_SUMMARY
+          RESULT="$(nix flake check --keep-going --log-format raw 2>&1)"
+          echo $RESULT >> $GITHUB_STEP_SUMMARY
