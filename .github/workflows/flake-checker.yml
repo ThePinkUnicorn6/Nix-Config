@@ -16,9 +16,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SETTINGS_PRIVATE_KEY  }}
       - name: Check flake
-        continue-on-error: true
         run: |-
           echo '### Flake check result' >> $GITHUB_STEP_SUMMARY
           RESULT="$(nix flake check --keep-going --log-format raw 2>&1)"
-      - name: Generate sumary
-        run: echo $RESULT >> $GITHUB_STEP_SUMMARY
+          echo $RESULT >> $GITHUB_STEP_SUMMARY
