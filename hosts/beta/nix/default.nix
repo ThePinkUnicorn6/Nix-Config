@@ -7,7 +7,7 @@
   (map (m: ../../../modules/containers + m) [
     "/immich"
     "/jellyfin"
-    "/dasdot"
+    "/dashdot"
   ]);
   networking = {
     hostName = "beta"; # Define your hostname.

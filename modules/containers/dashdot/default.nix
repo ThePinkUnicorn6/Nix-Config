@@ -7,9 +7,10 @@
       "/:/mnt/host:ro"
     ];
     ports = [
-      "80:3001/tcp"
+      "3001:3001/tcp"
     ];
     extraOptions = [
+      "--env DASHDOT_ENABLE_CPU_TEMPS=\"true\""
       "--privileged"
     ];
   };

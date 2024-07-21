@@ -75,6 +75,7 @@
             personal-email = vars.personal-email;
             git-email = vars.git-email;
             domainName = "home.lan";
+            serviceConfigRoot = "/home/beta/data";
           };
         in lib.nixosSystem {
           system = "x86_64-linux";
