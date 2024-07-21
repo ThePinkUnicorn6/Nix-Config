@@ -340,11 +340,11 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1719389436,
-        "narHash": "sha256-E1oLBiUcwwZLgsl/kGoBIlDqY3XpH1SVxcEbYn/MdYc=",
+        "lastModified": 1721480007,
+        "narHash": "sha256-dBYHsWxCBFy8ijKdEnUagkrlPHG1lkioQ71BTwK/SMg=",
         "ref": "main",
-        "rev": "479cbc6963e6203147822a169dbd9f04f49326f7",
-        "revCount": 17,
+        "rev": "338de14ef885960c372a6262482134085a1869f6",
+        "revCount": 18,
         "type": "git",
         "url": "ssh://git@github.com/ThePinkUnicorn6/nix-settings"
       },
