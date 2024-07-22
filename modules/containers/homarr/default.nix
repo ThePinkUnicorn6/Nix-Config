@@ -19,8 +19,5 @@ in{
     ports = [
       "7575:7575"
     ];
-    extraOptions = [
-#      "--restart unless-stopped"
-    ];
   };
 }
