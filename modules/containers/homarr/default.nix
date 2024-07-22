@@ -7,7 +7,8 @@ let
     "${homarrData}/data"
   ];
 in{
-  systemd.tmpfiles.rules = map (x: "d ${x} 0775 ${settings.user}  - -") directories;
+
+  systemd.tmpfiles.rules = map (x: "d ${x} 0775 ${settings.username} - - -") directories;
   virtualisation.oci-containers.containers."homarr" = {
     image = "ghcr.io/ajnart/homarr:latest";
     volumes = [
@@ -19,7 +20,7 @@ in{
       "7575:7575"
     ];
     extraOptions = [
-      "--restart unless-stopped"
+#      "--restart unless-stopped"
     ];
   };
 }

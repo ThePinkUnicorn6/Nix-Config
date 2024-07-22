@@ -6,6 +6,7 @@
   ]++
   (map (m: ../../../modules/containers + m) [
     "/immich"
+    "/homarr"
     "/jellyfin"
     "/dashdot"
   ]);
