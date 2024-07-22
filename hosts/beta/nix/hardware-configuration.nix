@@ -39,18 +39,19 @@
   };
 
   fileSystems."/drive" = {
+    neededForBoot = true;
     device = "/dev/disk/by-uuid/ea4d57af-2b69-4495-8302-983370819880";
     fsType = "ext4";
   };
 
-  fileSystems."/nix" = {
-    device = "/drive/nix";
-    neededForBoot = true;
-    depends = [
-      "/drive"
-    ];
-    options = [ "bind" "noatime" ];
-  };
+#  fileSystems."/nix" = {
+#    device = "/drive/nix";
+#    neededForBoot = true;
+#    depends = [
+#      "/drive"
+#    ];
+#    options = [ "bind" "noatime" ];
+#  };
 
   swapDevices = [ { device = "/dev/disk/by-uuid/35f4479c-8437-4cbe-8c2a-ce79cd948fff"; } ];
 
