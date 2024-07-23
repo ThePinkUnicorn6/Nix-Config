@@ -7,6 +7,7 @@ let
     "${homarrData}/data"
   ];
 in{
+  imports = [ ../../nix/services/podman ];
 
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 ${settings.username} - - -") directories;
   virtualisation.oci-containers.containers."homarr" = {

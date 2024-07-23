@@ -5,7 +5,8 @@
     ../../server-base/nix
   ]++
   (map (m: ../../../modules/containers + m) [
-    "/immich"
+#   "/immich"
+    "/technitium-dns"
     "/homarr"
     "/jellyfin"
     "/dashdot"
