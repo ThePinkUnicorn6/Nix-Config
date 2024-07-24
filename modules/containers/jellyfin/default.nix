@@ -64,11 +64,18 @@ in{
         isReadOnly = false;
       };
     };
+    allowedDevices = [
+      {
+        modifier = "rw";
+        node = "/dev/dri";
+      }
+    ];
     config = { config, pkgs, lib, ... }: {
       services.jellyfin = {
         enable = true;
         openFirewall = true;
       };
+      users.users.jellyfin.extraGroups = [ "render" ];
       environment.systemPackages = with pkgs; [
         jellyfin-ffmpeg
       ];
