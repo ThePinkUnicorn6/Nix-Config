@@ -1,6 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, settings, ... }:
 let
   stateVersion = config.system.stateVersion;
+  dataDir = "${settings.serviceConfigRoot}/jellyfin";
 in{
   # Hardware encoding
   nixpkgs.config.packageOverrides = pkgs: {
@@ -30,13 +31,43 @@ in{
       ];
     };
   };
-
+  systemd.tmpfiles.rules = [
+    "d ${settings.serviceConfigRoot}/jellyfin 0775 - - - -"
+  ];
   # JF service
   containers.jellyfin = {
     autoStart = true;
+    forwardPorts = [
+      {
+        containerPort = 8096;
+        hostPort = 8096;
+        protocol = "tcp";
+      }
+      {
+        containerPort = 1900;
+        hostPort = 1900;
+        protocol = "udp";
+      }
+      {
+        containerPort = 7359;
+        hostPort = 7359;
+        protocol = "udp";
+      }
+    ];
+    bindMounts = {
+      "/home/Video" = {
+        hostPath = "${settings.serviceMediaRoot}/Video";
+        isReadOnly = false;
+      };
+      "/var/lib/jellyfin" = {
+        hostPath = dataDir;
+        isReadOnly = false;
+      };
+    };
     config = { config, pkgs, lib, ... }: {
       services.jellyfin = {
         enable = true;
+        openFirewall = true;
       };
       environment.systemPackages = with pkgs; [
         jellyfin-ffmpeg

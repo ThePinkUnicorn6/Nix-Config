@@ -15,5 +15,7 @@
     "/app/git"
   ]);
 
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [
+    screen
+  ];
 }

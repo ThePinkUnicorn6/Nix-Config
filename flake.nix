@@ -76,7 +76,7 @@
             git-email = vars.git-email;
             domainName = "home.lan";
             serviceConfigRoot = "/drive/data";
-            mediaRoot = "/drive/media";
+            serviceMediaRoot = "/drive/media";
           };
         in lib.nixosSystem {
           system = "x86_64-linux";

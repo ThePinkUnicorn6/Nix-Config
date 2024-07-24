@@ -35,5 +35,12 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "d ${settings.serviceMediaRoot} 0775 ${settings.username} - - -"
+    "d ${settings.serviceMediaRoot}/Video 0775 ${settings.username} - - -"
+    "d ${settings.serviceMediaRoot}/Photos 0775 ${settings.username} - - -"
+    "d ${settings.serviceMediaRoot}/Documents 0775 ${settings.username} - - -"
+  ];
+
   system.stateVersion = "24.05";
 }

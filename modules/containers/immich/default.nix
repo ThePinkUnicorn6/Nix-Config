@@ -6,8 +6,6 @@ let
     "${settings.serviceConfigRoot}/immich/postgresql/data"
     "${settings.serviceConfigRoot}/immich/config"
     "${settings.serviceConfigRoot}/immich/machine-learning"
-    "${settings.mediaRoot}/Photos"
-    "${settings.mediaRoot}/Photos/Immich"
   ];
 in
 {
@@ -21,7 +19,11 @@ in
       group = "immich";
     };
   };
-  systemd.tmpfiles.rules = map (x: "d ${x} 0775 immich immich - -") directories;
+  systemd.tmpfiles.rules = (map (x: "d ${x} 0775 immich immich - -") directories)++[
+    "d ${settings.mediaRoot}/Photos 0775 ${settings.username} - - -"
+    "d ${settings.mediaRoot}/Photos/Immich 0775 ${settings.username} - - -"
+  ];
+
   systemd.services = {
     podman-immich = {
       requires = [

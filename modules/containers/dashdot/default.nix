@@ -5,6 +5,7 @@
     image = "mauricenino/dashdot:latest";
     environment = {
       "DASHDOT_ENABLE_CPU_TEMPS" = "true";
+      "DASHDOT_FS_DEVICE_FILTER" = "mmcblk0boot0,mmcblk0boot1";
     };
     volumes = [
       "/:/mnt/host:ro"
