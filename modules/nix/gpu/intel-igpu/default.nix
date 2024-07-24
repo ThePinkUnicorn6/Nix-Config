@@ -1,12 +1,7 @@
-{ config, lib, pkgs, settings, ... }:
-let
-  stateVersion = config.system.stateVersion;
-  dataDir = "${settings.serviceConfigRoot}/jellyfin";
-in{
+{ config, lib, pkgs, ... }:
 
-  systemd.tmpfiles.rules = [
-    "d ${settings.serviceConfigRoot}/jellyfin 0775 jellyfin jellyfin - -"
-  ];
+{
+  # Hardware encoding
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
@@ -21,15 +16,4 @@ in{
       intel-media-sdk # QSV up to 11th gen
     ];
   };
-  services.jellyfin = {
-    enable = true;
-    openFirewall = true;
-    dataDir = dataDir;
-  };
-  users.users.jellyfin.extraGroups = [ "render" ];
-  environment.systemPackages = with pkgs; [
-    jellyfin-ffmpeg
-    libva-utils
-  ];
-
 }

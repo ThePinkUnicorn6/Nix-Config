@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../server-base/nix
+    ../../../modules/nix/gpu/intel-igpu
   ]++
   (map (m: ../../../modules/containers + m) [
 #   "/immich"
