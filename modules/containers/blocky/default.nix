@@ -1,22 +1,25 @@
-# Not working for unknown reasons. No errors but does not open any ports.
-
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, settings, ... }:
 
 {
-  networking.firewall = {
-    allowedTCPPorts = [
-      53
-    ];
-    allowedUDPPorts = [
-      53
-    ];
-  };
   containers.blocky = {
     autoStart = true;
+    forwardPorts = [
+      {
+        containerPort = 53;
+        hostPort = 53;
+        protocol = "tcp";
+      }
+      {
+        containerPort = 53;
+        hostPort = 53;
+        protocol = "udp";
+      }
+    ];
     config =  { config, pkgs, lib, ... }: {
       services.blocky = {
         enable = true;
         settings = {
+          # For initially solving DoH/DoT Requests when no system Resolver is available.
           upstreams = {
             init.strategy = "fast";
             groups = {
@@ -37,17 +40,15 @@
                 "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
               ];
             };
+            clientGroupsBlock = {
+              default = [ "ads" ];
+            };
           };
-          clientGroupsBlock = {
-            default = [ "ads" ];
-          };
-          blockType = "zeroIp";
           ports = {
-            dns = "53";
-            tls = "853";
+            dns = "${settings.localIP}:53";
           };
           log = {
-            privacy = "true";
+            privacy = true;
           };
         };
       };

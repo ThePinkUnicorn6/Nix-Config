@@ -31,5 +31,4 @@ in{
     jellyfin-ffmpeg
     libva-utils
   ];
-
 }

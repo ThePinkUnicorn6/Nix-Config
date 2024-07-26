@@ -7,7 +7,7 @@
   ]++
   (map (m: ../../../modules/containers + m) [
 #   "/immich"
-#    "/technitium-dns"
+    "/blocky"
     "/homarr"
     "/jellyfin"
     "/dashdot"
