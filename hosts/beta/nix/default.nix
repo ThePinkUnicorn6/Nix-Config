@@ -12,8 +12,27 @@
     "/jellyfin"
     "/dashdot"
   ]);
+
+  # Networking
   networking = {
     hostName = "beta"; # Define your hostname.
+    firewall.enable = true;
+  };
+
+  services.caddy = {
+    enable = true;
+    globalConfig = ''
+      auto_https off
+    '';
+    virtualHosts."http://home.lan".extraConfig = ''
+      reverse_proxy 127.0.0.1:7575
+    '';
+    virtualHosts."http://jf.home.lan".extraConfig = ''
+      reverse_proxy 127.0.0.1:8096
+    '';
+    virtualHosts."http://dd.home.lan".extraConfig = ''
+      reverse_proxy 127.0.0.1:3001
+    '';
   };
 
   users.users.${settings.username} = {

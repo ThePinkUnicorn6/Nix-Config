@@ -75,7 +75,7 @@
             personal-email = vars.personal-email;
             git-email = vars.git-email;
             domainName = "home.lan";
-            localIP = "192.168.1.102";
+            tailscaleIP = "100.100.212.902";
             serviceConfigRoot = "/drive/data";
             serviceMediaRoot = "/drive/media";
           };

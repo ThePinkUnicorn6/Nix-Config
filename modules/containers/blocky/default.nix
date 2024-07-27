@@ -29,10 +29,8 @@
               ];
             };
           };
-          customDns.mapping = {
-            "jf.home.lan" = "100.100.212.90";
-            "dashdot.home.lan" = "100.100.212.90";
-            "home.lan" = "100.100.212.90";
+          customDNS.mapping = {
+            "home.lan" = settings.tailscaleIP;
           };
           blocking = {
             denylists = {
@@ -45,7 +43,7 @@
             };
           };
           ports = {
-            dns = "${settings.localIP}:53";
+            dns = "${settings.tailscaleIP}:53";
           };
           log = {
             privacy = true;
