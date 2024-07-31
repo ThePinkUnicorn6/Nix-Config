@@ -1,7 +1,7 @@
 { config, lib, pkgs, settings, ... }:
 
 {
-  systemd.services."container@blocky.service" = {
+  systemd.services."container@blocky" = {
     requires = [ "tailscaled.service" ];
     after = [ "sys-subsystem-net-devices-tailscale0.device" "tailscaled.service" "network-online.target" ];
   };
