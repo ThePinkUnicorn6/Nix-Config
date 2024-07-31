@@ -25,13 +25,13 @@
       auto_https off
     '';
     virtualHosts."http://home.lan".extraConfig = ''
-      reverse_proxy 127.0.0.1:7575
+      reverse_proxy http://127.0.0.1:7575
     '';
     virtualHosts."http://jf.home.lan".extraConfig = ''
-      reverse_proxy 127.0.0.1:8096
+      reverse_proxy http://127.0.0.1:8096
     '';
     virtualHosts."http://dd.home.lan".extraConfig = ''
-      reverse_proxy 127.0.0.1:3001
+      reverse_proxy http://127.0.0.1:3001
     '';
   };
 
