@@ -98,10 +98,10 @@ in
   };
 
   qt = {
-    platformTheme = "qtct";
+    #platformTheme = "qtct";
     enable = true;
     style.package = pkgs.libsForQt5.breeze-qt5;
-    style.name = "breeze-dark";
+    #style.name = "breeze-dark";
   };
   gtk = {
     enable = true;

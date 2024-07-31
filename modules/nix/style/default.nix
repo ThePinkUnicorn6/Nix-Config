@@ -11,8 +11,8 @@ in
     image = config.home-manager.users.${settings.username}.stylix.image;
     polarity = if "${polarity}" == "light" then "light" else "dark";
   };
-  qt.platformTheme.name = "qt5ct";
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-  };
+#  qt.platformTheme.name = "qt5ct";
+#  environment.sessionVariables = {
+#    QT_QPA_PLATFORMTHEME = "qt5ct";
+#  };
 }

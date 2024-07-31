@@ -23,7 +23,7 @@
 
   networking = {
     hostName = lib.mkDefault "nixos"; # Define your hostname.
-    nameservers = [ "100.100.100.100" "100.85.99.93" "1.1.1.1" "1.0.0.1" ];
+    nameservers = [ "100.100.100.100" "1.1.1.1" "1.0.0.1" ];
     networkmanager.dns = "none";
   };
 

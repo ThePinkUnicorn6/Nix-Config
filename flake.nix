@@ -100,6 +100,20 @@
             inherit settings;
           };
         };
+
+        rpi2 = nixpkgs.lib.nixosSystem {
+          modules = [
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-armv7l-multiplatform.nix"
+            {
+              nixpkgs.config.allowUnsupportedSystem = true;
+              nixpkgs.hostPlatform.system = "armv7l-linux";
+              nixpkgs.buildPlatform.system = "x86_64-linux"; #If you build on x86 other wise changes this.
+              system.stateVersion = "24.05";
+              # ... extra configs as above
+            }
+          ];
+        };
       };
+      images.rpi2 = outputs.nixosConfigurations.rpi2.config.system.build.sdImage;
     };
 }

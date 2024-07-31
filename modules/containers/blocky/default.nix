@@ -1,20 +1,12 @@
 { config, lib, pkgs, settings, ... }:
 
 {
+  systemd.services."container@blocky.service" = {
+    requires = [ "tailscaled.service" ];
+    after = [ "sys-subsystem-net-devices-tailscale0.device" "tailscaled.service" "network-online.target" ];
+  };
   containers.blocky = {
     autoStart = true;
-    forwardPorts = [
-      {
-        containerPort = 53;
-        hostPort = 53;
-        protocol = "tcp";
-      }
-      {
-        containerPort = 53;
-        hostPort = 53;
-        protocol = "udp";
-      }
-    ];
     config =  { config, pkgs, lib, ... }: {
       services.blocky = {
         enable = true;
