@@ -1,6 +1,6 @@
 { config, lib, pkgs, settings, ... }:
 let
-  homarrData = "${settings.serviceConfigRoot}/homarr";
+  homarrData = "${settings.dataDir}/homarr";
   directories = [
     "${homarrData}/configs"
     "${homarrData}/icons"
@@ -20,5 +20,11 @@ in{
     ports = [
       "7575:7575"
     ];
+  };
+
+  services.caddy = {
+    virtualHosts."http://home.lan".extraConfig = ''
+      reverse_proxy http://127.0.0.1:7575
+    '';
   };
 }

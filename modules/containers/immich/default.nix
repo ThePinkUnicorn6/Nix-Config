@@ -1,11 +1,11 @@
 { config, settings, ... }:
 let
   directories = [
-    "${settings.serviceConfigRoot}/immich"
-    "${settings.serviceConfigRoot}/immich/postgresql"
-    "${settings.serviceConfigRoot}/immich/postgresql/data"
-    "${settings.serviceConfigRoot}/immich/config"
-    "${settings.serviceConfigRoot}/immich/machine-learning"
+    "${settings.dataDir}/immich"
+    "${settings.dataDir}/immich/postgresql"
+    "${settings.dataDir}/immich/postgresql/data"
+    "${settings.dataDir}/immich/config"
+    "${settings.dataDir}/immich/machine-learning"
   ];
 in
 {
@@ -46,10 +46,10 @@ in
       autoStart = true;
       image = "ghcr.io/imagegenius/immich:latest";
       volumes = [
-        "${settings.serviceConfigRoot}/immich/config:/config"
+        "${settings.dataDir}/immich/config:/config"
         "${settings.mediaRoot}/Photos/Immich:/photos"
         "${settings.mediaRoot}/Photos/S10m:/import:ro"
-        "${settings.serviceConfigRoot}/immich/machine-learning:/config/machine-learning"
+        "${settings.dataDir}/immich/machine-learning:/config/machine-learning"
       ];
       #environmentFiles = [ config.age.secrets.ariaImmichDatabase.path ];
       environment = {
@@ -82,7 +82,7 @@ in
       autoStart = true;
       image = "tensorchord/pgvecto-rs:pg14-v0.2.1";
       volumes = [
-        "${settings.serviceConfigRoot}/immich/postgresql/data:/var/lib/postgresql/data"
+        "${settings.dataDir}/immich/postgresql/data:/var/lib/postgresql/data"
       ];
     #  environmentFiles = [ config.age.secrets.ariaImmichDatabase.path ];
       environment = {

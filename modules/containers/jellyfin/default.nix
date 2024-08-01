@@ -1,11 +1,11 @@
 { config, lib, pkgs, settings, ... }:
 let
   stateVersion = config.system.stateVersion;
-  dataDir = "${settings.serviceConfigRoot}/jellyfin";
+  dataDir = "${settings.dataDir}/jellyfin";
 in{
 
   systemd.tmpfiles.rules = [
-    "d ${settings.serviceConfigRoot}/jellyfin 0775 jellyfin jellyfin - -"
+    "d ${settings.dataDir}/jellyfin 0775 jellyfin jellyfin - -"
   ];
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
@@ -31,4 +31,10 @@ in{
     jellyfin-ffmpeg
     libva-utils
   ];
+  services.caddy = {
+    virtualHosts."http://jf.home.lan".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8096
+    '';
+  };
+
 }

@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./syncthing.nix
     ../../server-base/nix
     ../../../modules/nix/gpu/intel-igpu
   ]++
@@ -23,15 +24,6 @@
     enable = true;
     globalConfig = ''
       auto_https off
-    '';
-    virtualHosts."http://home.lan".extraConfig = ''
-      reverse_proxy http://127.0.0.1:7575
-    '';
-    virtualHosts."http://jf.home.lan".extraConfig = ''
-      reverse_proxy http://127.0.0.1:8096
-    '';
-    virtualHosts."http://dd.home.lan".extraConfig = ''
-      reverse_proxy http://127.0.0.1:3001
     '';
   };
 
@@ -56,10 +48,11 @@
   };
 
   systemd.tmpfiles.rules = [
-    "d ${settings.serviceMediaRoot} 0775 ${settings.username} - - -"
-    "d ${settings.serviceMediaRoot}/Video 0775 ${settings.username} - - -"
-    "d ${settings.serviceMediaRoot}/Photos 0775 ${settings.username} - - -"
-    "d ${settings.serviceMediaRoot}/Documents 0775 ${settings.username} - - -"
+    "d ${settings.mediaDir} 0775 ${settings.username} - - -"
+    "d ${settings.mediaDir}/Video 0775 ${settings.username} - - -"
+    "d ${settings.mediaDir}/Photos 0775 ${settings.username} - - -"
+    "d ${settings.mediaDir}/Documents 0775 ${settings.username} - - -"
+    "d ${settings.mediaDir}/Music 0775 ${settings.username} - - -"
   ];
 
   system.stateVersion = "24.05";

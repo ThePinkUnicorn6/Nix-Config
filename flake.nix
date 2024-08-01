@@ -76,8 +76,8 @@
             git-email = vars.git-email;
             domainName = "home.lan";
             tailscaleIP = "100.100.212.90";
-            serviceConfigRoot = "/drive/data";
-            serviceMediaRoot = "/drive/media";
+            dataDir = "/drive/data";
+            mediaDir = "/drive/media";
           };
         in lib.nixosSystem {
           system = "x86_64-linux";

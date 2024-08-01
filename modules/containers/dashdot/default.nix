@@ -17,4 +17,9 @@
       "--privileged"
     ];
   };
+  services.caddy = {
+    virtualHosts."http://dd.home.lan".extraConfig = ''
+      reverse_proxy http://127.0.0.1:3001
+    '';
+  };
 }
