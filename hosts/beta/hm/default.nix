@@ -6,7 +6,10 @@
 }:
 
 {
-  imports = [ ../../server-base/hm ];
+  imports = [
+    ../../server-base/hm
+#    ./borgmatic.nix
+  ];
 
   home.packages = with pkgs; [
     ani-cli
