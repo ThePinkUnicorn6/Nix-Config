@@ -42,6 +42,7 @@
           };
         };
       };
+      system.stateVersion = config.system.stateVersion;
     };
   };
 }
