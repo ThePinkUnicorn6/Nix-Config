@@ -4,7 +4,9 @@
   services.gammastep = {
     enable = true;
     tray = true;
-    provider = "geoclue2";
+    provider = "manual";
+    latitude = settings.loc.lat;
+    longitude = settings.loc.lon;
     temperature.night = 3500;
     temperature.day = 6500;
   };

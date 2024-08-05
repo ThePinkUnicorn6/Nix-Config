@@ -61,6 +61,7 @@
             reThemeWall = true;
             font = "Iosevka Aile";
             fontPkg = "iosevka";
+            loc = vars.loc;
           };
         in lib.nixosSystem {
           modules = [
