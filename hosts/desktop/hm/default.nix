@@ -45,9 +45,9 @@
     # System
     gparted
     baobab
-    gnome.gnome-disk-utility
-    gnome.nautilus
-    gnome.file-roller
+    gnome-disk-utility
+    nautilus
+    file-roller
     jdk17
     gcc
     du-dust
