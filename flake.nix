@@ -28,9 +28,26 @@
       inherit (self) outputs;
       lib = nixpkgs.lib;
       vars = secrets.vars;
+
+      # Patches
+      nixpkgsFor = system: let
+        pkgs = import nixpkgs { inherit system; };
+          patchedPkgs = pkgs.applyPatches {
+            name = "nixpkgs-patched-${nixpkgs.shortRev}";
+            src = nixpkgs;
+            patches = [
+              # (pkgs.fetchpatch {
+              #   url = "https://github.com/NixOS/nixpkgs/commit/      .patch";
+              #   sha256 = "";
+              # })
+            ];
+          };
+        in import patchedPkgs { inherit system; };
     in{
       nixosConfigurations =  {
         nixos-desktop = let
+          system = "x86_64-linux";
+          pkgs = nixpkgsFor system;
           settings = {
             dotDir = "/home/${vars.name}/nix";
             username = vars.name;
@@ -46,7 +63,6 @@
             fontPkg = "iosevka";
           };
         in lib.nixosSystem {
-          system = "x86_64-linux";
           modules = [
             ./hosts/desktop/nix
             musnix.nixosModules.musnix
@@ -67,7 +83,10 @@
             inherit settings;
           };
         };
+
         beta = let
+          system = "x86_64-linux";
+          pkgs = nixpkgsFor system;
           settings = {
             dotDir = "/home/beta/nix";
             username = "beta";

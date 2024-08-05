@@ -33,7 +33,7 @@
     package = pkgs.openrgb-with-all-plugins;
   };
   services.flatpak.enable = true;
-  programs.steam.enable = true;
+#  programs.steam.enable = true;
 
   programs.alvr = {
     enable = true;

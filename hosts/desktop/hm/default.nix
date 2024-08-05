@@ -22,7 +22,7 @@
     "/lang/python"
     "/lang/python/python-packages"
     "/lang/rust"
-    "/app/llm/ollama"
+#    "/app/llm/ollama"
     "/app/desktop/gammastep"
     "/app/fido2"
     "/app/calibre"
