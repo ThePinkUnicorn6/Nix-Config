@@ -3,16 +3,12 @@
 {
   home.packages = with pkgs; [
     #calibre
-    (calibre.overrideAttrs (attrs: {
-      preFixup = (
-        builtins.replaceStrings[''
-          --prefix PYTHONPATH : $PYTHONPATH \
-        ''] [''
-          --prefix LD_LIBRARY_PATH : ${pkgs.openssl.out}/lib \
-          --prefix PYTHONPATH : $PYTHONPATH \
-        '']
-          attrs.preFixup
-      );
+    (calibre.overrideAttrs (old: {
+      postInstall = ''
+        wrapProgram $out/bin/calibre \
+          --set-default ACSM_LIBCRYPTO ${pkgs.openssl.out}/lib/libcrypto.so \
+          --set-default ACSM_LIBSSL ${pkgs.openssl.out}/lib/libssl.so
+        '';
     }))
   ];
 }
