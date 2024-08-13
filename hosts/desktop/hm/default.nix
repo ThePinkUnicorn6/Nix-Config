@@ -30,6 +30,7 @@
     #./app/distrobox
 
     "/wm/${settings.wm}"
+    "/wm/xfce"
     "/style"
   ]);
 
