@@ -8,7 +8,8 @@
     "/gpu/amd-rx570"
     "/app/production"
     "/wm/${settings.wm}.nix"
-    "/wm/plasma.nix"
+#    "/wm/plasma.nix"
+    "/wm/xfce.nix"
     "/style"
     "/app/fido2"
   ]);
