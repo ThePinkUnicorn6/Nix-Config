@@ -7,7 +7,7 @@
   (map (m: ../../../modules/nix + m) [
     "/gpu/amd-rx570"
     "/app/production"
-    "/wm/${settings.wm}.nix"
+#    "/wm/${settings.wm}.nix"
     "/wm/xfce-i3.nix"
     "/style"
     "/app/fido2"

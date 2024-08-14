@@ -29,7 +29,7 @@
     "/app/browser/firefox"
     #./app/distrobox
 
-    "/wm/${settings.wm}"
+#    "/wm/${settings.wm}"
     "/wm/xfce"
     "/style"
   ]);

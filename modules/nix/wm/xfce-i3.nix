@@ -9,4 +9,5 @@
       };
     };
   };
+  xdg.portal.enable = true;
 }
