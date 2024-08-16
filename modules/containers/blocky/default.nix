@@ -1,8 +1,9 @@
 { config, lib, pkgs, settings, ... }:
-
-{
+let
+  stateVersion = config.system.stateVersion;
+in{
   systemd.services."container@blocky" = {
-    requires = [ "tailscaled.service" ];
+    requires = [ "tailscaled.service" "network-online.target" ];
     after = [ "sys-subsystem-net-devices-tailscale0.device" "tailscaled.service" "network-online.target" ];
   };
   containers.blocky = {
@@ -42,7 +43,7 @@
           };
         };
       };
-      system.stateVersion = config.system.stateVersion;
+      system.stateVersion = stateVersion;
     };
   };
 }
