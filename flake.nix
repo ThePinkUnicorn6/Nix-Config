@@ -56,8 +56,8 @@
             git-email = vars.git-email;
             wm = "hyprland";
             dm = "tuigreet";
-            theme = "gruvbox-dark-soft";
-            wallpaper = ./wallpapers/city_sunset.png;
+            theme = "gruvbox-material-dark-hard"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            wallpaper = ./wallpapers/purple-landscape.jpeg;
             reThemeWall = true;
             font = "Iosevka Aile";
             fontPkg = "iosevka";
