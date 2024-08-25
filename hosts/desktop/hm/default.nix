@@ -73,7 +73,7 @@
     # Photo
     loupe
     gthumb
-    ansel
+    #ansel
 
     # Audio
     g4music
