@@ -13,6 +13,7 @@
 
   home.packages = with pkgs; [
     ani-cli
+    lolcat
   ];
 
   home.stateVersion = "24.05";
