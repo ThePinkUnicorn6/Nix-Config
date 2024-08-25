@@ -131,7 +131,7 @@ in{
         exec-once = [
             "waybar"
             "mako"
-            "hyprpaper"
+            #"hyprpaper"
             "sleep 5 && emacs --daemon"
             "ollama serve"
             "sleep 10 && aw-qt"
