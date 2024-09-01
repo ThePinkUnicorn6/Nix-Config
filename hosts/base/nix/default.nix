@@ -69,6 +69,7 @@
     killall
     usbutils
     pciutils
+    comma
   ];
 
   # Garbage collect
