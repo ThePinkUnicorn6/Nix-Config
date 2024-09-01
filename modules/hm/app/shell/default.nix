@@ -21,9 +21,6 @@ in
     initExtra = ''
       disfetch
       eval $(thefuck --alias)
-      run () {
-        nix run nixpkgs#$1
-      }
       mcd () {
         mkdir $1
         cd $1
