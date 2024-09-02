@@ -75,6 +75,7 @@ in
       waybar.enable = false;
       alacritty.enable = false;
       vscode.enable = false;
+      emacs.enable = false;
     };
 
     fonts = {
