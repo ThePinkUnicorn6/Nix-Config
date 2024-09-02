@@ -59,8 +59,6 @@
             theme = "gruvbox-material-dark-hard"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/purple-landscape.jpeg;
             reThemeWall = true;
-            font = "Iosevka Aile";
-            fontPkg = "iosevka";
             loc = vars.loc;
           };
         in lib.nixosSystem {

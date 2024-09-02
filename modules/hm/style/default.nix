@@ -80,16 +80,16 @@ in
 
     fonts = {
       monospace = {
-        name = settings.font;
-        package = pkgs.${settings.fontPkg};
+        name = "Iosevka Term";
+        package = pkgs.iosevka;
       };
       serif = {
-        name = settings.font;
-        package = pkgs.${settings.fontPkg};
+        name = "Iosevka Aile";
+        package = pkgs.iosevka;
       };
       sansSerif = {
-        name = settings.font;
-        package = pkgs.${settings.fontPkg};
+        name = "Iosevka Etoile";
+        package = pkgs.iosevka;
       };
     };
     cursor = {

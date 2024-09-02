@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./theme.nix
+  ];
   programs.emacs = {
     extraPackages = epkgs: with epkgs; [
       meow

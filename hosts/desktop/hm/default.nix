@@ -92,8 +92,5 @@
     microcom
     flowtime
     picard
-
-    # Fonts
-    pkgs.${settings.fontPkg}
   ];
 }

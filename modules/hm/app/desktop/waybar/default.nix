@@ -82,7 +82,7 @@ in{
     style = ''
       * {
         border: none;
-        font-family: ''+settings.font+'';
+        font-family: ${config.stylix.fonts.monospace.name};
         font-size: 15px;
         min-height: 10px;
       }
