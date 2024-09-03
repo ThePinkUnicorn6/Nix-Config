@@ -1,3 +1,12 @@
+{ config, lib, pkgs, ... }:
+
+{
+  programs.emacs = {
+    extraPackages = epkgs: with epkgs; [
+      meow
+    ];
+
+    extraConfig = ''
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-colemak)
   (meow-motion-overwrite-define-key
@@ -47,12 +56,12 @@
    '("f" . meow-find)
    '("g" . meow-cancel-selection)
    '("G" . meow-grab)
-   '("h" . meow-left)
-   '("H" . meow-left-expand)
+   '("k" . meow-left)
+   '("K" . meow-left-expand)
    '("i" . meow-right)
    '("I" . meow-right-expand)
    '("j" . meow-join)
-   '("k" . meow-kill)
+   '("h" . meow-kill)
    '("l" . meow-line)
    '("L" . meow-goto-line)
    '("m" . meow-mark-word)
@@ -81,3 +90,7 @@
 (require 'meow)
 (meow-setup)
 (meow-global-mode 1)
+
+    '';
+  };
+}
