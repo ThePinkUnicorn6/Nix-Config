@@ -10,6 +10,7 @@
 (use-package vertico
   :init
   (vertico-mode))
+
 (use-package emacs
   :custom
   ;; Support opening new minibuffers from inside existing minibuffers.
