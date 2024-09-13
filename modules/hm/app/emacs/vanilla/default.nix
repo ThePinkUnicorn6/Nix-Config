@@ -6,18 +6,18 @@
   ] ++ (map (m: ./config + m) [
     "/meow.nix"
     "/vertico.nix"
-    #"/roam.nix"
+    "/roam.nix"
+    "/lang.nix"
+    "/navigation-keybinds.nix"
   ]);
   programs.emacs = {
     extraPackages = epkgs: with epkgs; [
       use-package
-      nix-mode
-      org-roam
-      org-roam-ui
-      vertico
+      treemacs
+      bind-key
     ];
 
-    extraConfig = ''
+    extraConfig = /*lisp*/ ''
       ;; Turn off some unneeded UI elements
       (menu-bar-mode -1)
       (tool-bar-mode -1)
@@ -27,7 +27,6 @@
       (global-display-line-numbers-mode 1)
       (setq display-line-numbers-type 'relative)
       (setq standard-indent 2)
-
     '';
   };  
 }
