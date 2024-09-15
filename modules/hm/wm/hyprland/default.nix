@@ -46,9 +46,9 @@ in{
     systemd.enable = true;
     settings = {
         monitor = if (osConfig.networking.hostName == "nixos-desktop") then [
-            "HDMI-A-1,1920x1080@60,0x550,1"
-            "DP-2,1920x1080@60,1920x0,1"
-            "DP-2,transform,3"
+            "HDMI-A-1,preferred,0x770,1"
+            "DP-2,preferred,auto-left,1"
+            "DP-2,transform,1"
         ] else [];
 
         # Workspace monitor binding
