@@ -27,7 +27,7 @@ in{
         chosen="$(echo -e "$options" | fuzzel --lines 4 --dmenu)"
         case $chosen in
             $option0)
-                systemctl suspend;;
+                swaylock && systemctl suspend;;
             $option1)
                 systemctl poweroff;;
             $option2)
@@ -38,6 +38,7 @@ in{
     '')
   ];
   services.copyq.enable = true;
+  programs.swaylock.enable = true;
 
   # Hyprland Config
   wayland.windowManager.hyprland = {
@@ -159,7 +160,8 @@ in{
         bind = [
             "SUPER,RETURN,exec,${pkgs.kitty}/bin/kitty"
             "SUPER,Q,killactive"
-            "SUPER,L,exit"
+            "SUPER,L,swaylock"
+            "SUPERSHIFT,L,exit"
             "SUPER,space,togglefloating"
             "SUPER,R,exec,fuzzel"
             # Runs any package from the nix repository without installing.
