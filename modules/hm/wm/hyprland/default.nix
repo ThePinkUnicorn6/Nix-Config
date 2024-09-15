@@ -27,7 +27,7 @@ in{
         chosen="$(echo -e "$options" | fuzzel --lines 4 --dmenu)"
         case $chosen in
             $option0)
-                swaylock && systemctl suspend;;
+                swaylock & systemctl suspend;;
             $option1)
                 systemctl poweroff;;
             $option2)
@@ -160,7 +160,7 @@ in{
         bind = [
             "SUPER,RETURN,exec,${pkgs.kitty}/bin/kitty"
             "SUPER,Q,killactive"
-            "SUPER,L,swaylock"
+            "SUPER,L,exec,swaylock"
             "SUPERSHIFT,L,exit"
             "SUPER,space,togglefloating"
             "SUPER,R,exec,fuzzel"
