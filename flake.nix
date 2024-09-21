@@ -56,9 +56,9 @@
             git-email = vars.git-email;
             wm = "hyprland";
             dm = "tuigreet";
-            theme = "gruvbox-material-dark-hard"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/purple-landscape.jpeg;
-            reThemeWall = true;
+            reThemeWall = false;
             loc = vars.loc;
           };
         in lib.nixosSystem {
