@@ -76,11 +76,9 @@ in{
         #force_default_wallpaper = 0;
 
         general = {
-            sensitivity = 1.0; # for mouse cursor
             gaps_in = 3;
             gaps_out = 8;
             border_size = 2;
-            apply_sens_to_raw = 0; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
         };
         decoration = {
             rounding = 8;
