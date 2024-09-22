@@ -58,7 +58,7 @@
             dm = "tuigreet";
             theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/purple-landscape.jpeg;
-            reThemeWall = false;
+            reThemeWall = true;
             loc = vars.loc;
           };
         in lib.nixosSystem {
