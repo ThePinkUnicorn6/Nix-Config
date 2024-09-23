@@ -5,11 +5,8 @@
     ../../desktop-base/nix
   ]++
   (map (m: ../../../modules/nix + m) [
-    "/gpu/amd-rx570"
-    "/app/production"
     "/wm/${settings.wm}.nix"
 #    "/wm/plasma.nix"
-    "/wm/xfce.nix"
     "/style"
     "/app/fido2"
   ]);
@@ -22,7 +19,7 @@
   };
 
   networking = {
-    hostName = "nixos-desktop"; # Define your hostname.
+    hostName = "nixos-vm"; # Define your hostname.
   };
 
   # Configure keymap in X11
@@ -31,26 +28,9 @@
       layout = "gb";
       variant = "";
     };
-    hardware.openrgb = {
-      enable = true;
-      package = pkgs.openrgb-with-all-plugins;
-    };
     flatpak.enable = true;
-    openssh.enable = true;
-  };
-  programs = {
-    steam.enable = true;
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
-  };
-  virtualisation.virtualbox.host.enable = true;
-  fileSystems."/home/${settings.username}/shared-files" = {
-    device = "/dev/nvme0n1p4";
-    fsType = "ntfs";
   };
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
 

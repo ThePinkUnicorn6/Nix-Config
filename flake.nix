@@ -122,6 +122,43 @@
             inherit settings;
           };
         };
+        
+        uni-vm = let
+          system = "x86_64-linux";
+          pkgs = nixpkgsFor system;
+          settings = {
+            dotDir = "/home/tpu/nix";
+            username = "tpu";
+            name = "ThePinkUnicorn";
+            personal-email = vars.personal-email;
+            git-email = vars.git-email;
+            wm = "hyprland";
+            dm = "tuigreet";
+            theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            wallpaper = ./wallpapers/purple-landscape.jpeg;
+            reThemeWall = true;
+            loc = vars.loc;
+          };
+        in lib.nixosSystem {
+          modules = [
+            ./hosts/desktop/nix
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users."${vars.name}".imports = [ ./hosts/desktop/hm ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit settings;
+              };
+            }
+          ];
+          specialArgs = {
+            inherit inputs;
+            inherit settings;
+          };
+        };
       };
 
       # Installer from https://gitlab.com/librephoenix/nixos-config/-/blob/main/flake.nix
@@ -135,8 +172,8 @@
             text = ''
 gh auth login || true
 git clone https://github.com/thepinkunicorn6/nix-config ~/nix
-read -r -p "Enter flake config name: " hostname
-nixos-rebuild switch --flake ~/nix#"$hostname --experimental-features 'nix-command flakes'"
+read -r -p "Enter name of flake config to use: " hostname
+nixos-rebuild switch --experimental-features 'nix-command' flakes --flake ~/nix#"$hostname"
 '';
           };
         });

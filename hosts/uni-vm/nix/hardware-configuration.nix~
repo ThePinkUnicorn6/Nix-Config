@@ -22,6 +22,10 @@
     { device = "/dev/disk/by-uuid/D1BE-5140";
       fsType = "vfat";
     };
+  fileSystems."/home/${settings.username}/shared-files" = {
+    device = "/dev/nvme0n1p4";
+    fsType = "ntfs";
+  };
   swapDevices =
     [ { device = "/dev/disk/by-uuid/d61bbbf5-e4be-47c0-b487-e4b4f9555035"; }
     ];
