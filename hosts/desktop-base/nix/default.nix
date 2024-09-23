@@ -49,12 +49,6 @@
     openFirewall = true;
   };
 
-  # Enable location services for gammastep;
-  services.geoclue2 = {
-    enable = true;
-    enableWifi = true;
-  };
-
   # Packages
   environment.systemPackages = with pkgs; [
     openssl
