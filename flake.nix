@@ -34,7 +34,7 @@
       forAllSystems = inputs.nixpkgs.lib.genAttrs supportedSystems;
       
       # Patches
-      nixpkgsFor = system: let
+      nixpkgsFor = forAllSystems (system: let
         pkgs = import nixpkgs { inherit system; };
         patchedPkgs = pkgs.applyPatches {
           name = "nixpkgs-patched-${nixpkgs.shortRev}";
@@ -46,7 +46,7 @@
             # })
           ];
         };
-        in import patchedPkgs { inherit system; };
+      in import patchedPkgs { inherit system; });
     in{
       nixosConfigurations =  {
         nixos-desktop = let
