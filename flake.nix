@@ -134,7 +134,7 @@
             runtimeInputs = with pkgs; [ git gh ];
             text = ''
 gh auth login || true
-git clone https://github.com/thepinkunicorn6/nixos-config ~/nix
+git clone https://github.com/thepinkunicorn6/nix-config ~/nix
 read -r -p "Enter flake config name: " hostname
 nixos-rebuild switch --flake ~/nix#"$hostname --experimental-features 'nix-command flakes'"
 '';
