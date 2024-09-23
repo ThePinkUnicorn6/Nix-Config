@@ -60,6 +60,7 @@
     openssl
     libressl
     libnotify
+    gparted # Doesn't work in hm
   ];
 
   programs.adb.enable = true;

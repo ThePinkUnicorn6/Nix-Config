@@ -44,7 +44,6 @@
   #services.syncthing.tray.enable = true;
   home.packages = with pkgs; [
     # System
-    gparted
     baobab
     gnome-disk-utility
     nautilus
