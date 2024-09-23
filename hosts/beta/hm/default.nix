@@ -8,12 +8,11 @@
 {
   imports = [
     ../../server-base/hm
-#    ./borgmatic.nix
+    ./borgmatic.nix
   ];
 
   home.packages = with pkgs; [
     ani-cli
-    lolcat
   ];
 
   home.stateVersion = "24.05";

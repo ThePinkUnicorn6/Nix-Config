@@ -28,20 +28,24 @@
       inherit (self) outputs;
       lib = nixpkgs.lib;
       vars = secrets.vars;
-
+      
+      supportedSystems = [ "aarch64-linux" "i686-linux" "x86_64-linux" ];
+      # Function to generate a set based on supported systems:
+      forAllSystems = inputs.nixpkgs.lib.genAttrs supportedSystems;
+      
       # Patches
       nixpkgsFor = system: let
         pkgs = import nixpkgs { inherit system; };
-          patchedPkgs = pkgs.applyPatches {
-            name = "nixpkgs-patched-${nixpkgs.shortRev}";
-            src = nixpkgs;
-            patches = [
-              # (pkgs.fetchpatch {
-              #   url = "https://github.com/NixOS/nixpkgs/commit/      .patch";
-              #   sha256 = "";
-              # })
-            ];
-          };
+        patchedPkgs = pkgs.applyPatches {
+          name = "nixpkgs-patched-${nixpkgs.shortRev}";
+          src = nixpkgs;
+          patches = [
+            # (pkgs.fetchpatch {
+            #   url = "https://github.com/NixOS/nixpkgs/commit/      .patch";
+            #   sha256 = "";
+            # })
+          ];
+        };
         in import patchedPkgs { inherit system; };
     in{
       nixosConfigurations =  {
@@ -118,20 +122,26 @@
             inherit settings;
           };
         };
-
-        rpi2 = nixpkgs.lib.nixosSystem {
-          modules = [
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-armv7l-multiplatform.nix"
-            {
-              nixpkgs.config.allowUnsupportedSystem = true;
-              nixpkgs.hostPlatform.system = "armv7l-linux";
-              nixpkgs.buildPlatform.system = "x86_64-linux"; #If you build on x86 other wise changes this.
-              system.stateVersion = "24.05";
-              # ... extra configs as above
-            }
-          ];
-        };
       };
-      images.rpi2 = outputs.nixosConfigurations.rpi2.config.system.build.sdImage;
+
+      # Installer from https://gitlab.com/librephoenix/nixos-config/-/blob/main/flake.nix
+      packages = forAllSystems (system:
+        let pkgs = nixpkgsFor.${system};
+        in {
+          default = self.packages."x86_64-linux".install;
+          install = pkgs.writeShellApplication {
+            name = "install";
+            runtimeInputs = with pkgs; [ git gh ];
+            text = ''${./install.sh} "$@"'';
+          };
+        });
+      
+      apps = forAllSystems (system: {
+        default = self.apps.${system}.install;
+        install = {
+          type = "app";
+          program = "${self.packages.${system}.install}/bin/install";
+        };
+      });
     };
 }

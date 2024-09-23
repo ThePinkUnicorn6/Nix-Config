@@ -40,6 +40,7 @@
       indicator = true;
     };
   };
+
   #services.syncthing.tray.enable = true;
   home.packages = with pkgs; [
     # System

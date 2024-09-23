@@ -26,21 +26,26 @@
   };
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "gb";
-    variant = "";
+  services = {
+    xserver.xkb = {
+      layout = "gb";
+      variant = "";
+    };
+    hardware.openrgb = {
+      enable = true;
+      package = pkgs.openrgb-with-all-plugins;
+    };
+    flatpak.enable = true;
+    openssh.enable = true;
   };
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
+  programs = {
+    steam.enable = true;
+    alvr = {
+      enable = true;
+      openFirewall = true;
+    };
   };
-  services.flatpak.enable = true;
-  programs.steam.enable = true;
-
-  programs.alvr = {
-    enable = true;
-    openFirewall = true;
-  };
+  virtualisation.virtualbox.host.enable = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
 }
