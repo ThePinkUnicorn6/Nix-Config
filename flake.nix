@@ -132,7 +132,12 @@
           install = pkgs.writeShellApplication {
             name = "install";
             runtimeInputs = with pkgs; [ git gh ];
-            text = (builtins.readFile ./install.sh);
+            text = ''
+gh auth login
+git clone https://github.com/thepinkunicorn6/nixos-config ~/nix
+read -r -p "Enter flake config name: " hostname
+nixos-rebuild switch --flake ~/nix#"$hostname"
+'';
           };
         });
       

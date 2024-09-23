@@ -8,7 +8,7 @@
 {
   imports = [
     ../../server-base/hm
-    ./borgmatic.nix
+#    ./borgmatic.nix
   ];
 
   home.packages = with pkgs; [
