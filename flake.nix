@@ -132,7 +132,7 @@
           install = pkgs.writeShellApplication {
             name = "install";
             runtimeInputs = with pkgs; [ git gh ];
-            text = ''${./install.sh}'';
+            text = (builtins.readFile ./install.sh);
           };
         });
       

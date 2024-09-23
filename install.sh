@@ -7,5 +7,5 @@ nix-shell -p git --command "git clone https://github.com/thepinkunicorn6/nixos-c
 nix-shell -p gh --command "gh auth login -p ssh"
 
 # Switch to config
-read -p "Enter flake config name: " hostname
-nixos-rebuild switch --flake ~/nix#$hostname
+read -r -p "Enter flake config name: " hostname
+nixos-rebuild switch --flake ~/nix#"$hostname"
