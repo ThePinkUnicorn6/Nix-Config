@@ -16,7 +16,18 @@
     description = settings.name;
     extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" ];
   };
-
+  # Bootloader.
+  boot.loader = {
+    systemd-boot = {
+      enable = pkgs.lib.mkForce false;
+    };
+    grub = {
+      enable = true;
+      device = "/dev/sda";
+      useOSProber = true;
+    };
+    efi.canTouchEfiVariables = true;
+  };
   networking = {
     hostName = "nixos-vm"; # Define your hostname.
   };
