@@ -141,13 +141,13 @@
           };
         in lib.nixosSystem {
           modules = [
-            ./hosts/desktop/nix
+            ./hosts/uni-vm/nix
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${vars.name}".imports = [ ./hosts/desktop/hm ];
+              home-manager.users."tpu".imports = [ ./hosts/uni-vm/hm ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit settings;

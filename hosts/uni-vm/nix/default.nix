@@ -6,7 +6,6 @@
   ]++
   (map (m: ../../../modules/nix + m) [
     "/wm/${settings.wm}.nix"
-#    "/wm/plasma.nix"
     "/style"
     "/app/fido2"
   ]);
