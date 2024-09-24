@@ -40,7 +40,14 @@
     };
     flatpak.enable = true;
   };
-
+  
+  virtualisation.virtualbox.guest = {
+    enable = true;
+    draganddrop = true;
+    seamless = true;
+    clipboard = true;
+  };
+  
   system.stateVersion = "24.05"; # Did you read the comment?
 }
 
