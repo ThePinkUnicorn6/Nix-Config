@@ -28,17 +28,15 @@
     };
     efi.canTouchEfiVariables = true;
   };
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
     extraPackages = with pkgs; [
       vaapiVdpau
       libvdpau-va-gl
-    ]
+    ];
   };
   networking = {
-    hostName = "nixos-vm"; # Define your hostname.
+    hostName = "uni-vm"; # Define your hostname.
   };
 
   # Configure keymap in X11
