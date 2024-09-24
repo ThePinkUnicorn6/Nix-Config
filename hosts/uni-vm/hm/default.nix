@@ -12,7 +12,7 @@
     ../../desktop-base/hm
   ] ++
   (map (m: ../../../modules/hm + m) [
-    "/app/chat/discord"
+#    "/app/chat/discord"
     "/app/video/mpv"
     "/app/emacs"
     "/app/programming/vscode"
@@ -32,39 +32,27 @@
   home.packages = with pkgs; [
     # System
     baobab
-    gnome-disk-utility
     nautilus
     file-roller
-    jdk17
-    gcc
-    du-dust
     mission-center
 
     # Wine
     wine
-    bottles
 
     # Text
     gnome-text-editor
-    libreoffice-fresh
     hunspell
     hunspellDicts.en_GB-ise
-
-    # Video
-    yt-dlp
-    vlc
 
     # Photo
     loupe
     gthumb
 
     # Chat
-    whatsapp-for-linux
+#    whatsapp-for-linux
     #discord
 
     # Other
     pandoc
-    microcom
-    flowtime
   ];
 }

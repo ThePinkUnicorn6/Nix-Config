@@ -132,7 +132,7 @@
             name = "ThePinkUnicorn";
             personal-email = vars.personal-email;
             git-email = vars.git-email;
-            wm = "hyprland";
+            wm = "plasma";
             dm = "tuigreet";
             theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/purple-landscape.jpeg;
