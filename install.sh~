@@ -1,3 +1,0 @@
-#!/bin/sh
-
-nix-shell -p git --command "git clone https://github.com/thepinkunicorn6/nixos-config ~/nix"
