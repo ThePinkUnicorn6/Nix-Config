@@ -135,7 +135,7 @@ in{
             "ollama serve"
             "sleep 10 && aw-qt"
 
-            "[workspace 1 silent] firefox"
+            "[workspace 1 silent] zen"
         ];
         # Window rules
         windowrule = [
@@ -145,8 +145,6 @@ in{
             "workspace 6,WebCord"
             "monitor 0,whatsapp"
             "workspace 6,whatsapp"
-            "monitor 1,waterfox"
-            "workspace 1,waterfox"
 
             "float,com.usebottles.bottles"
         ];
@@ -167,7 +165,7 @@ in{
             "SUPERSHIFT,space,pseudo"
             "SUPER,F,fullscreen"
             "SUPER,N,exec,nautilus -w"
-            "SUPER,M,exec,firefox"
+            "SUPER,M,exec,zen"
             "SUPER,E,exec,emacsclient --create-frame --alternate-editor=\"\" -a=\"\""
             "SUPERSHIFT,E,exec,power-menu"
             "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""

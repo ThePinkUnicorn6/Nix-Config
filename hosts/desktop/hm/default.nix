@@ -22,11 +22,12 @@
     "/lang/python"
     "/lang/python/python-packages"
     "/lang/rust"
-#    "/app/llm/ollama"
+    "/app/llm/ollama"
     "/app/desktop/gammastep"
     "/app/fido2"
     "/app/calibre"
-    "/app/browser/firefox"
+    #"/app/browser/firefox"
+    "/app/browser/zen"
     #./app/distrobox
 
     "/wm/${settings.wm}"
@@ -52,7 +53,7 @@
     gcc
     du-dust
     mission-center
-
+ 
     # Wine
     wine
     bottles

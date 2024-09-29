@@ -18,6 +18,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     secrets = {
       url = "git+ssh://git@github.com/ThePinkUnicorn6/nix-settings?ref=main";
       flake = true;
