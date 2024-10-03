@@ -33,6 +33,10 @@
     (require 'lsp-mode)
     (add-hook 'prog-mode-hook #'lsp)
 
+    ;; Plantuml config
+    (setq plantuml-executable-path "${pkgs.plantuml}/bin/plantuml")
+    (setq plantuml-default-exec-mode 'executable)
+
     ;; File templates
     (auto-insert-mode t)
 
@@ -46,9 +50,11 @@
           "}" > \n)))
     (eval-after-load 'autoinsert
       '(define-auto-insert
-        '("\\.txt\\'" . "Test on")
-        '("Decription"
-        "Hello World")))    
+        '("\\.org\\'" . "Org skeleton")
+        '("Template for a default org mode document"
+        "#+TITLE: " _
+        \n\n
+        "* ")))
     '';
   };  
 }

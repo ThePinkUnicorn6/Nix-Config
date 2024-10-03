@@ -34,12 +34,28 @@
           echo "Updating flake lock file..."
           nix flake update .;;
 
+        "remote-switch")
+          echo "Building config $3 on machine $2"
+	  
+          git add -A
+          read -rp "Enter commit message (leave blank for generation number): " msg  
+          nixos-rebuild           # If the user has entered no comimt message, generate it.
+          if ! [[ -n "$msg" ]]; then
+            msg=$(nixos-rebuild list-generations | grep current)
+          fi
+          git commit -am "$msg"
+	  switch --flake .#"$3" --target-host $2 --use-remote-sudo;;
+	  
+	"remote-test")
+          echo "Building config $3 on machine $2"
+          nixos-rebuild test --flake .#"$3" --target-host $2 --use-remote-sudo;;
+	
         *)
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
           ${nh}/bin/nh os switch . -H "${osConfig.networking.hostName}" $1
 
-          # If the user has entered no comit messagie, generate it.
+          # If the user has entered no comimt message, generate it.
           if ! [[ -n "$msg" ]]; then
             msg=$(nixos-rebuild list-generations | grep current)
           fi

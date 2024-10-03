@@ -27,6 +27,10 @@
       (global-display-line-numbers-mode 1)
       (setq display-line-numbers-type 'relative)
       (setq standard-indent 2)
+
+      ;; Org
+      (setq
+          org-superstar-headline-bullets-list '("•"))
     '';
   };  
 }
