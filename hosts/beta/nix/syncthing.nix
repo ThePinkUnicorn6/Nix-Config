@@ -19,9 +19,14 @@
   };
   services.syncthing = {
     enable = true;
-    dataDir = "${settings.mediaDir}/Documents/syncthing";
+    dataDir = "${settings.mediaDir}/syncthing";
     configDir = "${settings.dataDir}/syncthing";
-    settings.options.relaysEnabled = false;
+    settings.options = {
+      relaysEnabled = false;
+      urAccepted = -1;
+    };
     guiAddress = "${settings.tailscaleIP}:8384";
+    overrideDevices = false;
+    overrideFolders = false;
   };
 }

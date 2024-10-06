@@ -1,21 +1,42 @@
 { config, settings, ... }:
-
-{
+let
+  stateVersion = config.system.stateVersion;
+in{
   systemd.tmpfiles.rules = [
-    "d ${settings.dataRoot}/immich 0775 ${settings.username} - - -"
-    "d ${settings.mediaRoot}/Photos 0775 ${settings.username} - - -"
-    "d ${settings.mediaRoot}/Photos/Immich 0775 ${settings.username} - - -"
+    "d ${settings.dataDir}/postgresql 0700 postgres - - -"
+    "d ${settings.mediaDir}/Photos 0775 ${settings.username} - - -"
+    "d ${settings.mediaDir}/Photos/immich 0775 immich - - -"
   ];
-  containers.immich = {
-    autoStart = true;
-    config =  { config, pkgs, lib, ... }: {
-      services.immich = {
-        enable = true;
-        openFirewall = true;
-        mediaLocation = "${settings.mediaRoot}/Photos";
-      };
-      services.postgresql.dataDir = "${settings.dataRoot}/immich/";
-    };
+  services.immich = {
+    enable = true;
+    host = "100.100.212.90";
+    openFirewall = true;
+    port = 3002;
+    mediaLocation = "${settings.mediaDir}/Photos/immich";
   };
+  services.postgresql.dataDir = "${settings.dataDir}/postgresql";
+  
+  # containers.immich = {
+  #   autoStart = true;
+  #   bindMounts = {
+  #     "/var/lib/postgresql" = {
+  #       hostPath = "${settings.dataDir}/postgresql";
+  #       isReadOnly = false;
+  #     };
+  #     "/var/lib/immich" = {
+  #       hostPath = "${settings.mediaDir}/Photos/immich";
+  #       isReadOnly = false;
+  #     };
+  #   };
+  #   config =  { config, pkgs, lib, ... }: {
+  #     services.immich = {
+  #       enable = true;
+  #       host = "100.100.212.90";
+  #       openFirewall = true;
+  #       port = 3002;
+  #     };
+  #     system.stateVersion = stateVersion;
+  #   };
+  # };
 
 }

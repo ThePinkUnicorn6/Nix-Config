@@ -38,16 +38,18 @@
           echo "Building config $3 on machine $2"
 	  
           git add -A
-          read -rp "Enter commit message (leave blank for generation number): " msg  
-          nixos-rebuild           # If the user has entered no comimt message, generate it.
+          read -rp "Enter commit message (leave blank for generation number): " msg
+
+	        nixos-rebuild switch --flake .#"$3" --target-host $2 --use-remote-sudo
+
+           # If the user has entered no commit message, generate it.
           if ! [[ -n "$msg" ]]; then
             msg=$(nixos-rebuild list-generations | grep current)
           fi
-          git commit -am "$msg"
-	  switch --flake .#"$3" --target-host $2 --use-remote-sudo;;
+          git commit -am "$msg";;
 	  
-	"remote-test")
-          echo "Building config $3 on machine $2"
+      	"remote-test")
+          echo "Testing config $3 on machine $2"
           nixos-rebuild test --flake .#"$3" --target-host $2 --use-remote-sudo;;
 	
         *)
@@ -55,7 +57,7 @@
           read -rp "Enter commit message (leave blank for generation number): " msg
           ${nh}/bin/nh os switch . -H "${osConfig.networking.hostName}" $1
 
-          # If the user has entered no comimt message, generate it.
+          # If the user has entered no commit message, generate it.
           if ! [[ -n "$msg" ]]; then
             msg=$(nixos-rebuild list-generations | grep current)
           fi
