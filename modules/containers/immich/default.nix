@@ -15,7 +15,11 @@ in{
     mediaLocation = "${settings.mediaDir}/Photos/immich";
   };
   services.postgresql.dataDir = "${settings.dataDir}/postgresql";
-  
+  services.caddy = {
+    virtualHosts."http://photos.home.lan".extraConfig = ''
+      reverse_proxy http://100.100.212.90:3002
+    '';
+  };  
   # containers.immich = {
   #   autoStart = true;
   #   bindMounts = {
