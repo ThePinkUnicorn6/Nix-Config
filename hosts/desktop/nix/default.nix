@@ -45,7 +45,6 @@
       openFirewall = true;
     };
   };
-  virtualisation.virtualbox.host.enable = true;
   fileSystems."/home/${settings.username}/shared-files" = {
     device = "/dev/nvme0n1p4";
     fsType = "ntfs";
