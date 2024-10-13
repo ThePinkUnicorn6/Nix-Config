@@ -213,7 +213,7 @@
 gh auth login || true
 git clone https://github.com/thepinkunicorn6/nix-config ~/nix
 read -r -p "Enter name of flake config to use: " hostname
-nixos-rebuild switch --experimental-features 'nix-command' flakes --flake ~/nix#"$hostname"
+nixos-rebuild switch --extra-experimental-features 'nix-command flakes' --flake ~/nix#"$hostname"
 '';
           };
         });
