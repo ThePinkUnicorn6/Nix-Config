@@ -22,7 +22,7 @@
   };
 
   networking = {
-    hostName = "nixos-desktop"; # Define your hostname.
+    hostName = "desktop"; # Define your hostname.
   };
 
   # Configure keymap in X11

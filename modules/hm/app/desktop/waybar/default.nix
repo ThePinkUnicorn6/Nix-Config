@@ -62,7 +62,7 @@ in{
         height = 15;
         layer = "top";
         position = "top";
-        output = "HDMI-A-1";
+        output = "!DP-2";
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "clock" ];
         modules-right = [ "wireplumber" "network" "disk" "cpu" "memory" "tray"];

@@ -46,14 +46,14 @@ in{
     xwayland = { enable = true; };
     systemd.enable = true;
     settings = {
-        monitor = if (osConfig.networking.hostName == "nixos-desktop") then [
+        monitor = if (osConfig.networking.hostName == "desktop") then [
             "HDMI-A-1,preferred,0x770,1"
             "DP-2,preferred,auto-left,1"
             "DP-2,transform,1"
         ] else [];
 
         # Workspace monitor binding
-        workspace =  if (osConfig.networking.hostName == "nixos-desktop") then [
+        workspace =  if (osConfig.networking.hostName == "desktop") then [
             "1,monitor:HDMI-A-1"
             "2,monitor:HDMI-A-1"
             "3,monitor:HDMI-A-1"

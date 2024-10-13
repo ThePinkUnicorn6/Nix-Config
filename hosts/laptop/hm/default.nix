@@ -14,7 +14,7 @@
   (map (m: ../../../modules/hm + m) [
     "/app/chat/discord"
     "/app/video/mpv"
-#    "/app/emacs"
+    "/app/emacs"
     "/app/programming/vscode"
     "/lang/csharp"
     "/app/tex"
@@ -55,6 +55,7 @@
     libreoffice-fresh
     hunspell
     hunspellDicts.en_GB-ise
+    rnote
 
     # Video
     yt-dlp

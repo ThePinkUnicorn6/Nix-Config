@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +27,7 @@
       flake = true;
     };
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, comin, stylix, musnix, secrets, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, comin, stylix, musnix, secrets, ... }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -146,6 +146,7 @@
           modules = [
             ./hosts/laptop/nix
             stylix.nixosModules.stylix
+            nixos-hardware.nixosModules.microsoft-surface-pro-intel
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
