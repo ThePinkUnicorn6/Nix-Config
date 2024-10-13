@@ -18,7 +18,7 @@
   };
 
   networking = {
-    hostName = "nixos-laptop"; # Define your hostname.
+    hostName = "laptop"; # Define your hostname.
   };
 
   # Configure keymap in X11
