@@ -20,7 +20,12 @@
   networking = {
     hostName = "laptop"; # Define your hostname.
   };
+<<<<<<< HEAD
   
+=======
+  nix.settings.trusted-users = [ "root" settings.username ];
+
+>>>>>>> ab2f56e (laptop changes)
   # Configure keymap in X11
   services = {
     xserver.xkb = {
