@@ -13,21 +13,17 @@
   ] ++
   (map (m: ../../../modules/hm + m) [
     "/app/chat/discord"
-    "/app/music-prod/reaper"
     "/app/video/mpv"
-    "/app/emacs"
+#    "/app/emacs"
     "/app/programming/vscode"
     "/lang/csharp"
     "/app/tex"
     "/lang/python"
     "/lang/python/python-packages"
     "/lang/rust"
-    "/app/llm/ollama"
     "/app/desktop/gammastep"
     "/app/fido2"
-    "/app/calibre"
-    #./app/distrobox
-
+ 
     "/wm/${settings.wm}"
     "/style"
   ]);
@@ -47,8 +43,6 @@
     gnome-disk-utility
     nautilus
     file-roller
-    jdk17
-    gcc
     du-dust
     mission-center
  
@@ -67,7 +61,6 @@
     vlc
     delfin
     freetube
-    blender
 
     # Photo
     loupe
@@ -76,20 +69,12 @@
 
     # Audio
     g4music
-    mpris-scrobbler
 
     # Chat
     whatsapp-for-linux
     #discord
 
-    # Games
-    prismlauncher
-
     # Other
     pandoc
-    activitywatch
-    microcom
-    flowtime
-    picard
   ];
 }

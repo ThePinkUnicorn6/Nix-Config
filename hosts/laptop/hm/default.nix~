@@ -26,6 +26,8 @@
     "/app/desktop/gammastep"
     "/app/fido2"
     "/app/calibre"
+    #"/app/browser/firefox"
+    "/app/browser/zen"
     #./app/distrobox
 
     "/wm/${settings.wm}"
