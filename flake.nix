@@ -137,7 +137,7 @@
             git-email = vars.git-email;
             wm = "hyprland";
             dm = "tuigreet";
-            theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            theme = "catppuccin-macchiato"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/purple-landscape.jpeg;
             reThemeWall = true;
             loc = vars.loc;

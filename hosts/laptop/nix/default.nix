@@ -16,6 +16,9 @@
     description = settings.name;
     extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" ];
   };
+  boot.blacklistedKernelModules = [ 
+    "ipu3_imgu"
+  ]; 
 
   networking = {
     hostName = "laptop"; # Define your hostname.

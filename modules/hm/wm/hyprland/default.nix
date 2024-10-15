@@ -116,7 +116,7 @@ in{
 
         gestures = {
             workspace_swipe = true;
-            #workspace_swipe_touch = true;
+            workspace_swipe_touch = true;
         };
 
         misc = {
@@ -218,6 +218,9 @@ in{
             "SUPER,mouse_down,workspace,e+1"
             "SUPER,mouse_up,workspace,e-1"
             "SUPER,f4,exec,hyprctl kill"
+        ];
+        bindl = [
+          ",switch:on:lid,exec,swaylock"
         ];
     };
     extraConfig = ''

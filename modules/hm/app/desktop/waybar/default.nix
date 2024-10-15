@@ -39,6 +39,15 @@ let
       on-click = "baobab";
       on-click-right = "gnome-disks";
     };
+    battery = {
+      format = "{capacity}% {icon}";
+      states = {
+        "warning" = 30;
+        "critical" = 15;
+      };
+      format-icons = ["" "" "" "" ""];
+      
+    };
     "hyprland/workspaces" = {
       format = "{icon}";
       on-click = "activate";
