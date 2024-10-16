@@ -1,4 +1,4 @@
-{ config, pkgs, settings, lib, ... }:
+{ config, pkgs, settings, lib, osConfig, ... }:
 let
   colours = config.lib.stylix.colors;
   moduleConfig = {
@@ -52,7 +52,7 @@ let
       format = "{icon}";
       on-click = "activate";
       persistent-workspaces = {
-        HDMI-A-1 = [ 1 2 3 4 5 ];
+        "*" = [ 1 2 3 4 5 ];
         DP-2 = [ 6 7 8 9 10 ];
       };
       format-icons = {
@@ -72,10 +72,13 @@ in{
         layer = "top";
         position = "top";
         output = "!DP-2";
-        modules-left = [ "hyprland/workspaces" ];
+        
+        modules-left = let
+          extraModules = if osConfig.networking.hostName == "laptop" then [ "battery" ] else [];
+        in [ "hyprland/workspaces" ] ++ extraModules;
         modules-center = [ "clock" ];
         modules-right = [ "wireplumber" "network" "disk" "cpu" "memory" "tray"];
-        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces";
+        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces" battery;
       };
 
       rightBar = {
