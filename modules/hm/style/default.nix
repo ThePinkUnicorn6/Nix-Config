@@ -1,8 +1,6 @@
 { config, lib, pkgs, settings, ... }:
 let
   theme = "${pkgs.base16-schemes}/share/themes/${settings.theme}.yaml";
- # Reads the variant string from and writes it to a file called polarity. It then reads the value of that file to get the value as a string.
-  polarity = (builtins.readFile "${(pkgs.runCommand "getPolarity" {} "${pkgs.yq}/bin/yq -r .variant ${theme} >> $out")}");
   # Location of the wallpaper set in settings.
   wallfile = settings.wallpaper;
   # Use imageMagic to change the colours if the image to use the colour scheme.
@@ -59,7 +57,7 @@ in
     enable = true;
     image = wallpaper;
     base16Scheme = theme;
-    polarity = if "${polarity}" == "light" then "light" else "dark"; # Funky indented string things mean this is the only way I could get this to work
+    polarity = "dark";
     fonts.sizes = {
       terminal = 12;
       applications = 12;

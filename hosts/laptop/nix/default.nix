@@ -36,6 +36,7 @@
       layout = "gb";
       variant = "";
     };
+    iptsd.config.Touchscreen.DisableOnPalm = true;
     
     flatpak.enable = true;
     openssh.enable = true;
