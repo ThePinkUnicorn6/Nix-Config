@@ -1,5 +1,7 @@
 { pkgs, lib, settings, osConfig, inputs, ... }:
 let
+  isLaptop = (osConfig.networking.hostName == "laptop");
+  isDesktop = (osConfig.networking.hostName == "desktop");
   run-package = (pkgs.writeScriptBin "run-package" "PKG=$(fuzzel -d -l 0) && nix run nixpkgs#$PKG || notify-send \"Failed to run package: $PKG\"");
 in{
   imports = [ 
@@ -45,18 +47,19 @@ in{
     enable = true;
     xwayland = { enable = true; };
     systemd.enable = true;
-    plugins = [
+    plugins = if isLaptop then [
       inputs.hyprgrass.packages.${pkgs.system}.default
-    ];
+    ] else [];
+    package = if isLaptop then inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland else pkgs.hyprland;
     settings = {
-        monitor = if (osConfig.networking.hostName == "desktop") then [
+        monitor = if isDesktop then [
             "HDMI-A-1,preferred,0x770,1"
             "DP-2,preferred,auto-left,1"
             "DP-2,transform,1"
         ] else [];
 
         # Workspace monitor binding
-        workspace =  if (osConfig.networking.hostName == "desktop") then [
+        workspace =  if isDesktop then [
             "1,monitor:HDMI-A-1"
             "2,monitor:HDMI-A-1"
             "3,monitor:HDMI-A-1"
