@@ -41,12 +41,13 @@ let
     };
     battery = {
       format = "{capacity}% {icon}";
+      format-charging = "{capacity)% 󱐥";
       states = {
         "warning" = 30;
         "critical" = 15;
       };
+      interval = 5;
       format-icons = ["" "" "" "" ""];
-      
     };
     "hyprland/workspaces" = {
       format = "{icon}";

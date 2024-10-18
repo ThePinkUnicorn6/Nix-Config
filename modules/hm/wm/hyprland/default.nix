@@ -1,6 +1,6 @@
-{ pkgs, lib, settings, osConfig, ... }:
+{ pkgs, lib, settings, osConfig, inputs, ... }:
 let
-    run-package = (pkgs.writeScriptBin "run-package" "PKG=$(fuzzel -d -l 0) && nix run nixpkgs#$PKG || notify-send \"Failed to run package: $PKG\"");
+  run-package = (pkgs.writeScriptBin "run-package" "PKG=$(fuzzel -d -l 0) && nix run nixpkgs#$PKG || notify-send \"Failed to run package: $PKG\"");
 in{
   imports = [ 
     ../wayland
@@ -45,6 +45,9 @@ in{
     enable = true;
     xwayland = { enable = true; };
     systemd.enable = true;
+    plugins = [
+      inputs.hyprgrass.packages.${pkgs.system}.default
+    ];
     settings = {
         monitor = if (osConfig.networking.hostName == "desktop") then [
             "HDMI-A-1,preferred,0x770,1"
@@ -222,6 +225,16 @@ in{
         bindl = [
           ",switch:on:lid,exec,swaylock"
         ];
+        "plugin:touch" = {
+          sensitivity = "4.0";
+        };
+        "plugin:touch_gestures" = {
+          hyprgrass-bind = [
+            ", swipe:3:u, exec, fuzzel"
+            ", edge:r:l, workspace, +1"
+            ", longpress:3, resizewindow"
+          ];
+        };
     };
     extraConfig = ''
         # Fix Steam

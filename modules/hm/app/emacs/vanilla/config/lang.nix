@@ -20,7 +20,6 @@
       # Languages
       nix-mode
       nix-ts-mode
-#      lsp-nix # Sort out nix lsp later
       
       rust-mode
       flycheck-rust
@@ -29,9 +28,21 @@
       flycheck-plantuml
     ];
 
-    extraConfig = ''
-    (require 'lsp-mode)
-    (add-hook 'prog-mode-hook #'lsp)
+    extraConfig = '' 
+    (use-package lsp-mode
+      :ensure t)
+
+    (use-package lsp-nix
+      :ensure lsp-mode
+      :after (lsp-mode)
+      :demand t
+      :custom
+      (lsp-nix-nil-formatter ["nixfmt"]))
+      (setq lsp-nix-nil-auto-eval-inputs f)
+
+    (use-package nix-mode
+      :hook (nix-mode . lsp-deferred)
+      :ensure t)
 
     ;; Plantuml config
     (setq plantuml-executable-path "${pkgs.plantuml}/bin/plantuml")

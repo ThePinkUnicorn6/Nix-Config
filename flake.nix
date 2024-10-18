@@ -26,6 +26,14 @@
       url = "git+ssh://git@github.com/ThePinkUnicorn6/nix-settings?ref=main";
       flake = true;
     };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprgrass = {
+      url = "github:horriblename/hyprgrass";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
   outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, comin, stylix, musnix, secrets, ... }:
     let
