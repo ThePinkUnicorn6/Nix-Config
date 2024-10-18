@@ -38,7 +38,7 @@
       :demand t
       :custom
       (lsp-nix-nil-formatter ["nixfmt"]))
-      (setq lsp-nix-nil-auto-eval-inputs f)
+      (setq lsp-nix-nil-auto-eval-inputs nil)
 
     (use-package nix-mode
       :hook (nix-mode . lsp-deferred)

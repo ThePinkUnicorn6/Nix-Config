@@ -28,7 +28,6 @@
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprgrass = {
       url = "github:horriblename/hyprgrass";
