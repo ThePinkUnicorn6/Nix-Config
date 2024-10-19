@@ -16,7 +16,10 @@ let
       biblatex
       mdframed
       boites
-      minted;
+      minted
+      
+      # Fonts
+      helvetic;
   });
 in
 {

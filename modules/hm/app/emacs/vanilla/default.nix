@@ -8,6 +8,7 @@
     "/vertico.nix"
     "/roam.nix"
     "/lang.nix"
+    "/org.nix"
     "/navigation-keybinds.nix"
   ]);
   programs.emacs = {
@@ -15,7 +16,6 @@
       use-package
       treemacs
       bind-key
-      org-superstar
     ];
 
     extraConfig = /*lisp*/ ''
@@ -28,12 +28,6 @@
       (global-display-line-numbers-mode 1)
       (setq display-line-numbers-type 'relative)
       (setq standard-indent 2)
-
-      ;; Org
-      (require 'org-superstar)
-          (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-      (setq
-          org-superstar-headline-bullets-list '("•"))
     '';
   };  
 }

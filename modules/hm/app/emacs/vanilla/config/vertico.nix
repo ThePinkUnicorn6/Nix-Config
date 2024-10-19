@@ -4,6 +4,7 @@
   programs.emacs = {
     extraPackages = epkgs: with epkgs; [
       vertico
+      orderless
     ];
 
     extraConfig = ''
@@ -20,6 +21,10 @@
                ("DEL" . vertico-directory-delete-word))
    ;; Tidy shadowed file names
    :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+
+(require 'orderless)
+(setq completion-styles '(orderless basic)
+      completion-category-overrides '((file (styles basic partial-completion))))
 
 (use-package emacs
   :custom

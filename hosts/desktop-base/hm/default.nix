@@ -16,5 +16,8 @@
     syncthing
     syncthingtray
     python3
+
+    # Fonts
+    arkpandora_ttf
   ];
 }
