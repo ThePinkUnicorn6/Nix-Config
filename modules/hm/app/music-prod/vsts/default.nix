@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    surge-XT
-    helm
+#    surge-XT
+#    helm
     vital
     cardinal
     drumgizmo
