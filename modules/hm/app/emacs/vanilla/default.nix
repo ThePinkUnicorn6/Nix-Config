@@ -15,6 +15,7 @@
       use-package
       treemacs
       bind-key
+      org-superstar
     ];
 
     extraConfig = /*lisp*/ ''
@@ -29,6 +30,8 @@
       (setq standard-indent 2)
 
       ;; Org
+      (require 'org-superstar)
+          (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
       (setq
           org-superstar-headline-bullets-list '("•"))
     '';
