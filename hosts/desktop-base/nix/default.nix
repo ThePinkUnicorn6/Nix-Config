@@ -48,7 +48,7 @@
     nssmdns4 = true;
     openFirewall = true;
   };
-
+  nix.settings.trusted-users = [ "root" settings.username ];
   # Packages
   environment.systemPackages = with pkgs; [
     openssl
