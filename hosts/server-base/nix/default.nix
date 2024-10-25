@@ -2,7 +2,6 @@
 {
   imports = [
     ../../base/nix
-    ../../../modules/nix/services/comin
   ];
   networking = {
     hostName = lib.mkDefault "nixos-server"; # Define your hostname.

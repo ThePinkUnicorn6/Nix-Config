@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    comin = {
-      url = "github:nlewo/comin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix.url = "github:danth/stylix";
     musnix.url = "github:musnix/musnix";
     firefox-addons = {
@@ -34,7 +30,7 @@
       inputs.hyprland.follows = "hyprland";
     };
   };
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, comin, stylix, musnix, secrets, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, stylix, musnix, secrets, ... }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -115,7 +111,6 @@
         in lib.nixosSystem {
           modules = [
             ./hosts/beta/nix
-            comin.nixosModules.comin
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
