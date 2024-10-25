@@ -25,7 +25,7 @@
     "/app/llm/ollama"
     "/app/desktop/gammastep"
     "/app/fido2"
-#    "/app/calibre"
+    "/app/calibre"
     #./app/distrobox
 
     "/wm/${settings.wm}"
