@@ -19,10 +19,12 @@
 (setq org-latex-default-class "org-article")
 
 ;; Styling
-(require 'org-superstar)
+(with-eval-after-load 'org-superstar
     (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-(setq
-    org-superstar-headline-bullets-list '("•"))
+    (setq org-superstar-headline-bullets-list '("•")))
+(with-eval-after-load 'org       
+  (setq org-startup-indented t) ; Enable `org-indent-mode' by default
+  (add-hook 'org-mode-hook #'visual-line-mode))
 
 ;; Writeroom
 (setq writeroom-width 120)

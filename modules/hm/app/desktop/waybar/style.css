@@ -93,7 +93,7 @@ tooltip {
     color: @base00;
     background: @base0F
 }
-#battery.warning {
+#battery.critical {
     color: @base00;
     background: @base08;
 }
@@ -101,3 +101,4 @@ tooltip {
 #tray {
     background: @base0F;
 }
+
