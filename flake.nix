@@ -68,8 +68,8 @@
             wm = "hyprland";
             dm = "tuigreet";
             theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/purple-landscape.jpeg;
-            reThemeWall = true;
+            wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
+            reThemeWall = false;
             loc = vars.loc;
           };
         in lib.nixosSystem {
