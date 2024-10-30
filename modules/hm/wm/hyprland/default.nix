@@ -39,7 +39,6 @@ in{
         esac
     '')
   ];
-  services.copyq.enable = true;
   programs.swaylock.enable = true;
 
   # Hyprland Config
