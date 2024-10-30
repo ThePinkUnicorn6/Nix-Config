@@ -64,7 +64,7 @@
         '("\\.org\\'" . "Org skeleton")
         '("Template for a default org mode document"
         "#+TITLE: " _
-        \n\n
+        \n \n
         "* ")))
     '';
   };  

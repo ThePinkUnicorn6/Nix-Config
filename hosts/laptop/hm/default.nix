@@ -39,6 +39,7 @@
   #services.syncthing.tray.enable = true;
   home.packages = with pkgs; [
     # System
+    brightnessctl
     baobab
     gnome-disk-utility
     nautilus
