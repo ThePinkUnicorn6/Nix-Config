@@ -141,7 +141,7 @@ in{
         "ollama serve"
         "sleep 10 && aw-qt"
 
-        "[workspace 1 silent] zen"
+        "[workspace 1 silent] sleep 3 && zen"
       ];
       # Window rules
       windowrule = [
