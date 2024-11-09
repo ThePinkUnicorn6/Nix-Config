@@ -17,6 +17,7 @@ let
       mdframed
       boites
       minted
+      adjustbox
       
       # Fonts
       helvetic;

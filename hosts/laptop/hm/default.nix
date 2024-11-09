@@ -67,8 +67,7 @@
     # Photo
     loupe
     gthumb
-    #ansel
-
+    
     # Audio
     g4music
 
@@ -76,6 +75,9 @@
     whatsapp-for-linux
     #discord
 
+    # Uni
+    ciscoPacketTracer8
+    
     # Other
     pandoc
   ];

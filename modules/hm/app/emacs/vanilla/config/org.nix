@@ -13,7 +13,7 @@
 (add-to-list 'org-latex-classes
    '("org-article"
      "\\documentclass{article}
-      \\usepackage[reset, a4paper, height=9in, width=6in, hmarginratio=1:1, vmarginratio=1:1, marginparsep=0pt, marginparwidth=0pt, headheight=15pt]{geometry}
+      \\usepackage[reset, a4paper, left=1.25in, right=1.25in, top=1in, bottom=1in]{geometry}
       \\usepackage{lmodern}")
 ))
 (setq org-latex-default-class "org-article")

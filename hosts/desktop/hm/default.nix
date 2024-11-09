@@ -67,7 +67,7 @@
     vlc
     delfin
     freetube
-    blender
+    #blender
 
     # Photo
     loupe
@@ -84,7 +84,10 @@
 
     # Games
     prismlauncher
-
+    
+    # Uni
+    ciscoPacketTracer8
+    
     # Other
     pandoc
     activitywatch

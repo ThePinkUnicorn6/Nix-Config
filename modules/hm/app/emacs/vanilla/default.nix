@@ -16,6 +16,7 @@
       use-package
       treemacs
       bind-key
+      pdf-tools
     ];
 
     extraConfig = /*lisp*/ ''
