@@ -7,6 +7,7 @@
     "/polkit"
     "/dm/${settings.dm}"
     "/camera"
+    "/hardware/rtl-sdr"
   ]);
 
   # Enable networking
@@ -48,6 +49,7 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+  
   nix.settings.trusted-users = [ "root" settings.username ];
   # Packages
   environment.systemPackages = with pkgs; [
