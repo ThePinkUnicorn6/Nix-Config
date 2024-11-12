@@ -100,7 +100,7 @@ in{
         inactive_opacity = 0.9;
         fullscreen_opacity = 1;
         shadow = {
-          enable = true;
+          enabled = true;
           range = 30;
           render_power = 3;
         };
