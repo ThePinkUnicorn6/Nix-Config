@@ -77,7 +77,8 @@
     # Audio
     g4music
     mpris-scrobbler
-
+    gqrx
+    
     # Chat
     whatsapp-for-linux
     #discord
