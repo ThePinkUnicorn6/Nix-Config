@@ -99,9 +99,11 @@ in{
         active_opacity = 0.95;
         inactive_opacity = 0.9;
         fullscreen_opacity = 1;
-        drop_shadow = true;
-        shadow_range = 30;
-        shadow_render_power = 3;
+        shadow = {
+          enable = true;
+          range = 30;
+          render_power = 3;
+        };
       };
 
       animations = {
