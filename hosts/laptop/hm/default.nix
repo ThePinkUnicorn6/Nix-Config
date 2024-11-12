@@ -70,6 +70,7 @@
     
     # Audio
     g4music
+    gqrx
 
     # Chat
     whatsapp-for-linux
