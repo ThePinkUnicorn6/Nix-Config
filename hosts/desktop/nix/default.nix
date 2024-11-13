@@ -35,15 +35,23 @@
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
     };
+    wivrn = {
+      enable = true;
+      openFirewall = true;
+      autoStart = false;
+      defaultRuntime = true;
+      config = {
+        enable = true;
+        json = {
+          application = [ pkgs.wlx-overlay-s ];
+        };
+      };
+    };
     flatpak.enable = true;
     openssh.enable = true;
   };
   programs = {
     steam.enable = true;
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
   };
   fileSystems."/home/${settings.username}/shared-files" = {
     device = "/dev/nvme0n1p4";
