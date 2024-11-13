@@ -12,7 +12,7 @@
     "/wm/xfce.nix"
     "/style"
     "/app/fido2"
-    /services/vr
+#    /services/vr
   ]);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
