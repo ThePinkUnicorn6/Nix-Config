@@ -6,7 +6,7 @@
   ]++
   (map (m: ../../../modules/nix + m) [
     "/wm/${settings.wm}.nix"
-    "/wm/xfce.nix"
+    #"/wm/xfce.nix"
     "/style"
     "/app/fido2"
     "/services/kanata"
