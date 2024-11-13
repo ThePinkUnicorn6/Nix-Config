@@ -12,6 +12,7 @@
     "/wm/xfce.nix"
     "/style"
     "/app/fido2"
+    /services/vr
   ]);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -35,18 +36,7 @@
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
     };
-    wivrn = {
-      enable = true;
-      openFirewall = true;
-      autoStart = false;
-      defaultRuntime = true;
-      config = {
-        enable = true;
-        json = {
-          application = [ pkgs.wlx-overlay-s ];
-        };
-      };
-    };
+
     flatpak.enable = true;
     openssh.enable = true;
   };
