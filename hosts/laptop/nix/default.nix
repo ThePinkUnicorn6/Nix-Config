@@ -6,9 +6,10 @@
   ]++
   (map (m: ../../../modules/nix + m) [
     "/wm/${settings.wm}.nix"
+    "/wm/xfce.nix"
     "/style"
     "/app/fido2"
-    "/services/kanata"
+#    "/services/kanata"
   ]);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
