@@ -42,6 +42,10 @@
   };
   programs = {
     steam.enable = true;
+    envision = {
+      enable = true;
+      openFirewall = true;
+    };
   };
   fileSystems."/home/${settings.username}/shared-files" = {
     device = "/dev/nvme0n1p4";
