@@ -40,6 +40,7 @@
     flatpak.enable = true;
     openssh.enable = true;
   };
+  hardware.steam-hardware.enable = true;
   programs = {
     steam.enable = true;
   };
