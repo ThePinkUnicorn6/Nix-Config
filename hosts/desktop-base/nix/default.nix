@@ -8,6 +8,7 @@
     "/dm/${settings.dm}"
     "/camera"
     "/hardware/rtl-sdr"
+    /app/fido2
   ]);
 
   # Enable networking

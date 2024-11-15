@@ -10,6 +10,7 @@
     "/app/git"
     "/app/shell/kitty"
     "/app/browser/zen"
+    /app/fido2
   ]);
 
   home.packages = with pkgs; [
