@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     nil
+    pyright
   ];
   programs.emacs = {
     extraPackages = epkgs: with epkgs; [
@@ -20,6 +21,8 @@
       # Languages
       nix-mode
       nix-ts-mode
+
+      lsp-pyright
       
       rust-mode
       flycheck-rust
@@ -40,6 +43,13 @@
       (lsp-nix-nil-formatter ["nixfmt"]))
       (setq lsp-nix-nil-auto-eval-inputs nil)
 
+    (use-package lsp-pyright
+       :ensure t
+       :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
+       :hook (python-mode . (lambda ()
+                              (require 'lsp-pyright)
+                              (lsp))))  ; or lsp-deferred
+                          
     (use-package nix-mode
       :hook (nix-mode . lsp-deferred)
       :ensure t)
