@@ -49,7 +49,7 @@ in{
     plugins = if isLaptop then [
       inputs.hyprgrass.packages.${pkgs.system}.default
     ] else [];
-    package = if isLaptop then inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland else pkgs.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       monitor = if isDesktop then [
         "HDMI-A-1,preferred,0x770,1"
@@ -177,7 +177,7 @@ in{
         "SUPERSHIFT,E,exec,power-menu"
         "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""
         "SUPER,Y,exec,freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\""
-        "CTRL_SHIFT,escape,exec,${pkgs.mission-center}/bin/missioncenter"
+     #   "CTRL_SHIFT,escape,exec,${pkgs.mission-center}/bin/missioncenter"
         "SUPER,X,exec,${pkgs.wl-kbptr}/bin/wl-kbptr"
         
         # Screenshots

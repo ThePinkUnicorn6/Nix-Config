@@ -74,7 +74,6 @@ in
       alacritty.enable = false;
       vscode.enable = false;
       emacs.enable = false;
-      hyprland.enable = false;
     };
 
     fonts = {

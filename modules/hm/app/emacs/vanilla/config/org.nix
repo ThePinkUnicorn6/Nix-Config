@@ -18,6 +18,14 @@
 ))
 (setq org-latex-default-class "org-article")
 
+;; Citing
+(setq org-cite-export-processors '((t csl)))
+(setq org-cite-csl-styles-dir "bundled-styles-master")s
+
+(org-cite-export-processors
+ '((t . (csl "harvard-cite-them-right.csl"))))      ; Fallback
+
+
 ;; Styling
 (require 'org-superstar)
     (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
@@ -30,4 +38,7 @@
 (setq writeroom-width 120)
 '';
   };
+
+  # Download refrence styles
+  
 }

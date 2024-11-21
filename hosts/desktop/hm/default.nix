@@ -51,7 +51,7 @@
     jdk17
     gcc
     du-dust
-    mission-center
+#    mission-center
  
     # Wine
     wine
@@ -59,7 +59,7 @@
 
     # Text
     gnome-text-editor
-    libreoffice-fresh
+    libreoffice
     hunspell
     hunspellDicts.en_GB-ise
 

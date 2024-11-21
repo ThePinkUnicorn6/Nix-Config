@@ -47,10 +47,10 @@
           name = "nixpkgs-patched-${nixpkgs.shortRev}";
           src = nixpkgs;
           patches = [
-            (pkgs.fetchpatch {
-              url = "https://github.com/NixOS/nixpkgs/commit/df4f16e2b2c4dfccf3081961095a537f0e37a558.patch";
-              sha256 = "";
-            })
+            # (pkgs.fetchpatch {
+            #   url = "https://github.com/NixOS/nixpkgs/commit/df4f16e2b2c4dfccf3081961095a537f0e37a558.patch";
+            #   sha256 = "";
+            # })
           ];
         };
       in import patchedPkgs { inherit system; });
