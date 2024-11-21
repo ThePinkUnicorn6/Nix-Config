@@ -23,12 +23,8 @@ in{
 (setq org-latex-default-class "org-article")
 
 ;; Citing
-(setq org-cite-export-processors '((t csl)))
+(setq org-cite-export-processors '((t csl "harvard-cite-them-right.csl")))
 (setq org-cite-csl-styles-dir "${styles}")
-
-(org-cite-export-processors
- '((t . (csl "harvard-cite-them-right.csl"))))
-
 
 ;; Styling
 (require 'org-superstar)

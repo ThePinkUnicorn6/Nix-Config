@@ -89,6 +89,7 @@
     
     # Uni
     ciscoPacketTracer8
+    zotero
     
     # Other
     pandoc
