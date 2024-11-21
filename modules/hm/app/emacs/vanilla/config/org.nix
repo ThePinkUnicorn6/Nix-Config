@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
-
-{
+let
+  styles = builtins.fetchGit {
+    url = "https://github.com/zotero/bundled-styles";
+    rev = "a653811f3eaa0e9d849ab6019493c7b8867fc96f";
+  };
+in{
   programs.emacs = {
     extraPackages = epkgs: with epkgs; [
       org-superstar
@@ -20,10 +24,10 @@
 
 ;; Citing
 (setq org-cite-export-processors '((t csl)))
-(setq org-cite-csl-styles-dir "bundled-styles-master")s
+(setq org-cite-csl-styles-dir "${styles}")
 
 (org-cite-export-processors
- '((t . (csl "harvard-cite-them-right.csl"))))      ; Fallback
+ '((t . (csl "harvard-cite-them-right.csl"))))
 
 
 ;; Styling
@@ -38,7 +42,4 @@
 (setq writeroom-width 120)
 '';
   };
-
-  # Download refrence styles
-  
 }
