@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+#    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,13 +21,6 @@
     secrets = {
       url = "git+ssh://git@github.com/ThePinkUnicorn6/nix-settings?ref=main";
       flake = true;
-    };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
-    hyprgrass = {
-      url = "github:horriblename/hyprgrass";
-      inputs.hyprland.follows = "hyprland";
     };
   };
   outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, stylix, musnix, secrets, ... }:
@@ -148,7 +141,6 @@
           modules = [
             ./hosts/laptop/nix
             stylix.nixosModules.stylix
-            nixos-hardware.nixosModules.microsoft-surface-pro-intel
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

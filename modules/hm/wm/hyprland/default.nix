@@ -46,10 +46,6 @@ in{
     enable = true;
     xwayland = { enable = true; };
     systemd.enable = true;
-    plugins = if isLaptop then [
-      inputs.hyprgrass.packages.${pkgs.system}.default
-    ] else [];
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       monitor = if isDesktop then [
         "HDMI-A-1,preferred,0x770,1"

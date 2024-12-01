@@ -38,7 +38,7 @@
       layout = "gb";
       variant = "";
     };
-    iptsd.config.Touchscreen.DisableOnPalm = true;
+#    iptsd.config.Touchscreen.DisableOnPalm = true;
     
     flatpak.enable = true;
     openssh.enable = true;
@@ -50,7 +50,7 @@
     enable = true;
     powerOnBoot = true;
   };
-  services.blueman.enable = true;
+#  services.blueman.enable = true;
   system.stateVersion = "24.05"; 
 }
 
