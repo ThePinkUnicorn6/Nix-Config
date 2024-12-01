@@ -77,7 +77,7 @@
     #discord
 
     # Uni
-    ciscoPacketTracer8
+#    ciscoPacketTracer8
     
     # Other
     pandoc
