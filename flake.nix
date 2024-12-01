@@ -208,7 +208,7 @@
 gh auth login || true
 git clone https://github.com/thepinkunicorn6/nix-config ~/nix
 read -r -p "Enter name of flake config to use: " hostname
-nixos-rebuild switch --flake ~/nix#"$hostname"
+nixos-rebuild switch --flake ~/nix#"$hostname" --use-remote-sudo
 '';
           };
         });
