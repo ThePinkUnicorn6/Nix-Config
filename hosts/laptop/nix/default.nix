@@ -18,19 +18,19 @@
     description = settings.name;
     extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" "uinput" ];
   };
-  boot.blacklistedKernelModules = [ 
-    "ipu3_imgu"
-  ]; 
+#  boot.blacklistedKernelModules = [ 
+#    "ipu3_imgu"
+#  ]; 
 
   networking = {
     hostName = "laptop"; # Define your hostname.
   };
   nix.settings.trusted-users = [ "root" settings.username ];
 
-  fileSystems."/home/${settings.username}/shared-files" = {
-    device = "/dev/nvme0n1p4";
-    fsType = "ntfs";
-  };
+#  fileSystems."/home/${settings.username}/shared-files" = {
+#    device = "/dev/nvme0n1p4";
+#    fsType = "ntfs";
+#  };
   
   # Configure keymap in X11
   services = {
@@ -51,6 +51,6 @@
     powerOnBoot = true;
   };
 #  services.blueman.enable = true;
-  system.stateVersion = "24.05"; 
+  system.stateVersion = "24.11"; 
 }
 
