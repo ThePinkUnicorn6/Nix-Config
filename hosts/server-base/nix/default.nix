@@ -9,7 +9,7 @@
       allowedTCPPorts = [];
     };
   };
-
+  powerManagement.powertop.enable = true;
   services = {
     tailscale = {
       enable = true;

@@ -39,6 +39,7 @@ Host builder
   IdentitiesOnly yes
   IdentityFile /root/.ssh/id_builder
   '';
+  nix.settings.trusted-users = [ "root" settings.username ];
   # Services
   services.caddy = {
     enable = true;
