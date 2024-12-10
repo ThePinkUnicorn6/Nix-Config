@@ -1,10 +1,9 @@
 { pkgs, ... }:
 {
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Inconsolata" ]; })
+    nerd-fonts.inconsolata
     powerline
     inconsolata
-    inconsolata-nerdfont
     iosevka
     font-awesome
     ubuntu_font_family
