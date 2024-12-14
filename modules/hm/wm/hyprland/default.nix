@@ -146,8 +146,8 @@ in{
         "workspace 6,discord"
         "monitor 0,WebCord"
         "workspace 6,WebCord"
-        "monitor 0,whatsapp"
-        "workspace 6,whatsapp"
+        "monitor 0,whasistlos"
+        "workspace 6,wasistlos"
 
         "float,com.usebottles.bottles"
       ];

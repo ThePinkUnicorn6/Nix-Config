@@ -1,13 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    wlx-overlay-s
-  ];
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock.enable = true;
+  };
   services.wivrn = {
     enable = true;
     openFirewall = true;
-
+  
     # Write information to /etc/xdg/openxr/1/active_runtime.json, VR applications
     # will automatically read this and work with WiVRn (Note: This does not currently
     # apply for games run in Valve's Proton)
@@ -20,6 +21,7 @@
     config = {
       enable = true;
       json = {
+        application = "wlx-overlay-s";
         # 1.0x foveation scaling
         scale = 1.0;
         # 100 Mb/s

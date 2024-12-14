@@ -12,7 +12,8 @@
     "/wm/xfce.nix"
     "/style"
     "/app/fido2"
-    /services/vr/wivrn
+    /services/vr/alvr
+#    /services/vr/envision
   ]);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
