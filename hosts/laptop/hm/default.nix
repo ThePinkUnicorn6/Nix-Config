@@ -45,7 +45,7 @@
     nautilus
     file-roller
     du-dust
-#    mission-center
+    mission-center
  
     # Wine
     wine

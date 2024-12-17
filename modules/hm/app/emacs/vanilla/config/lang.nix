@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     nil
     pyright
+    rust-analyzer
   ];
   programs.emacs = {
     extraPackages = epkgs: with epkgs; [
@@ -26,6 +27,7 @@
       
       rust-mode
       flycheck-rust
+      
       
       plantuml-mode
       flycheck-plantuml
@@ -52,6 +54,10 @@
                           
     (use-package nix-mode
       :hook (nix-mode . lsp-deferred)
+      :ensure t)
+
+    (use-package rust-mode
+      :hook (rust-mode . lsp-deferred)
       :ensure t)
 
     ;; Plantuml config

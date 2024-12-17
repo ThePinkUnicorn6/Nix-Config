@@ -51,7 +51,7 @@
     jdk17
     gcc
     du-dust
-#    mission-center
+    mission-center
  
     # Wine
     wine
