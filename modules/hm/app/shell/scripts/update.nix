@@ -50,6 +50,7 @@
           git commit -am "$msg";;
 	  
       	"remote-test")
+          git add -A
           echo "Testing config $3 on machine $2"
           nixos-rebuild test --flake .#"$3" --target-host $2 --use-remote-sudo --log-format internal-json -v |& ${pkgs.nix-output-monitor}/bin/nom --json;;
 	

@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./syncthing.nix
+    ./borgmatic.nix
     ../../server-base/nix
     ../../../modules/nix/gpu/intel-igpu
   ]++

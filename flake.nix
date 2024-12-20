@@ -96,6 +96,7 @@
             name = vars.name;
             personal-email = vars.personal-email;
             git-email = vars.git-email;
+            passwords = vars.passwords;
             domainName = "home.lan";
             tailscaleIP = "100.100.212.90";
             dataDir = "/drive/data";

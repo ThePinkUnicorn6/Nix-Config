@@ -93,7 +93,6 @@
     
     # Other
     pandoc
-    activitywatch
     microcom
     flowtime
     picard
