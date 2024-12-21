@@ -9,7 +9,7 @@ in{
   ];
   services.immich = {
     enable = true;
-    host = "100.100.212.90";
+    host = "0.0.0.0";
     openFirewall = true;
     port = 3002;
     mediaLocation = "${settings.mediaDir}/Photos/immich";
@@ -17,7 +17,7 @@ in{
   services.postgresql.dataDir = "${settings.dataDir}/postgresql";
   services.caddy = {
     virtualHosts."http://photos.home.lan".extraConfig = ''
-      reverse_proxy http://100.100.212.90:3002
+      reverse_proxy http://127.0.0.1:3002
     '';
   };  
   # containers.immich = {
