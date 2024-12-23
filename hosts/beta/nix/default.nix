@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./syncthing.nix
     ./borgmatic.nix
+    ./tunnels.nix
     ../../server-base/nix
     ../../../modules/nix/gpu/intel-igpu
   ]++
