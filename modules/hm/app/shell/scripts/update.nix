@@ -18,6 +18,16 @@
         "history")
           git log -p $2;;
 
+        "commit")
+          git add -A
+          read -rp "Enter commit message (leave blank for generation number): " msg
+
+          # If the user has entered no commit message, generate it.
+          if ! [[ -n "$msg" ]]; then
+            msg=$(nixos-rebuild list-generations | grep current)
+          fi
+          git commit -am "$msg";;
+	  
         "push")
           echo "Pushing to Origin..."
           git push origin main;;
