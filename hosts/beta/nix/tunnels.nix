@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  systemd.user.services."immich-tunnel-to-dietpi" = {
+  systemd.services."immich-tunnel-to-dietpi" = {
     enable = true;
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
