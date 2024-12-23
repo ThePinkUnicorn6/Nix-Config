@@ -8,7 +8,7 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "simple";
-      ExecStart = ''${pkgs.openssh}/bin/ssh -N -R 0.0.0.0:80:localhost:3002 dietpi@dietpi'';
+      ExecStart = ''${pkgs.openssh}/bin/ssh -N -R 0.0.0.0:80:localhost:3002 dietpi@100.119.57.79'';
     };
   };
 }
