@@ -3,7 +3,8 @@
 {
   systemd.services."immich-tunnel-to-dietpi" = {
     enable = true;
-    after = [ "network.target" ];
+    requires = [ "tailscaled.service" "network-online.target" ];
+    after = [ "tailscaled.service" "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "simple";
