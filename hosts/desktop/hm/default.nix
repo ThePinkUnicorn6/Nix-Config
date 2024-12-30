@@ -86,6 +86,7 @@
 
     # Games
     prismlauncher
+    r2modman
     
     # Uni
     ciscoPacketTracer8
