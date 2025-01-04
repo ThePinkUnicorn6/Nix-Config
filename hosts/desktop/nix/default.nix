@@ -13,6 +13,7 @@
     "/style"
     "/app/fido2"
     /services/vr/alvr
+    /hardware/openrgb
 #    /services/vr/envision
   ]);
 
