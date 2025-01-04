@@ -33,11 +33,6 @@
       layout = "gb";
       variant = "";
     };
-    hardware.openrgb = {
-      enable = true;
-      package = pkgs.openrgb-with-all-plugins;
-    };
-
     flatpak.enable = true;
     openssh.enable = true;
   };
@@ -49,6 +44,9 @@
     device = "/dev/nvme0n1p4";
     fsType = "ntfs";
   };
+  environment.systemPackages = with pkgs; [
+    
+  ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
 }
