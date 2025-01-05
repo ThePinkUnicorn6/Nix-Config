@@ -2,7 +2,7 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
-      openrgb-new = (prev.openrgb.overrideAttrs (oldAttrs: {
+      openrgb = (prev.openrgb.overrideAttrs (oldAttrs: {
         src = pkgs.fetchFromGitLab {
           owner = "CalcProgrammer1";
           repo = "OpenRGB";
