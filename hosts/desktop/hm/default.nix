@@ -89,7 +89,6 @@
     r2modman
     
     # Uni
-    ciscoPacketTracer8
     zotero
     
     # Other

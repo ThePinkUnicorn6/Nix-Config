@@ -1,17 +1,22 @@
 { config, lib, pkgs, ... }:
 {
-  nixpkgs.overlays = with pkgs; [
+  nixpkgs.overlays = [
     (final: prev: {
-      openrgb = (prev.openrgb.overrideAttrs (oldAttrs: {
+      openrgb = (prev.openrgb.overrideAttrs {
         patches = [ ./nzxt_f120_core_fan.patch ];
-      }));
+      });
+      openrgb-with-all-plugins = final.openrgb.withPlugins [
+        final.openrgb-plugin-effects
+        final.openrgb-plugin-hardwaresync
+        (final.libsForQt5.callPackage ./visualmap { })
+      ];
     })
   ];
   services.hardware.openrgb = {
     enable = true;
     package = pkgs.openrgb-with-all-plugins;
   };
-  environment.systemPackages = with pkgs; [
-    openrgb-with-all-plugins
+  environment.systemPackages = [
+    pkgs.openrgb-with-all-plugins
   ];
 }

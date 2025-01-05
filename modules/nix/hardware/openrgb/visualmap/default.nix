@@ -1,0 +1,51 @@
+{
+  lib,
+  stdenv,
+  fetchFromGitLab,
+  qtbase,
+  openrgb,
+  glib,
+  openal,
+  qmake,
+  pkg-config,
+  wrapQtAppsHook,
+}:
+
+stdenv.mkDerivation (finalAttrs: {
+  pname = "openrgb-plugin-visual-map";
+  version = "0.9";
+
+  src = fetchFromGitLab {
+    owner = "OpenRGBDevelopers";
+    repo = "OpenRGBVisualMapPlugin";
+    rev = "release_${finalAttrs.version}";
+    hash = "sha256-xs+n39zT3ypn7itucRccxsxSvF/HtzSZETIFZwbPbMQ=";
+    fetchSubmodules = true;
+  };
+
+  postPatch = ''
+    # Use the source of openrgb from nixpkgs instead of the submodule
+    rm -r OpenRGB
+    ln -s ${openrgb.src} OpenRGB
+  '';
+
+  nativeBuildInputs = [
+    qmake
+    pkg-config
+    wrapQtAppsHook
+  ];
+
+  buildInputs = [
+    qtbase
+    glib
+    openal
+  ];
+
+  meta = with lib; {
+    homepage = "https://gitlab.com/OpenRGBDevelopers/OpenRGBVisualMapPlugin";
+    description = "Visual Map plugin for OpenRGB";
+    license = licenses.gpl2Plus;
+    maintainers = with maintainers; [ ThePinkUnicorn ];
+    platforms = platforms.linux;
+  };
+})
