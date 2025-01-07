@@ -137,7 +137,7 @@ in{
         "sleep 5 && emacs --daemon"
         "ollama serve"
         "sleep 10 && aw-qt"
-
+        "openrgb --startminimized"
         "[workspace 1 silent] sleep 3 && zen"
       ];
       # Window rules
