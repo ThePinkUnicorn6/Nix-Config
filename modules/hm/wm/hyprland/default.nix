@@ -136,8 +136,8 @@ in{
         #"hyprpaper"
         "sleep 5 && emacs --daemon"
         "ollama serve"
-        "sleep 7 && openrgb --startminimized"
-        "[workspace 1 silent] sleep 7 && zen"
+        "sleep 3 && openrgb --startminimized"
+        "[workspace 1 silent] sleep 3 && zen"
       ];
       # Window rules
       windowrule = [
