@@ -5,6 +5,7 @@
   qtbase,
   openrgb,
   glib,
+  openal,
   qmake,
   pkg-config,
   wrapQtAppsHook,
@@ -19,6 +20,7 @@ stdenv.mkDerivation (finalAttrs: {
     repo = "OpenRGBVisualMapPlugin";
     rev = "release_${finalAttrs.version}";
     hash = "sha256-xs+n39zT3ypn7itucRccxsxSvF/HtzSZETIFZwbPbMQ=";
+    fetchSubmodules = true;
   };
 
   postPatch = ''
@@ -26,21 +28,19 @@ stdenv.mkDerivation (finalAttrs: {
     rm -r OpenRGB
     ln -s ${openrgb.src} OpenRGB
   '';
-  
-  buildInputs = [
-    qtbase
-    glib
-  ];
-  
+
   nativeBuildInputs = [
     qmake
     pkg-config
     wrapQtAppsHook
   ];
-  installPhase = ''
-    mkdir -p $out/lib/
-    cp libOpenRGBVisualMapPlugin.so.1.0.0 $out/lib/
-  '';
+
+  buildInputs = [
+    qtbase
+    glib
+    openal
+  ];
+  
   meta = with lib; {
     homepage = "https://gitlab.com/OpenRGBDevelopers/OpenRGBVisualMapPlugin";
     description = "Visual Map plugin for OpenRGB";
