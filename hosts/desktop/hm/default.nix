@@ -83,6 +83,7 @@
     # Chat
     whatsapp-for-linux
     #discord
+    signal-desktop
 
     # Games
     prismlauncher
