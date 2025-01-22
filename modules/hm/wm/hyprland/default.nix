@@ -135,7 +135,6 @@ in{
         "mako"
         #"hyprpaper"
         "sleep 5 && emacs --daemon"
-        "ollama serve"
         "sleep 3 && openrgb --startminimized"
         "[workspace 1 silent] sleep 3 && zen"
       ];

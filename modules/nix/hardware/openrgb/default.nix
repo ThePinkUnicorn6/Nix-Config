@@ -8,7 +8,7 @@
       openrgb-with-all-plugins = final.openrgb.withPlugins [
         final.openrgb-plugin-effects
         final.openrgb-plugin-hardwaresync
-        (final.libsForQt5.callPackage ./visualmap { })
+       # (final.libsForQt5.callPackage ./visualmap { })
       ];
     })
   ];

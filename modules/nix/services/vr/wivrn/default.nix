@@ -15,21 +15,21 @@
     defaultRuntime = true;
 
     # Run WiVRn as a systemd service on startup
-    autoStart = true;
+    autoStart = false;
 
     # Config for WiVRn (https://github.com/WiVRn/WiVRn/blob/master/docs/configuration.md)
     config = {
       enable = true;
       json = {
-        application = "wlx-overlay-s";
+        application = pkgs.wlx-overlay-s;
         # 1.0x foveation scaling
         scale = 1.0;
         # 100 Mb/s
-        bitrate = 100000000;
+        bitrate = 50000;
         encoders = [
           {
             encoder = "vaapi";
-            codec = "h265";
+            codec = "h264";
             # 1.0 x 1.0 scaling
             width = 1.0;
             height = 1.0;

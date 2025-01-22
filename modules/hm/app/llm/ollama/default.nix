@@ -8,8 +8,11 @@ let
   };
 in
 {
-  home.packages = with pkgs; [
-    ollama
-  ];
+  services.ollama = {
+    enable = true;
+    environmentVariables = {
+      OLLAMA_MODELS = "~/shared-files/.ollama";
+    };
+  };
   programs.zsh.shellAliases = myAliases; 
 }
