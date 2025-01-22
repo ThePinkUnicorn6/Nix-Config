@@ -26,7 +26,7 @@
     "/app/desktop/gammastep"
     "/app/fido2"
     "/app/calibre"
-#    /service/vr
+    /service/vr
     #./app/distrobox
 
     "/wm/${settings.wm}"
