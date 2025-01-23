@@ -126,7 +126,7 @@ in{
         disable_splash_rendering = true;
         disable_hyprland_logo = true;
         enable_swallow = true;
-        swallow_regex = "^(kitty|alacritty)$";
+        #swallow_regex = "^(kitty|alacritty)$";
       };
 
       # Autostart
