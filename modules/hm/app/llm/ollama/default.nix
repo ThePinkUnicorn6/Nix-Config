@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, settings, ... }:
 let
   myAliases = {
     om = "ollama run mistral";
@@ -11,7 +11,7 @@ in
   services.ollama = {
     enable = true;
     environmentVariables = {
-      OLLAMA_MODELS = "~/shared-files/.ollama";
+      OLLAMA_MODELS = "/home/${settings.username}/shared-files/.ollama";
     };
   };
   programs.zsh.shellAliases = myAliases; 
