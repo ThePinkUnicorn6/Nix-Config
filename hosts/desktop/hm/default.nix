@@ -73,6 +73,8 @@
     # Photo
     loupe
     gthumb
+    freenect
+    
     #ansel
 
     # Audio
