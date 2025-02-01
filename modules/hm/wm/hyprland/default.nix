@@ -133,6 +133,7 @@ in{
       exec-once = [
         "waybar"
         "mako"
+        "mpris-scrobbler"
         #"hyprpaper"
         "sleep 5 && emacs --daemon"
         "sleep 3 && openrgb --startminimized"
