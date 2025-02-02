@@ -7,5 +7,7 @@
     cardinal
     drumgizmo
     x42-avldrums
+    lsp-plugins
+#    linuxsampler
   ];
 }
