@@ -69,7 +69,7 @@
     gthumb
     
     # Audio
-    g4music
+    lollypop
     gqrx
 
     # Chat

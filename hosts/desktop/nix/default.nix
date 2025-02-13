@@ -13,7 +13,7 @@
     "/style"
     "/app/fido2"
     /services/podman
-    /services/vr/wivrn
+    /services/vr/envision
     /hardware/openrgb
 #    /services/vr/envision
   ]);

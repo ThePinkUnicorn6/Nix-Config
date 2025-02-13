@@ -78,8 +78,7 @@
     #ansel
 
     # Audio
-    g4music
-    mpris-scrobbler
+    lollypop
     gqrx
     
     # Chat
