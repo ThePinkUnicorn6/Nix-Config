@@ -5,7 +5,7 @@
     ../../desktop-base/nix
   ]++
   (map (m: ../../../modules/nix + m) [
-    "/gpu/amd-rx570"
+    "/gpu/amd-rx5700xt"
     "/app/production"
     "/wm/${settings.wm}.nix"
 #    "/wm/plasma.nix"
