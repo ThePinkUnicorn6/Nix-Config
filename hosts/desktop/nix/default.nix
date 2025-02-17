@@ -42,12 +42,13 @@
   programs = {
     steam.enable = true;
   };
+  
   fileSystems."/home/${settings.username}/shared-files" = {
     device = "/dev/nvme0n1p4";
     fsType = "ntfs";
   };
   environment.systemPackages = with pkgs; [
-    
+    protonup-qt # For cutstom proton versions
   ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
