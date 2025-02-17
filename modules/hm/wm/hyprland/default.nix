@@ -11,7 +11,7 @@ in{
 
   home.packages = with pkgs; [
     wl-clipboard
-    hyprland-protocols
+#    hyprland-protocols
     wl-clipboard
     grim
     grimblast

@@ -13,6 +13,7 @@ in
     environmentVariables = {
       OLLAMA_MODELS = "/home/${settings.username}/shared-files/.ollama";
     };
+    acceleration = "rocm";
   };
   programs.zsh.shellAliases = myAliases; 
 }
