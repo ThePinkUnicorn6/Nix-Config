@@ -13,7 +13,7 @@
 ;; Window
 (keymap-set global-map "C-c w c"  #'delete-window)
 (keymap-set global-map "C-c w v"  #'split-window-vertically)
-(keymap-set global-map "C-c w h"  #'split-window-horisontaly)
+(keymap-set global-map "C-c w h"  #'split-window-horizontaly)
     '';
   };
 }
