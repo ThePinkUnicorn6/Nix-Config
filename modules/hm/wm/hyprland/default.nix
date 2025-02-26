@@ -177,8 +177,8 @@ in{
         # Screenshots
         ",Print,exec,grimblast --notify --cursor copy active"
         "SHIFT,Print,exec,grimblast --notify --cursor copysave active"
-        "SUPER,S,exec,grimblast --notify --cursor copy area"
-        "SUPERSHIFT,S,exec,grimblast --notify --cursor copysave area"
+        "SUPER,S,exec,grimblast --notify copy area"
+        "SUPERSHIFT,S,exec,grimblast --notify copysave area"
 
         "SUPER,left,movefocus,l"
         "SUPER,right,movefocus,r"

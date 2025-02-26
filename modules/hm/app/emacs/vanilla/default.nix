@@ -29,6 +29,8 @@
       (global-display-line-numbers-mode 1)
       (setq display-line-numbers-type 'relative)
       (setq standard-indent 2)
+
+      (setq inhibit-startup-screen t)
     '';
   };  
 }
