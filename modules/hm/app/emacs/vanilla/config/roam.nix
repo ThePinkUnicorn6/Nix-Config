@@ -29,20 +29,14 @@
   (org-roam-db-autosync-mode))
 
 ;; Citar
-(setq citar-bibliography '("~/roam/calibre-library.bib")
-      citar-notes-paths '("~/roam")
+(setq citar-notes-paths '("~/roam")
       org-cite-insert-processor 'citar
       org-cite-activate-processor 'citar
       org-cite-follow-processor 'citar)
 
 ;; Org Roam
 (setq org-roam-capture-templates
-      '(("b" "book" plain "%?"
-         :target
-         (file+head "''${citekey}.org"
-                    "#+TITLE: ''${title}\n#FILETAGS: #book\n:INFO:\n:author: ''${author}\n:year: ''${year}\n:END:\n* Notes\n")
-         :unnarrowed t)
-      ("d" "default" plain "%?"
+      '(("d" "default" plain "%?"
          :target
          (file+head "%<%Y%m%d%H%M%S>-''${slug}.org"
                     "#+title: ''${title}\n")
