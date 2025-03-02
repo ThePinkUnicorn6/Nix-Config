@@ -41,6 +41,10 @@ in{
   (setq org-startup-with-inline-images t)
   (add-hook 'org-mode-hook #'visual-line-mode))
 
+;; Auto spell
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+
 ;; Writeroom
 (setq writeroom-width 120)
 '';

@@ -60,6 +60,7 @@
     # Text
     gnome-text-editor
     libreoffice
+    onlyoffice-desktopeditors
     hunspell
     hunspellDicts.en_GB-ise
 
