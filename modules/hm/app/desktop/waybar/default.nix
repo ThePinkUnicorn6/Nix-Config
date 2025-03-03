@@ -11,7 +11,7 @@ let
     };
     clock = {
       interval = 60;
-      format = "{:%a %d %b %I:%M%p}";
+      format = "{:%I:%M%p}";
       max-length = 25;
     };
     wireplumber = {
