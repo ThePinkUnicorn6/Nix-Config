@@ -18,6 +18,7 @@ let
       boites
       minted
       adjustbox
+      xurl
       
       # Fonts
       helvetic;

@@ -20,7 +20,8 @@ in{
         \\usepackage[reset, a4paper, top=1in, bottom=1in, left=1.25in, right=1.25in, marginparsep=0pt, marginparwidth=0pt, headheight=15pt]{geometry}
         \\usepackage{lmodern}
         \\usepackage{helvet}
-        \\linespread{1.5}")))
+        \\linespread{1.5}
+        \\usepackage{xurl}")))
 
 (setq org-export-with-author nil)
 (setq org-export-with-date nil)
