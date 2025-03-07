@@ -17,6 +17,8 @@
       treemacs
       bind-key
       pdf-tools
+
+      (epkgs.callPackage ./packages/ultra-scroll.nix {})
     ];
 
     extraConfig = /*lisp*/ ''
@@ -31,6 +33,14 @@
       (setq standard-indent 2)
 
       (setq inhibit-startup-screen t)
+
+      ;; Enable smooth scrolling
+      (use-package ultra-scroll
+        :init
+        (setq scroll-conservatively 101 ; important!
+          scroll-margin 0) 
+        :config
+        (ultra-scroll-mode 1))
     '';
   };  
 }
