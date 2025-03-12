@@ -11,7 +11,8 @@ in
   services.ollama = {
     enable = true;
     environmentVariables = {
-      OLLAMA_MODELS = "/home/${settings.username}/shared-files/.ollama";
+      OLLAMA_MODELS = "/home/${settings.username}/shared-files/.ollama/models";
+      HSA_OVERRIDE_GFX_VERSION = "10.1.0";
     };
     acceleration = "rocm";
   };
