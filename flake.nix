@@ -195,6 +195,43 @@
             inherit settings;
           };
         };
+       mac = let
+          system = "x86_64-linux";
+          pkgs = nixpkgsFor system;
+          settings = {
+            dotDir = "/home/${vars.name}/nix";
+            username = vars.name;
+            name = vars.name;
+            personal-email = vars.personal-email;
+            git-email = vars.git-email;
+            wm = "hyprland";
+            dm = "tuigreet";
+            theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
+            reThemeWall = false;
+            loc = vars.loc;
+          };
+        in lib.nixosSystem {
+          modules = [
+            ./hosts/mac/nix
+            musnix.nixosModules.musnix
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users."${vars.name}".imports = [ ./hosts/mac/hm ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit settings;
+              };
+            }
+          ];
+          specialArgs = {
+            inherit inputs;
+            inherit settings;
+          };
+        };
       };
 
       # Installer from https://gitlab.com/librephoenix/nixos-config/-/blob/main/flake.nix
