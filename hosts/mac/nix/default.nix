@@ -8,7 +8,7 @@
     "/wm/${settings.wm}.nix"
 #    "/wm/plasma.nix"
     /services/kanata
-#    "/wm/xfce.nix"
+    "/wm/xfce.nix"
     "/style"
   ]);
 

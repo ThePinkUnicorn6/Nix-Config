@@ -18,6 +18,7 @@
     "/app/desktop/gammastep"
 
     "/wm/${settings.wm}"
+    /wm/xfce
     "/style"
   ]);
 
