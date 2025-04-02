@@ -140,14 +140,14 @@ in{
       ];
       # Window rules
       windowrule = [
-        "monitor 0,discord"
-        "workspace 6,discord"
-        "monitor 0,WebCord"
-        "workspace 6,WebCord"
-        "monitor 0,whasistlos"
-        "workspace 6,wasistlos"
+        "monitor:0, class:discord"
+        "workspace:6, class:discord"
+        "monitor:0, class:WebCord"
+        "workspace:6, class:WebCord"
+        "monitor:0, class:whasistlos"
+        "workspace:6, class:wasistlos"
 
-        "float,com.usebottles.bottles"
+        "float,class:com.usebottles.bottles"
       ];
       # Binds
       bindm = [
@@ -234,14 +234,14 @@ in{
         ];
       };
     };
-    extraConfig = ''
-        # Fix Steam
-        windowrulev2 = stayfocused, title:^()$,class:^(steam)$
-        windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
+    # extraConfig = ''
+    #     # Fix Steam
+    #     windowrulev2 = stayfocused, title:^()$,class:^(steam)$
+    #     windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
 
-        # Fix Reaper
-        windowrule=noanim,^(REAPER)$
-        windowrulev2 = nofocus,class:REAPER,title:^$
-    '';
+    #     # Fix Reaper
+    #     windowrule=noanim,^(REAPER)$
+    #     windowrulev2 = nofocus,class:REAPER,title:^$
+    # '';
   };
 }
