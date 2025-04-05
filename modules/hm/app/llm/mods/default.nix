@@ -6,12 +6,13 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      default-model = "llama3.2";
+      default-model = "deepseek-r1:8b";
       apis = {
         ollama = {
           base-url = "http://localhost:11434/api";
           models = {
-            "llama3.2" = {
+            "deepseek-r1:8b" = {
+              aliases = [ "deepseek" ];
               max-input-chars = 650000;
             };
           };

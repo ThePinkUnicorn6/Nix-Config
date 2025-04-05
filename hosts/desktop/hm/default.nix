@@ -13,25 +13,26 @@
   ] ++
   (map (m: ../../../modules/hm + m) [
     /app/browser/zen
-    "/app/chat/discord"
-    "/app/music-prod/reaper"
-    "/app/video/mpv"
-    "/app/emacs"
-    "/app/programming/vscode"
-    "/lang/csharp"
-    "/app/tex"
-    "/lang/python"
-    "/lang/python/python-packages"
-    "/lang/rust"
-    "/app/llm/ollama"
-    "/app/desktop/gammastep"
-    "/app/fido2"
-    "/app/calibre"
+    /app/chat/discord
+    /app/music-prod/reaper
+    /app/video/mpv
+    /app/emacs
+    /app/programming/vscode
+    /lang/csharp
+    /app/tex
+    /lang/python
+    /lang/python/python-packages
+    /lang/rust
+    /app/llm/ollama
+    /app/llm/mods
+    /app/desktop/gammastep
+    /app/fido2
+    /app/calibre
     /service/vr
     #./app/distrobox
 
     "/wm/${settings.wm}"
-    "/style"
+    /style
   ]);
 
   services = {

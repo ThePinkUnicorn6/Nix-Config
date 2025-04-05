@@ -142,10 +142,10 @@ in{
       windowrule = [
         "monitor:0, class:discord"
         "workspace:6, class:discord"
-        "monitor:0, class:WebCord"
-        "workspace:6, class:WebCord"
-        "monitor:0, class:whasistlos"
-        "workspace:6, class:wasistlos"
+        "monitor:0, class:WebCord, title:WebCord"
+        "workspace:6, class:WebCord, title:WebCord"
+        "monitor:0, class:wasistlos, title:WasIstLos"
+        "workspace:6, class:wasistlos, title:WasIstLos"
 
         "float,class:com.usebottles.bottles"
       ];

@@ -50,7 +50,7 @@
     nssmdns4 = true;
     openFirewall = true;
   };
-  
+  hardware.keyboard.qmk.enable = true;
   nix.settings.trusted-users = [ "root" settings.username ];
   # Packages
   environment.systemPackages = with pkgs; [
