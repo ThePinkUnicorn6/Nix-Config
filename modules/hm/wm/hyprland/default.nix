@@ -13,6 +13,7 @@ in{
     wl-clipboard
 #    hyprland-protocols
     wl-clipboard
+    wl-kbptr
     grim
     grimblast
     slurp
