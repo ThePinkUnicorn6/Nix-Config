@@ -101,5 +101,6 @@
     microcom
     flowtime
     picard
+    qmk
   ];
 }
