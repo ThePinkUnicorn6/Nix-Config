@@ -7,13 +7,13 @@ in{
   imports = [ 
     ../wayland
     ../../app/desktop/waybar
+    ../../app/desktop/wl-kbptr
   ];
 
   home.packages = with pkgs; [
     wl-clipboard
 #    hyprland-protocols
     wl-clipboard
-    wl-kbptr
     grim
     grimblast
     slurp
@@ -173,7 +173,7 @@ in{
         "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""
         "SUPER,Y,exec,freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\""
         "CTRL_SHIFT,escape,exec,${pkgs.mission-center}/bin/missioncenter"
-        "SUPER,X,exec,${pkgs.wl-kbptr}/bin/wl-kbptr"
+        "SUPER,X,exec,${pkgs.wl-kbptr}/bin/wl-kbptr -c .config/wl-kbptr/config"
         
         # Screenshots
         ",Print,exec,grimblast --notify --cursor copy active"
