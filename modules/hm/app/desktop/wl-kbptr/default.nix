@@ -4,7 +4,7 @@
   home.packages = [ pkgs.wl-kbptr ];
   home.file.".config/wl-kbptr/config".text = ''
 [general]
-home_row_keys=arstneiogmk
+home_row_keys=arstneioh,.
 
 [mode_tile]
 label_color=#fffd
