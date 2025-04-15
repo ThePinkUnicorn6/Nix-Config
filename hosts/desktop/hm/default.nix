@@ -12,6 +12,7 @@
     ../../desktop-base/hm
   ] ++
   (map (m: ../../../modules/hm + m) [
+    /app/browser/zen
     "/app/chat/discord"
     "/app/music-prod/reaper"
     "/app/video/mpv"

@@ -22,16 +22,17 @@
     "/style"
   ]);
 
-  services = {
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
-  };
+#  services = {
+#    kdeconnect = {
+#      enable = true;
+#      indicator = true;
+#    };
+#  };
 
   #services.syncthing.tray.enable = true;
   home.packages = with pkgs; [
     # System
+    librewolf
     baobab
     gnome-disk-utility
     nautilus

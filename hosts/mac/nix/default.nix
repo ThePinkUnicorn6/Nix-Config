@@ -9,6 +9,7 @@
 #    "/wm/plasma.nix"
     /services/kanata
     "/wm/xfce.nix"
+    /wm/i3.nix
     "/style"
   ]);
 
