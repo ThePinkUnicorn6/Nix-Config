@@ -12,6 +12,7 @@
     "/wm/xfce.nix"
     "/style"
     "/app/fido2"
+    /app/scrcpy
     /services/podman
     /services/vr/wivrn
     /hardware/openrgb
