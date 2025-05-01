@@ -28,6 +28,7 @@
     /app/desktop/gammastep
     /app/fido2
     /app/calibre
+    /app/obs
     /service/vr
     #./app/distrobox
 

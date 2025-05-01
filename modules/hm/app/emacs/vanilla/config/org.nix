@@ -5,10 +5,13 @@ let
     rev = "a653811f3eaa0e9d849ab6019493c7b8867fc96f";
   };
 in{
+  home.packages = with pkgs; [
+  ];
   programs.emacs = {
     extraPackages = epkgs: with epkgs; [
       org-superstar
       writeroom-mode
+      ox-reveal
     ];
 
     extraConfig = ''

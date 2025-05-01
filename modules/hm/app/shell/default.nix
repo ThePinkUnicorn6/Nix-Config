@@ -18,7 +18,7 @@ in
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     shellAliases = myAliases;
-    initConfig = ''
+    initContent = ''
       disfetch
       eval $(thefuck --alias)
       mcd () {
