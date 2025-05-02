@@ -73,10 +73,7 @@
     delfin
     freetube
     #blender
-
-    freenect
-    kinect-audio-setup
-
+    
     # Photo
     loupe
     gthumb

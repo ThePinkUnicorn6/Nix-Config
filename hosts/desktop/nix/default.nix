@@ -15,6 +15,7 @@
     /app/scrcpy
     /services/podman
     /services/vr/wivrn
+    /hardware/kinect
     /hardware/openrgb
 #    /services/vr/envision
   ]);
