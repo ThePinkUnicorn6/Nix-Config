@@ -103,5 +103,7 @@
     flowtime
     picard
     qmk
+
+    rtabmap
   ];
 }
