@@ -12,5 +12,7 @@
   programs.adb.enable = true; # enable android proper data tethering
   environment.systemPackages = with pkgs; [
     scrcpy
+    linuxPackages.v4l2loopback
+    v4l-utils
   ];
 }
