@@ -30,7 +30,7 @@ in{
         chosen="$(echo -e "$options" | fuzzel --lines 4 --dmenu)"
         case $chosen in
             $option0)
-                swaylock & systemctl suspend;;
+                systemctl suspend;;
             $option1)
                 systemctl poweroff;;
             $option2)
