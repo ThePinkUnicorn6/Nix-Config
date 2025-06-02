@@ -81,6 +81,10 @@
     
     #ansel
 
+    #3D
+    rtabmap
+    orca-slicer
+    
     # Audio
     lollypop
     gqrx
@@ -104,6 +108,5 @@
     picard
     qmk
 
-    rtabmap
   ];
 }
