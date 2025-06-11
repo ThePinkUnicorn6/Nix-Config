@@ -84,6 +84,7 @@
     #3D
     rtabmap
     orca-slicer
+    freecad-wayland
     
     # Audio
     lollypop
@@ -107,6 +108,5 @@
     flowtime
     picard
     qmk
-
   ];
 }
