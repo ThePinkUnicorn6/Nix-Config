@@ -51,7 +51,7 @@
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
 
-	        nixos-rebuild switch --flake .#"$3" --target-host $2 --sudo --log-format internal-json -v |& ${pkgs.nix-output-monitor}/bin/nom --json
+	        nixos-rebuild switch --flake .#"$3" --target-host $2 --ask-sudo-password --log-format internal-json -v |& ${pkgs.nix-output-monitor}/bin/nom --json
 
            # If the user has entered no commit message, generate it.
           if ! [[ -n "$msg" ]]; then
@@ -62,7 +62,7 @@
       	"remote-test")
           git add -A
           echo "Testing config $3 on machine $2"
-          nixos-rebuild test --flake .#"$3" --target-host $2 --sudo --log-format internal-json -v |& ${pkgs.nix-output-monitor}/bin/nom --json;;
+          nixos-rebuild test --flake .#"$3" --target-host $2 --ask-sudo-password --log-format internal-json -v |& ${pkgs.nix-output-monitor}/bin/nom --json;;
 	
         *)
           git add -A
