@@ -4,7 +4,7 @@ let
 in{
   environment.systemPackages = with pkgs; [
     freenect
-    kinect-audio-setup
+  #    kinect-audio-setup
   ];
   services.udev.packages = [ kinect-udev-rules ];
   users.groups.plugdev = { };

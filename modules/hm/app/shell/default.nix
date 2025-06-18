@@ -20,15 +20,14 @@ in
     shellAliases = myAliases;
     initContent = ''
       disfetch
-      eval $(thefuck --alias)
       mcd () {
         mkdir $1
         cd $1
       }
-    '';
+    ''; 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "thefuck" "sudo" "git" ];
+      plugins = [ "sudo" "git" ];
       theme = "bira";
     };
   };
@@ -56,7 +55,7 @@ in
     enableZshIntegration = true;
   };
   home.packages = with pkgs; [
-    thefuck
+    pay-respects
     disfetch
     onefetch
     bat
