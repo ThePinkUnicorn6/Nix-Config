@@ -30,7 +30,7 @@
     /app/calibre
     /app/obs
     /service/vr
-    #./app/distrobox
+    /app/distrobox
 
     "/wm/${settings.wm}"
     /style
@@ -107,6 +107,5 @@
     microcom
     flowtime
     picard
-    qmk
   ];
 }

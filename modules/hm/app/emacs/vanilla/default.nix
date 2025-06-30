@@ -26,6 +26,8 @@
       (menu-bar-mode -1)
       (tool-bar-mode -1)
       (scroll-bar-mode -1)
+
+      (electric-pair-mode 1) ;; Enable bracket pairing
       
       ;; Display line numbers in every buffer
       (global-display-line-numbers-mode 1)
