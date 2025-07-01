@@ -98,6 +98,7 @@
     # Games
     prismlauncher
     r2modman
+    bs-manager
     
     # Uni
     zotero
