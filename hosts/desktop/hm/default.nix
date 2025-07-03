@@ -54,7 +54,7 @@
     jdk17
     gcc
     du-dust
-    mission-center
+    resources
  
     # Wine
     wine

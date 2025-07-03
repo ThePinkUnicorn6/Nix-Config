@@ -9,6 +9,7 @@
     "/roam.nix"
     "/lang.nix"
     "/org.nix"
+    /latex.nix
     "/navigation-keybinds.nix"
   ]);
   programs.emacs = {

@@ -172,7 +172,7 @@ in{
         "SUPERSHIFT,E,exec,power-menu"
         "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""
         "SUPER,Y,exec,freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\""
-        "CTRL_SHIFT,escape,exec,${pkgs.mission-center}/bin/missioncenter"
+        "CTRL_SHIFT,escape,exec,${pkgs.resources}/bin/resources"
         "SUPER,X,exec,${pkgs.wl-kbptr}/bin/wl-kbptr -c .config/wl-kbptr/config"
         
         # Screenshots

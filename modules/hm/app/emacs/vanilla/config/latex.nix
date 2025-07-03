@@ -3,7 +3,8 @@
 {
     programs.emacs = {
       extraPackages = epkgs: with epkgs; [
-        AUCTeX
+        auctex
+        pdf-tools
       ];
       
       extraConfig = ''
