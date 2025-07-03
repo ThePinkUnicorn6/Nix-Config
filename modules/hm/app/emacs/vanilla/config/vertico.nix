@@ -16,9 +16,7 @@
    (require 'bind-key)
    ;; More convenient directory navigation commands
    :bind (:map vertico-map
-               ("RET" . vertico-directory-enter)
-               ("M-DEL" . vertico-directory-delete-char)
-               ("DEL" . vertico-directory-delete-word))
+               ("RET" . vertico-directory-enter))
    ;; Tidy shadowed file names
    :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 

@@ -7,7 +7,7 @@
 
 ;; Buffer 
 (keymap-set global-map "C-c ," #'switch-to-buffer)
-(keymap-set global-map "C-c b k" #'kill-this-buffer)
+(keymap-set global-map "C-c b k" #'kill-current-buffer)
 (keymap-set global-map "C-c b i" #'list-buffers)
 
 ;; Window

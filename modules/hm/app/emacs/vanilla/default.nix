@@ -32,6 +32,15 @@
       
       ;; Display line numbers in every buffer
       (global-display-line-numbers-mode 1)
+      (add-hook 'org-mode-hook 'display-line-numbers-mode)
+      (dolist (mode '(pdf-view-mode-hook
+               term-mode-hook
+               eshell-mode-hook
+               vterm-mode-hook
+               imenu-list-minor-mode-hook
+               imenu-list-major-mode-hook))
+              (add-hook mode (lambda () (display-line-numbers-mode -1))))
+
       (setq display-line-numbers-type 'relative)
       (setq standard-indent 2)
 

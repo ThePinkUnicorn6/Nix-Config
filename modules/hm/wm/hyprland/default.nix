@@ -235,14 +235,5 @@ in{
         ];
       };
     };
-    # extraConfig = ''
-    #     # Fix Steam
-    #     windowrulev2 = stayfocused, title:^()$,class:^(steam)$
-    #     windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
-
-    #     # Fix Reaper
-    #     windowrule=noanim,^(REAPER)$
-    #     windowrulev2 = nofocus,class:REAPER,title:^$
-    # '';
   };
 }
