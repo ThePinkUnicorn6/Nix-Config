@@ -93,7 +93,7 @@ in{
           xray = true;
           popups = true;
         };
-        active_opacity = 0.95;
+        active_opacity = 1;
         inactive_opacity = 0.9;
         fullscreen_opacity = 1;
         shadow = {
