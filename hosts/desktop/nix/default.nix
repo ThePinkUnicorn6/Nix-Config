@@ -39,6 +39,7 @@
     };
     flatpak.enable = true;
     openssh.enable = true;
+    mullvad-vpn.enable = true;
   };
   hardware.steam-hardware.enable = true;
   programs = {
