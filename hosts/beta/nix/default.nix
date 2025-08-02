@@ -5,6 +5,7 @@
     ./syncthing.nix
     ./borgmatic.nix
     ./tunnels.nix
+    #./wireguard.nix
     ../../server-base/nix
     ../../../modules/nix/gpu/intel-igpu
   ]++
@@ -14,6 +15,7 @@
     "/homarr"
     "/jellyfin"
     "/dashdot"
+    #/arr
   ]);
 
   # Networking
@@ -76,6 +78,7 @@ Host builder
     "d ${settings.mediaDir}/Photos 0775 ${settings.username} - - -"
     "d ${settings.mediaDir}/Documents 0775 ${settings.username} - - -"
     "d ${settings.mediaDir}/Music 0775 ${settings.username} - - -"
+    "d ${settings.mediaDir}/torrent 0775 ${settings.username} - - -"
   ];
 
   system.stateVersion = "24.05";

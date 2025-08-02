@@ -1,7 +1,5 @@
 { config, settings, ... }:
-let
-  stateVersion = config.system.stateVersion;
-in{
+{
   systemd.tmpfiles.rules = [
     "d ${settings.dataDir}/postgresql 0700 postgres - - -"
     "d ${settings.mediaDir}/Photos 0775 ${settings.username} - - -"
@@ -20,27 +18,4 @@ in{
       reverse_proxy http://127.0.0.1:3002
     '';
   };  
-  # containers.immich = {
-  #   autoStart = true;
-  #   bindMounts = {
-  #     "/var/lib/postgresql" = {
-  #       hostPath = "${settings.dataDir}/postgresql";
-  #       isReadOnly = false;
-  #     };
-  #     "/var/lib/immich" = {
-  #       hostPath = "${settings.mediaDir}/Photos/immich";
-  #       isReadOnly = false;
-  #     };
-  #   };
-  #   config =  { config, pkgs, lib, ... }: {
-  #     services.immich = {
-  #       enable = true;
-  #       host = "100.100.212.90";
-  #       openFirewall = true;
-  #       port = 3002;
-  #     };
-  #     system.stateVersion = stateVersion;
-  #   };
-  # };
-
 }

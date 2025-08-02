@@ -5,7 +5,7 @@ let
 in{
 
   systemd.tmpfiles.rules = [
-    "d ${settings.dataDir}/jellyfin 0775 jellyfin jellyfin - -"
+    "d ${dataDir} 0775 jellyfin jellyfin - -"
   ];
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
@@ -18,7 +18,6 @@ in{
       vaapiVdpau
       intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
       vpl-gpu-rt # QSV on 11th gen or newer
-      intel-media-sdk # QSV up to 11th gen
     ];
   };
   services.jellyfin = {
