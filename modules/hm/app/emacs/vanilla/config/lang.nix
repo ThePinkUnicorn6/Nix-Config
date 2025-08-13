@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [ ../../../../lang/rust ];
   home.packages = with pkgs; [
     nil
     pyright
-    rust-analyzer
   ];
   programs.emacs = {
     extraPackages = epkgs: with epkgs; [

@@ -83,7 +83,7 @@
 
     #3D
     rtabmap
-    #orca-slicer
+    orca-slicer
     freecad-wayland
     
     # Audio
