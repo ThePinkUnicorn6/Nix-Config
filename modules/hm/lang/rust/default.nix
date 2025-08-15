@@ -4,6 +4,6 @@
   home.packages = with pkgs; [
     rustc
     cargo
-    #rust-analyzer
+    rust-analyzer
   ];
 }
