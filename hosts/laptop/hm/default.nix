@@ -74,10 +74,6 @@
 
     # Chat
     whatsapp-for-linux
-    #discord
-
-    # Uni
-#    ciscoPacketTracer8
     
     # Other
     pandoc
