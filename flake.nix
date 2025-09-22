@@ -2,8 +2,8 @@
   description = "Nixos config flake";
 
   inputs = {
-    #   nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs.url = "git+file:../nixpkgs?ref=openrgb-plugin-visualmap";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = "git+file:../nixpkgs?ref=openrgb-plugin-visualmap";
 #    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -148,43 +148,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users."${vars.name}".imports = [ ./hosts/laptop/hm ];
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-                inherit settings;
-              };
-            }
-          ];
-          specialArgs = {
-            inherit inputs;
-            inherit settings;
-          };
-        };
-
-        uni-vm = let
-          system = "x86_64-linux";
-          pkgs = nixpkgsFor system;
-          settings = {
-            dotDir = "/home/tpu/nix";
-            username = "tpu";
-            name = "ThePinkUnicorn";
-            personal-email = vars.personal-email;
-            git-email = vars.git-email;
-            wm = "plasma";
-            dm = "tuigreet";
-            theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/purple-landscape.jpeg;
-            reThemeWall = true;
-            loc = vars.loc;
-          };
-        in lib.nixosSystem {
-          modules = [
-            ./hosts/uni-vm/nix
-            stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users."tpu".imports = [ ./hosts/uni-vm/hm ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit settings;

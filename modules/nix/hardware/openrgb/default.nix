@@ -5,6 +5,11 @@
       openrgb = (prev.openrgb.overrideAttrs {
         patches = [ ./nzxt_f120_core_fan.patch ];
       });
+      openrgb-with-all-plugins = final.openrgb.withPlugins [
+        final.openrgb-plugin-effects
+        final.openrgb-plugin-hardwaresync
+        (final.libsForQt5.callPackage ./visualmap { })
+      ];
     })
   ];
   services.hardware.openrgb = {

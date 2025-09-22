@@ -2,10 +2,12 @@
   lib,
   stdenv,
   fetchFromGitLab,
-  libsForQt5,
+  qtbase,
   openrgb,
   glib,
+  qmake,
   pkg-config,
+  wrapQtAppsHook,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -16,7 +18,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "OpenRGBDevelopers";
     repo = "OpenRGBVisualMapPlugin";
     rev = "release_${finalAttrs.version}";
-    hash = "sha256-8w5f/aZcnWKht8Af2S9ekD/cXyi7Nlklf85YMAHU3+M=";
+    hash = "sha256-xs+n39zT3ypn7itucRccxsxSvF/HtzSZETIFZwbPbMQ=";
   };
 
   postPatch = ''
@@ -24,21 +26,24 @@ stdenv.mkDerivation (finalAttrs: {
     rm -r OpenRGB
     ln -s ${openrgb.src} OpenRGB
   '';
-
-  nativeBuildInputs = with libsForQt5; [
+  
+  buildInputs = [
+    qtbase
+    glib
+  ];
+  
+  nativeBuildInputs = [
     qmake
     pkg-config
     wrapQtAppsHook
   ];
-
-  buildInputs = with libsForQt5; [
-    qtbase
-    glib
-  ];
-
+  installPhase = ''
+    mkdir -p $out/lib/
+    cp libOpenRGBVisualMapPlugin.so.1.0.0 $out/lib/
+  '';
   meta = with lib; {
     homepage = "https://gitlab.com/OpenRGBDevelopers/OpenRGBVisualMapPlugin";
-    description = "OpenRGB plugin for grouping and organizing devices on a spatial map";
+    description = "Visual Map plugin for OpenRGB";
     license = licenses.gpl2Plus;
     maintainers = with maintainers; [ ThePinkUnicorn ];
     platforms = platforms.linux;
