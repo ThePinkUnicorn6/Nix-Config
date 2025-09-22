@@ -118,11 +118,15 @@ in{
         preserve_split = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_touch = true;
-      };
+      # gestures = {
+      #   workspace_swipe = true;
+      #   workspace_swipe_touch = true;
+      # };
 
+      gesture = [
+        "3, horizontal, workspace"
+      ];
+      
       misc = {
         disable_splash_rendering = true;
         disable_hyprland_logo = true;

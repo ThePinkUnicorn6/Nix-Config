@@ -2,7 +2,8 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #   nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "git+file:../nixpkgs?ref=openrgb-plugin-visualmap";
 #    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
