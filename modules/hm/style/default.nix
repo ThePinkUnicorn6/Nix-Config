@@ -5,7 +5,6 @@ let
   wallfile = settings.wallpaper;
   # Use imageMagic to change the colours if the image to use the colour scheme.
   wallpaper = if settings.reThemeWall then pkgs.runCommand "wallout.png" {} ''
-        echo "test1"
         BASE00="#"$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
         BASE01="#"$(${pkgs.yq}/bin/yq -r .palette.base01 ${theme})
         BASE02="#"$(${pkgs.yq}/bin/yq -r .palette.base02 ${theme})
@@ -22,7 +21,6 @@ let
         BASE0D="#"$(${pkgs.yq}/bin/yq -r .palette.base0D ${theme})
         BASE0E="#"$(${pkgs.yq}/bin/yq -r .palette.base0E ${theme})
         BASE0F="#"$(${pkgs.yq}/bin/yq -r .palette.base0F ${theme})
-        echo "test2"
         ${pkgs.imagemagick}/bin/magick convert -size 1x8 xc:none +antialias -depth 8 -define png:color-type=2 \
         \( +clone -fill "$BASE00" -draw 'color 0,0 point' \) \
         \( +clone -fill "$BASE01" -draw 'color 0,1 point' \) \
@@ -41,9 +39,7 @@ let
         \( +clone -fill "$BASE0E" -draw 'color 0,6 point' \) \
         \( +clone -fill "$BASE0F" -draw 'color 0,7 point' \) \
         -append palette.png
-        echo "test3"
         ${pkgs.imagemagick}/bin/magick convert "${wallfile}" -dither FloydSteinberg -ordered-dither o8x8 -remap palette.png -type truecolor $out
-        echo "test4?"
   ''
     else /. + wallfile;
 in
