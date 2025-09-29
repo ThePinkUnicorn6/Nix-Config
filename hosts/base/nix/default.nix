@@ -26,7 +26,9 @@
     nameservers = [ "100.100.100.100" "1.1.1.1" "1.0.0.1" ];
     networkmanager.dns = "none";
   };
-
+  
+  systemd.network.wait-online.enable = false;
+    
   # Set your time zone.
   time.timeZone = "Europe/London";
 
