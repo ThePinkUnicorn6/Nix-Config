@@ -3,7 +3,10 @@
   nixpkgs.overlays = [
     (final: prev: {
       openrgb = (prev.openrgb.overrideAttrs {
-        patches = [ ./nzxt_f120_core_fan.patch ];
+        patches = [
+          ./nzxt_f120_core_fan.patch
+          ./qlist-include.patch
+        ];
       });
       openrgb-with-all-plugins = final.openrgb.withPlugins [
         final.openrgb-plugin-effects

@@ -46,12 +46,13 @@
           nix flake update --flake .;;
 
         "remote-switch")
-          echo "Building config $3 on machine $2"
+          echo "Building config $2 on machine $3"
 	  
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
 
-	        nixos-rebuild switch --flake .#"$3" --target-host $2 --ask-sudo-password --log-format internal-json -v |& ${pkgs.nix-output-monitor}/bin/nom --json
+	        ${nh}/bin/nh os switch . -H "$2" --target-host $3
+
 
            # If the user has entered no commit message, generate it.
           if ! [[ -n "$msg" ]]; then
@@ -61,8 +62,8 @@
 	  
       	"remote-test")
           git add -A
-          echo "Testing config $3 on machine $2"
-          nixos-rebuild test --flake .#"$3" --target-host $2 --ask-sudo-password --log-format internal-json -v |& ${pkgs.nix-output-monitor}/bin/nom --json;;
+          echo "Testing config $2 on machine $3"
+          ${nh}/bin/nh os switch . -H "$2" --target-host $3;;
 	
         *)
           git add -A

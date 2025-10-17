@@ -23,8 +23,8 @@
     /lang/python
     /lang/python/python-packages
     /lang/rust
-    /app/llm/ollama
-    /app/llm/mods
+#    /app/llm/ollama
+#    /app/llm/mods
     /app/desktop/gammastep
     /app/fido2
     /app/calibre
@@ -82,7 +82,6 @@
     #ansel
 
     #3D
-    rtabmap
     orca-slicer
     freecad-wayland
     
