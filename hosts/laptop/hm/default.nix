@@ -46,7 +46,8 @@
     file-roller
     du-dust
     resources
- 
+    firefox
+    
     # Wine
     wine
     bottles

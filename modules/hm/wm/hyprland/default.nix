@@ -141,7 +141,7 @@ in{
         #"hyprpaper"
         "sleep 5 && emacs --daemon"
         "sleep 3 && openrgb --startminimized"
-        "[workspace 1 silent] sleep 3 && zen"
+        "[workspace 1 silent] sleep 3 && firefox"
       ];
       # Window rules
       windowrule = [
@@ -171,7 +171,7 @@ in{
         "SUPERSHIFT,space,pseudo"
         "SUPER,F,fullscreen"
         "SUPER,N,exec,nautilus -w"
-        "SUPER,M,exec,zen"
+        "SUPER,M,exec,firefox"
         "SUPER,E,exec,emacsclient --create-frame --alternate-editor=\"\" -a=\"\""
         "SUPERSHIFT,E,exec,power-menu"
         "SUPER,V,exec,mpv $(wl-paste) & notify-send \"Opening $(wl-paste) in mpv.\""
