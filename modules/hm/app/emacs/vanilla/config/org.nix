@@ -51,6 +51,15 @@ in{
 
 ;; Writeroom
 (setq writeroom-width 120)
+
+(auto-insert-mode t)
+(eval-after-load 'autoinsert
+ '(define-auto-insert
+   '("\\.org\\'" . "Org skeleton")
+   '("Template for a default org mode document"
+   "#+TITLE: " _
+   \n \n
+   "* ")))
 '';
   };
 }

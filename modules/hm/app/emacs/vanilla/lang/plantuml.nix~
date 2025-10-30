@@ -1,0 +1,25 @@
+{ config, lib, pkgs, ... }:
+
+{
+  programs.emacs = {
+    extraPackages = epkgs: with epkgs; [
+      # Languages
+      nix-mode
+      nix-ts-mode
+
+      lsp-pyright
+      
+      rust-mode
+      flycheck-rust
+      
+      
+      plantuml-mode
+      flycheck-plantuml
+    ];
+
+    extraConfig = '' 
+    (setq plantuml-executable-path "${pkgs.plantuml}/bin/plantuml")
+    (setq plantuml-default-exec-mode 'executable)
+    '';
+  };  
+}

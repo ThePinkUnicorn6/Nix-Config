@@ -53,7 +53,7 @@
     file-roller
     jdk17
     gcc
-    du-dust
+    dust
     resources
     firefox
  
@@ -91,7 +91,8 @@
     gqrx
     
     # Chat
-    whatsapp-for-linux
+    wasistlos
+    
     #discord
     signal-desktop
 

@@ -10,7 +10,7 @@
  
   home.packages = with pkgs; [
     ripgrep
-    emacsPackages.sqlite3
+    emacs.pkgs.sqlite3
     emacs-all-the-icons-fonts
   ];
   programs.emacs = {

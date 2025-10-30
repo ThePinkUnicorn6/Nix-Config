@@ -6,7 +6,7 @@
     inconsolata
     iosevka
     font-awesome
-    ubuntu_font_family
+    ubuntu-classic
     terminus_font
   ];
 }

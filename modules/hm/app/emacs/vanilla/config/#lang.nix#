@@ -58,14 +58,6 @@
 
     (eval-after-load 'autoinsert
       '(define-auto-insert
-        '(nix-mode . "Nix skeleton")
-          '("Template to insert bolerplate nix code"
-          "{ config, lib, pkgs, ... }:" \n \n
-          "{" \n
-          > _ \n
-          "}" > \n)))
-    (eval-after-load 'autoinsert
-      '(define-auto-insert
         '("\\.org\\'" . "Org skeleton")
         '("Template for a default org mode document"
         "#+TITLE: " _

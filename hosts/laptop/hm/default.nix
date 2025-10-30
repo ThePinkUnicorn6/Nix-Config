@@ -44,7 +44,7 @@
     gnome-disk-utility
     nautilus
     file-roller
-    du-dust
+    dust
     resources
     firefox
     
@@ -74,7 +74,7 @@
     gqrx
 
     # Chat
-    whatsapp-for-linux
+    wasistlos
     
     # Other
     pandoc
