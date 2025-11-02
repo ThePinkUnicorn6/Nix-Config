@@ -1,5 +1,5 @@
 @import "colours.css";
-
+@define-color text @base00;
 window#waybar {
     background: @base00;
     border-radius: 0 0 10px 10px;
@@ -37,64 +37,64 @@ window#waybar.hidden {
     transition: none;
 }
 #workspaces {
-    color: @base00;
+    color: @text;
     background: @base0D;
 }
 
 #workspaces button {
-    color: @base00;
+    color: @text;
     background-color: transparent;
 }
 #workspaces button.active {
     background: transparent
 }
 tooltip {
-    background: @base00;
+    background: @text;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
     border-color: @base08;
 }
 #network {
-    color: @base00;
+    color: @text;
     background: @base0D;
 }
 
 #clock {
-    color: @base00;
+    color: @text;
     background: @base0B;
 }
 
 #memory {
-    color: @base00;
+    color: @text;
     background: @base0E;
 }
 #cpu {
-    color: @base00;
+    color: @text;
     background: @base0E;
 }
 #disk {
-    color: @base00;
+    color: @text;
     background: @base0E;
 }
 #wireplumber {
-    color: @base00;
+    color: @text;
     background: @base0C;
 }
 #wireplumber.muted {
-    color: @base00;
+    color: @text;
     background: @base08;
 }
 #battery {
-    color: @base00;
+    color: @text;
     background: @base0C;
 }
 #battery.warning {
-    color: @base00;
+    color: @text;
     background: @base0F
 }
 #battery.critical {
-    color: @base00;
+    color: @text;
     background: @base08;
 }
 
