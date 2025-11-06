@@ -209,6 +209,7 @@
             text = ''
 gh auth login || true
 git clone https://github.com/thepinkunicorn6/nix-config ~/nix
+cd ~/nix
 read -r -p "Enter name of flake config to use: " hostname
 nixos-generate-config --show-hardware-config > ~/nix/hosts/"$hostname"/nix/hardware-configuration.nix
 git add .

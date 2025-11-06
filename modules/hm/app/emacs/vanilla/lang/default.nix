@@ -6,7 +6,7 @@
     # ./c.nix
     # ./cpp.nix
     ./nix.nix
-    ./planuml.nix
+    ./plantuml.nix
     ./python.nix
   ];
   programs.emacs = {

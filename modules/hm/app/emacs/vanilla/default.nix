@@ -3,11 +3,11 @@
 {
   imports = [
     ./theme.nix
+    ./lang
   ] ++ (map (m: ./config + m) [
     "/meow.nix"
     "/vertico.nix"
     "/roam.nix"
-    "/lang.nix"
     "/org.nix"
     /latex.nix
     "/navigation-keybinds.nix"
