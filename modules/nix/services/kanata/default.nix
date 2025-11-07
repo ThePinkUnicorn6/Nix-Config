@@ -4,7 +4,7 @@
   services.kanata = {
     enable = true;
     keyboards = {
-      "surface" = {
+      "laptop" = {
         config = ''
           (defsrc
             esc
@@ -15,8 +15,8 @@
           (deflayer colemak-dht
             caps
             q w f p b j l u y ;
-            esc a r s t g k n e i o
-            x c d v z m h
+            esc a r s t g m n e i o
+            x c d v z k h
           )
         '';
         extraDefCfg = ''
