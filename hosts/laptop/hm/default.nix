@@ -23,6 +23,7 @@
     "/lang/rust"
     "/app/desktop/gammastep"
     "/app/fido2"
+    /app/browser/firefox
  
     "/wm/${settings.wm}"
     "/style"
@@ -46,7 +47,6 @@
     file-roller
     dust
     resources
-    firefox
     
     # Wine
     wine
@@ -72,6 +72,7 @@
     # Audio
     lollypop
     gqrx
+    musescore
 
     # Chat
     wasistlos
