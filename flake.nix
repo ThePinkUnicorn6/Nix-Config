@@ -15,8 +15,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
+    niri = {
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     secrets = {
@@ -24,7 +24,7 @@
       flake = true;
     };
   };
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, stylix, musnix, secrets, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, stylix, musnix, niri, secrets, ... }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -132,7 +132,7 @@
             name = vars.name;
             personal-email = vars.personal-email;
             git-email = vars.git-email;
-            wm = "hyprland";
+            wm = "niri";
             dm = "tuigreet";
             theme = "stella"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
