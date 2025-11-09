@@ -26,7 +26,7 @@
           (defalias alt-i (tap-hold 200 200 i ralt))
           (defalias ctl-s (tap-hold 200 200 s ctl))
           (defalias ctl-e (tap-hold 200 200 e rctl))
-          (defalias shft-t (tap-hold 200 200 e shft))
+          (defalias shft-t (tap-hold 200 200 t shft))
           (defalias shft-n (tap-hold 200 200 n rshft))
 
           (defalias navspc (tap-hold 200 200 _ (layer-while-held nav)))
