@@ -10,8 +10,6 @@
 
   home.packages = with pkgs; [
     wl-clipboard
-#    hyprland-protocols
-    wl-clipboard
     grim
     grimblast
     slurp
@@ -63,8 +61,17 @@
             bottom-right = 12.0;
           };
           clip-to-geometry = true;
-         
+          
         }
+      ];
+      input = {
+        focus-follows-mouse = {
+          enable = true;
+        };
+      };
+      spawn-at-startup = [
+        { argv = ["waybar"]; }
+        { argv = ["swaybg" "--image" "${config.stylix.image}" ]; }
       ];
     };
   };
