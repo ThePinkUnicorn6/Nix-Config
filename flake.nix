@@ -19,6 +19,10 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mango = {
+      url = "github:DreamMaoMao/mangowc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     secrets = {
       url = "git+ssh://git@github.com/ThePinkUnicorn6/nix-settings?ref=main";
       flake = true;
@@ -132,7 +136,7 @@
             name = vars.name;
             personal-email = vars.personal-email;
             git-email = vars.git-email;
-            wm = "niri";
+            wm = "hyprland";
             dm = "tuigreet";
             theme = "stella"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
