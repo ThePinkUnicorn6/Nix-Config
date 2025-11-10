@@ -53,8 +53,8 @@ let
       # "thermal-zone": 2;
       # "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
       #   "critical-threshold": 80,
-      #   "format-critical": "{temperatureC}°C ",
-      format = "{temperatureC}°C ";
+      #   "format-criical": "{temperatureC}°C ",
+      format = " {temperatureC}°C";
     };
     "hyprland/workspaces" = {
       format = "{icon}";
@@ -85,8 +85,8 @@ in{
           extraModules = if osConfig.networking.hostName == "laptop" then [ "battery" ] else [];
         in [ "hyprland/workspaces" ] ++ extraModules;
         modules-center = [ "clock" ];
-        modules-right = [ "wireplumber" "network" "disk" "cpu" "memory" "tray"];
-        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces" battery;
+        modules-right = [ "wireplumber" "network" "temperature" "disk" "cpu" "memory" "tray"];
+        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces" battery temperature;
       };
 
       rightBar = {

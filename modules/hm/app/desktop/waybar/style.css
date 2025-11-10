@@ -1,3 +1,4 @@
+
 @import "colours.css";
 @define-color text @base00;
 window#waybar {
@@ -26,6 +27,7 @@ window#waybar.hidden {
 #disk,
 #battery,
 #wireplumber,
+#temperature,
 #tray {
     margin-top: 4px;
     margin-bottom: 4px;
@@ -97,7 +99,10 @@ tooltip {
     color: @text;
     background: @base08;
 }
-
+#temperature {
+    color: @text;
+    background: @base0D
+}
 #tray {
     background: @base0F;
 }
