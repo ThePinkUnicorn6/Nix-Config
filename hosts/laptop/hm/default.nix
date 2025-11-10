@@ -25,9 +25,9 @@
     "/app/fido2"
     /app/browser/firefox
  
-    "/wm/${settings.wm}"
+    # "/wm/${settings.wm}"
     "/style"
-  ]);
+  ]++(map (wm: ../../../modules/hm/wm/${wm}) settings.wm));
 
   services = {
     syncthing.enable = true;

@@ -5,13 +5,13 @@
     ../../desktop-base/nix
   ]++
   (map (m: ../../../modules/nix + m) [
-    "/wm/${settings.wm}.nix"
+    # "/wm/${settings.wm}.nix"
     #"/wm/xfce.nix"
     "/style"
     "/app/fido2"
     "/services/kanata"
     /services/tlp
-  ]);
+  ])++(map (wm: ../../../modules/nix/wm/${wm}.nix) settings.wm);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${settings.username} = {
@@ -31,6 +31,10 @@
       layout = "gb";
       variant = "";
     };
+    logind.settings.Login = {
+      HandlePowerKey = "suspend-then-hibernate";
+      HandleLidSwitch = "suspend-then-hibernate";
+    };
     
     flatpak.enable = true;
     openssh.enable = true;
@@ -43,6 +47,6 @@
     powerOnBoot = true;
   };
 #  services.blueman.enable = true;
-  system.stateVersion = "24.11"; 
+  system.stateVersion = "25.05"; 
 }
 

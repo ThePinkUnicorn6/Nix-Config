@@ -8,9 +8,8 @@
         option0="󰏥  Suspend"
         option1="󰐥  Shutdown"
         option2="󰜉  Reboot"
-        option3="  Windows"
-
-        options="$option0\n$option1\n$option2\n$option3"
+        
+        options="$option0\n$option1\n$option2"
 
         chosen="$(echo -e "$options" | fuzzel --lines 4 --dmenu)"
         case $chosen in
@@ -20,8 +19,6 @@
                 systemctl poweroff;;
             $option2)
                 systemctl reboot;;
-            $option3)
-                systemctl reboot --boot-loader-entry=auto-windows;;
         esac
     '')
   ];
