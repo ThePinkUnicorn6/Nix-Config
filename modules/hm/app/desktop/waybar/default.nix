@@ -49,6 +49,13 @@ let
       interval = 5;
       format-icons = [ "" "" "" "" "" ];
     };
+    temperature = {
+      # "thermal-zone": 2;
+      # "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      #   "critical-threshold": 80,
+      #   "format-critical": "{temperatureC}°C ",
+      format = "{temperatureC}°C ";
+    };
     "hyprland/workspaces" = {
       format = "{icon}";
       on-click = "activate";

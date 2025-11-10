@@ -76,6 +76,7 @@
 
     # Chat
     wasistlos
+    signal-desktop
     
     # Other
     pandoc
