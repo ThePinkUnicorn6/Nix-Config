@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     syncthing
     syncthingtray
+    networkmanagerapplet
     python3
 
     # Fonts

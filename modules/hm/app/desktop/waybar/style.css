@@ -1,4 +1,3 @@
-
 @import "colours.css";
 @define-color text @base00;
 window#waybar {
@@ -28,6 +27,7 @@ window#waybar.hidden {
 #battery,
 #wireplumber,
 #temperature,
+#backlight,
 #tray {
     margin-top: 4px;
     margin-bottom: 4px;
@@ -93,7 +93,7 @@ tooltip {
 }
 #battery.warning {
     color: @text;
-    background: @base0F
+    background: @base0F;
 }
 #battery.critical {
     color: @text;
@@ -101,7 +101,11 @@ tooltip {
 }
 #temperature {
     color: @text;
-    background: @base0D
+    background: @base0D;
+}
+#backlight {
+    color: @text;
+    background: @base0C;
 }
 #tray {
     background: @base0F;

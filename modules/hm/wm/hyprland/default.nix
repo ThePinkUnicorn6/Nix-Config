@@ -7,6 +7,7 @@ in{
   imports = [ 
     ../wayland
     ../../app/desktop/waybar
+    ../../app/desktop/power
     ../../app/desktop/wl-kbptr
   ];
 
@@ -17,25 +18,6 @@ in{
     grim
     grimblast
     slurp
-    (pkgs.writeScriptBin "power-menu" ''
-        #!/usr/bin/env bash
-
-        option0="󰏥  Suspend"
-        option1="󰐥  Shutdown"
-        option2="󰜉  Reboot"
-
-        options="$option0\n$option1\n$option2"
-
-        chosen="$(echo -e "$options" | fuzzel --lines 3 --dmenu)"
-        case $chosen in
-            $option0)
-                systemctl suspend-then-hibernate '' + (if (isLaptop) then "& swaylock" else "") + '';;
-            $option1)
-                systemctl poweroff;;
-            $option2)
-                systemctl reboot;;
-        esac
-    '')
   ];
   programs.swaylock.enable = true;
 
@@ -139,6 +121,7 @@ in{
         "sleep 5 && emacs --daemon"
         "sleep 3 && openrgb --startminimized"
         "[workspace 1 silent] sleep 3 && firefox"
+        "nm-applet"
       ];
       # Window rules
       windowrule = [
@@ -219,8 +202,15 @@ in{
         "SUPER,f4,exec,hyprctl kill"
       ];
       bindl = [
-         ",switch:Lid Switch,exec,swaylock"
+        ",switch:Lid Switch,exec,swaylock"
         
+        ",XF86AudioMute, exec, ${lib.getExe pkgs.pamixer} --toggle-mute"
+        ",XF86AudioRaiseVolume, exec, ${lib.getExe pkgs.pamixer} -i 5"  
+        ",XF86AudioLowerVolume, exec, ${lib.getExe pkgs.pamixer} -d 5"
+        ",XF86MonBrightnessUp, exec, ${lib.getExe pkgs.brightnessctl} s 10%+"
+        ",XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} s 10%-"
+        ",XF86Tools, exec, emacsclient -c ~/nix"
+        ",XF86Search, exec, fuzzel"
       ];
       "plugin:touch" = {
         sensitivity = "4.0";

@@ -17,10 +17,12 @@ let
     wireplumber = {
       format = "{icon}  {volume}%";
       format-icons = ["󰕿" "󰖀" "󰕾"];
-      format-muted = "󰖁 ";
-      scroll-step = 5;
+      format-muted = "󰖁";
+      scroll-step = 1;
+      reverse-scrolling = true;
       on-click = "pavucontrol";
-      on-click-right = "amixer set Master toggle";
+      on-click-right = "${lib.getExe pkgs.pamixer} --toggle-mute";
+
     };
     network = {
       interval = 1;
@@ -49,11 +51,13 @@ let
       interval = 5;
       format-icons = [ "" "" "" "" "" ];
     };
+    backlight = {
+      device = "intel_backlight";
+      format = "{icon}  {percent}%";
+      reverse-scrolling = true;
+      format-icons = [ "󰃞" "󰃟" "󰃠" ];
+    };
     temperature = {
-      # "thermal-zone": 2;
-      # "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-      #   "critical-threshold": 80,
-      #   "format-criical": "{temperatureC}°C ",
       format = " {temperatureC}°C";
     };
     "hyprland/workspaces" = {
@@ -82,11 +86,11 @@ in{
         output = "!DP-2";
         
         modules-left = let
-          extraModules = if osConfig.networking.hostName == "laptop" then [ "battery" ] else [];
+          extraModules = if osConfig.networking.hostName == "laptop" then [ "battery" "backlight"] else [];
         in [ "hyprland/workspaces" ] ++ extraModules;
         modules-center = [ "clock" ];
         modules-right = [ "wireplumber" "network" "temperature" "disk" "cpu" "memory" "tray"];
-        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces" battery temperature;
+        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces" battery temperature backlight;
       };
 
       rightBar = {
