@@ -139,7 +139,7 @@
             wm = [ "hyprland" "niri" ];
             dm = "tuigreet";
             theme = "stella"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
+            wallpaper = ./wallpapers/t440p_explodedview.png;
             reThemeWall = true;
             loc = vars.loc;
           };

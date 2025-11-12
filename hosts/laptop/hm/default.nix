@@ -47,6 +47,7 @@
     file-roller
     dust
     resources
+    bluetuith
     
     # Wine
     wine

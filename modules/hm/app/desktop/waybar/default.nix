@@ -44,6 +44,7 @@ let
     battery = {
       format = "{capacity}% {icon}";
       format-charging = "{capacity}% 󱐋{icon}";
+      format-plugged = "{capacity}% ";
       states = {
         "warning" = 30;
         "critical" = 15;
