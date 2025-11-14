@@ -59,6 +59,7 @@
     hunspell
     hunspellDicts.en_GB-ise
     rnote
+    jetbrains.clion
 
     # Video
     yt-dlp
