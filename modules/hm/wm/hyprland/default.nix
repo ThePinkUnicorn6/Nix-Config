@@ -31,7 +31,9 @@ in{
             "HDMI-A-1,1920x1080@60,0x550,1"
             "DP-2,1920x1080@60,1920x0,1"
             "DP-2,transform,3"
-        ] else [];
+      ] else [
+            "eDP-1, 1920x1080@60, 0x0, 1"
+      ];
 
       # Workspace monitor binding
       workspace =  if isDesktop then [
@@ -69,7 +71,7 @@ in{
           passes = 4;
           new_optimizations = true;
           ignore_opacity = true;
-          xray = true;
+          xray = false;
           popups = true;
         };
         active_opacity = 1;
@@ -110,6 +112,7 @@ in{
         disable_splash_rendering = true;
         disable_hyprland_logo = true;
         enable_swallow = true;
+        vfr = true;
         #swallow_regex = "^(kitty|alacritty)$";
       };
 

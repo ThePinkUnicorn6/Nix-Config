@@ -18,7 +18,7 @@ let
       format = "{icon}  {volume}%";
       format-icons = ["󰕿" "󰖀" "󰕾"];
       format-muted = "󰖁";
-      scroll-step = 1;
+      scroll-step = 2;
       reverse-scrolling = true;
       on-click = "pavucontrol";
       on-click-right = "${lib.getExe pkgs.pamixer} --toggle-mute";
