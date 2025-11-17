@@ -7,6 +7,7 @@
   (map (m: ../../../modules/nix + m) [
     # "/wm/${settings.wm}.nix"
     #"/wm/xfce.nix"
+    /gpu/intel-igpu
     "/style"
     "/app/fido2"
     "/services/kanata"
