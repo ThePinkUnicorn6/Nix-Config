@@ -5,7 +5,7 @@
     ../../app/desktop/mako
   ];
   home.packages = with pkgs; [
-    hyprpaper
+    swaybg
   ];
   xdg.portal = {
     enable = true;

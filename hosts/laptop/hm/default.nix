@@ -23,10 +23,11 @@
     "/lang/rust"
     "/app/desktop/gammastep"
     "/app/fido2"
+    /app/browser/firefox
  
-    "/wm/${settings.wm}"
+    # "/wm/${settings.wm}"
     "/style"
-  ]);
+  ]++(map (wm: ../../../modules/hm/wm/${wm}) settings.wm));
 
   services = {
     syncthing.enable = true;
@@ -46,7 +47,7 @@
     file-roller
     dust
     resources
-    firefox
+    bluetuith
     
     # Wine
     wine
@@ -58,6 +59,7 @@
     hunspell
     hunspellDicts.en_GB-ise
     rnote
+    jetbrains.clion
 
     # Video
     yt-dlp
@@ -72,9 +74,11 @@
     # Audio
     lollypop
     gqrx
+    musescore
 
     # Chat
     wasistlos
+    signal-desktop
     
     # Other
     pandoc

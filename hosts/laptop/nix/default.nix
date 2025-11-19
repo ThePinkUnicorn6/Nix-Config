@@ -5,12 +5,14 @@
     ../../desktop-base/nix
   ]++
   (map (m: ../../../modules/nix + m) [
-    "/wm/${settings.wm}.nix"
+    # "/wm/${settings.wm}.nix"
     #"/wm/xfce.nix"
+    /gpu/intel-igpu
     "/style"
     "/app/fido2"
     "/services/kanata"
-  ]);
+    /services/tlp
+  ])++(map (wm: ../../../modules/nix/wm/${wm}.nix) settings.wm);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${settings.username} = {
@@ -18,27 +20,22 @@
     description = settings.name;
     extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" "uinput" ];
   };
-#  boot.blacklistedKernelModules = [ 
-#    "ipu3_imgu"
-#  ]; 
 
   networking = {
     hostName = "laptop"; # Define your hostname.
   };
   nix.settings.trusted-users = [ "root" settings.username ];
 
-#  fileSystems."/home/${settings.username}/shared-files" = {
-#    device = "/dev/nvme0n1p4";
-#    fsType = "ntfs";
-#  };
-  
   # Configure keymap in X11
   services = {
     xserver.xkb = {
       layout = "gb";
       variant = "";
     };
-#    iptsd.config.Touchscreen.DisableOnPalm = true;
+    logind.settings.Login = {
+      HandlePowerKey = "suspend-then-hibernate";
+      HandleLidSwitch = "suspend-then-hibernate";
+    };
     
     flatpak.enable = true;
     openssh.enable = true;
@@ -51,6 +48,6 @@
     powerOnBoot = true;
   };
 #  services.blueman.enable = true;
-  system.stateVersion = "24.11"; 
+  system.stateVersion = "25.05"; 
 }
 

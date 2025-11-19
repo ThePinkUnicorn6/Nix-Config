@@ -7,6 +7,7 @@ in{
   imports = [ 
     ../wayland
     ../../app/desktop/waybar
+    ../../app/desktop/power
     ../../app/desktop/wl-kbptr
   ];
 
@@ -17,28 +18,6 @@ in{
     grim
     grimblast
     slurp
-    (pkgs.writeScriptBin "power-menu" ''
-        #!/usr/bin/env bash
-
-        option0="󰏥  Suspend"
-        option1="󰐥  Shutdown"
-        option2="󰜉  Reboot"
-        option3="  Windows"
-
-        options="$option0\n$option1\n$option2\n$option3"
-
-        chosen="$(echo -e "$options" | fuzzel --lines 4 --dmenu)"
-        case $chosen in
-            $option0)
-                systemctl suspend;;
-            $option1)
-                systemctl poweroff;;
-            $option2)
-                systemctl reboot;;
-            $option3)
-                systemctl reboot --boot-loader-entry=auto-windows;;
-        esac
-    '')
   ];
   programs.swaylock.enable = true;
 
@@ -52,7 +31,9 @@ in{
             "HDMI-A-1,1920x1080@60,0x550,1"
             "DP-2,1920x1080@60,1920x0,1"
             "DP-2,transform,3"
-        ] else [];
+      ] else [
+            "eDP-1, 1920x1080@60, 0x0, 1"
+      ];
 
       # Workspace monitor binding
       workspace =  if isDesktop then [
@@ -90,7 +71,7 @@ in{
           passes = 4;
           new_optimizations = true;
           ignore_opacity = true;
-          xray = true;
+          xray = false;
           popups = true;
         };
         active_opacity = 1;
@@ -131,6 +112,7 @@ in{
         disable_splash_rendering = true;
         disable_hyprland_logo = true;
         enable_swallow = true;
+        vfr = true;
         #swallow_regex = "^(kitty|alacritty)$";
       };
 
@@ -142,15 +124,12 @@ in{
         "sleep 5 && emacs --daemon"
         "sleep 3 && openrgb --startminimized"
         "[workspace 1 silent] sleep 3 && firefox"
+        "nm-applet"
       ];
       # Window rules
       windowrule = [
-        "monitor:0, class:discord"
-        "workspace:6, class:discord"
-        "monitor:0, class:WebCord, title:WebCord"
-        "workspace:6, class:WebCord, title:WebCord"
-        "monitor:0, class:wasistlos, title:WasIstLos"
-        "workspace:6, class:wasistlos, title:WasIstLos"
+        # "monitor:0, class:wasistlos, title:WasIstLos"
+        # "workspace:6, class:wasistlos, title:WasIstLos"
 
         "float,class:com.usebottles.bottles"
       ];
@@ -226,7 +205,15 @@ in{
         "SUPER,f4,exec,hyprctl kill"
       ];
       bindl = [
-        ",switch:Lid,exec,swaylock"
+        ",switch:Lid Switch,exec,swaylock"
+        
+        ",XF86AudioMute, exec, ${lib.getExe pkgs.pamixer} --toggle-mute"
+        ",XF86AudioRaiseVolume, exec, ${lib.getExe pkgs.pamixer} -i 5"  
+        ",XF86AudioLowerVolume, exec, ${lib.getExe pkgs.pamixer} -d 5"
+        ",XF86MonBrightnessUp, exec, ${lib.getExe pkgs.brightnessctl} s 10%+"
+        ",XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} s 10%-"
+        ",XF86Tools, exec, emacsclient -c ~/nix"
+        ",XF86Search, exec, fuzzel"
       ];
       "plugin:touch" = {
         sensitivity = "4.0";
