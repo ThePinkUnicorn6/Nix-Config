@@ -158,12 +158,6 @@ in{
         "CTRL_SHIFT,escape,exec,${pkgs.resources}/bin/resources"
         "SUPER,X,exec,${pkgs.wl-kbptr}/bin/wl-kbptr -c .config/wl-kbptr/config"
         
-        # Screenshots
-        ",Print,exec,grimblast --notify --cursor copy active"
-        "SHIFT,Print,exec,grimblast --notify --cursor copysave active"
-        "SUPER,S,exec,grimblast --notify copy area"
-        "SUPERSHIFT,S,exec,grimblast --notify copysave area"
-
         "SUPER,left,movefocus,l"
         "SUPER,right,movefocus,r"
         "SUPER,up,movefocus,u"
@@ -203,6 +197,16 @@ in{
         "SUPER,mouse_down,workspace,e+1"
         "SUPER,mouse_up,workspace,e-1"
         "SUPER,f4,exec,hyprctl kill"
+
+        # Screenshots
+        ",Print,exec,grimblast --notify --cursor copy active"
+        "SHIFT,Print,exec,grimblast --notify --cursor copysave active"
+        ",XF86Explorer,exec,grimblast --notify --cursor copy active"
+        "SHIFT,XF86Explorer,exec,grimblast --notify --cursor copysave active"
+        
+        "SUPER,S,exec,grimblast --notify copy area"
+        "SUPERSHIFT,S,exec,grimblast --notify copysave area"
+        
       ];
       bindl = [
         ",switch:Lid Switch,exec,swaylock"
