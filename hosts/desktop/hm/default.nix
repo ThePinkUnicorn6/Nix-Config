@@ -32,9 +32,8 @@
     /service/vr
     /app/distrobox
 
-    "/wm/${settings.wm}"
     /style
-  ]);
+  ]++(map (wm: ../../../modules/hm/wm/${wm}) settings.wm));
 
   services = {
     syncthing.enable = true;

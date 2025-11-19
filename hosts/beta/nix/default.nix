@@ -35,14 +35,6 @@
       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
     }
   ];
-  programs.ssh.extraConfig = ''
-Host builder
-  HostName 100.90.14.14
-  Port 22
-  User builder
-  IdentitiesOnly yes
-  IdentityFile /root/.ssh/id_builder
-  '';
   nix.settings.trusted-users = [ "root" settings.username ];
   # Services
   services.caddy = {

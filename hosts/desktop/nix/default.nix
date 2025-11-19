@@ -7,9 +7,6 @@
   (map (m: ../../../modules/nix + m) [
     "/gpu/amd-rx5700xt"
     "/app/production"
-    "/wm/${settings.wm}.nix"
-#    "/wm/plasma.nix"
-    "/wm/xfce.nix"
     "/style"
     "/app/fido2"
     /app/scrcpy
@@ -18,7 +15,7 @@
     /hardware/kinect
     /hardware/openrgb
 #    /services/vr/envision
-  ]);
+  ])++(map (wm: ../../../modules/nix/wm/${wm}.nix) settings.wm);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${settings.username} = {

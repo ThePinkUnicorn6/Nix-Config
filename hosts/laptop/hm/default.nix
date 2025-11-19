@@ -25,8 +25,7 @@
     "/app/fido2"
     /app/browser/firefox
  
-    # "/wm/${settings.wm}"
-    "/style"
+     "/style"
   ]++(map (wm: ../../../modules/hm/wm/${wm}) settings.wm));
 
   services = {
