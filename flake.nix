@@ -213,7 +213,7 @@ cd ~/nix
 read -r -p "Enter name of flake config to use: " hostname
 nixos-generate-config --show-hardware-config > ~/nix/hosts/"$hostname"/nix/hardware-configuration.nix
 git add .
-nixos-rebuild switch --flake ~/nix#"$hostname" --use-remote-sudo
+nixos-rebuild switch --flake ~/nix#"$hostname" --sudo
 '';
           };
         });
