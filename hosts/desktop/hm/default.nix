@@ -77,6 +77,7 @@
     loupe
     gthumb
     freenect
+    kdePackages.kolourpaint
     
     #ansel
 
