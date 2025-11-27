@@ -108,5 +108,9 @@
     microcom
     flowtime
     picard
+
+    # Code
+    jetbrains.clion
+    gcc
   ];
 }
