@@ -32,7 +32,7 @@ in{
             "DP-2,1920x1080@60,1920x0,1"
             "DP-2,transform,3"
       ] else [
-            "eDP-1, 1920x1080@60, 0x0, 1"
+            "desc:Chimei Innolux Corporation 0x14F2, 1920x1080@60, 0x0, 1"
       ];
 
       # Workspace monitor binding
@@ -47,7 +47,13 @@ in{
         "8,monitor:DP-2"
         "9,monitor:DP-2"
         "10,monitor:DP-2"
-      ] else [];
+      ] else [
+        "1,monitor:eDP-1"
+        "2,monitor:eDP-1"
+        "3,monitor:eDP-1"
+        "4,monitor:eDP-1"
+        "5,monitor:eDP-1"
+      ];
 
       input = {
         kb_layout = "gb";
