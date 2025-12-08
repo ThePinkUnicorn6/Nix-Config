@@ -35,7 +35,8 @@
       ];
     };
   };
-
+  # disable screen reader ???
+  systemd.user.services.orca.enable = false;
   # Delete tmp on boot
   boot.tmp.cleanOnBoot = true;
 
