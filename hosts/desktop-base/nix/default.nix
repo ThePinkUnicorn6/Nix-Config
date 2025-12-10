@@ -35,7 +35,8 @@
       ];
     };
   };
-
+  # disable screen reader ???
+  systemd.user.services.orca.enable = false;
   # Delete tmp on boot
   boot.tmp.cleanOnBoot = true;
 
@@ -43,6 +44,7 @@
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "client";
 
+  services.mullvad-vpn.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi = {

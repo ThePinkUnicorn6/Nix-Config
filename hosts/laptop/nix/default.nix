@@ -36,7 +36,12 @@
     };
     
     flatpak.enable = true;
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+      };
+    };
   };
   programs = {
     steam.enable = true;

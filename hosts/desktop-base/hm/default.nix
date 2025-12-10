@@ -17,6 +17,7 @@
     syncthingtray
     networkmanagerapplet
     python3
+    mullvad
 
     # Fonts
     arkpandora_ttf
