@@ -5,7 +5,7 @@
     "d ${settings.dataDir}/syncthing 0775 syncthing - - -"
     "d ${settings.mediaDir}/Photos/phone-sync 0775 syncthing - - -"
     "d ${settings.mediaDir}/Photos/DSLR 0775 syncthing - - -"
-
+    "d ${settings.mediaDir}/Photos/memes 0775 syncthing - - -"
   ];
   networking.firewall = {
     allowedTCPPorts = [

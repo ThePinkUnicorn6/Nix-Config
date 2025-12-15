@@ -26,6 +26,7 @@
 #    /app/llm/ollama
 #    /app/llm/mods
     /app/desktop/gammastep
+    /app/shell/scripts/audiosource.nix
     /app/fido2
     /app/calibre
     /app/obs
@@ -110,6 +111,7 @@
     picard
 
     # Code
+    jetbrains.clion
     gcc
   ];
 }
