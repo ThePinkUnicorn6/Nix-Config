@@ -23,7 +23,7 @@
     /lang/python
     /lang/python/python-packages
     /lang/rust
-#    /app/llm/ollama
+    /app/llm/ollama
 #    /app/llm/mods
     /app/desktop/gammastep
     /app/fido2
@@ -31,7 +31,7 @@
     /app/obs
     /service/vr
     /app/distrobox
-
+    /app/shell/scripts/audiosource
     /style
   ]++(map (wm: ../../../modules/hm/wm/${wm}) settings.wm));
 
