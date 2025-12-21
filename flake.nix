@@ -66,7 +66,7 @@
             wm = ["hyprland"];
             dm = "tuigreet";
             theme = "stella"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/bubble.png;
+            wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
             reThemeWall = true;
             loc = vars.loc;
           };
@@ -136,7 +136,7 @@
             name = vars.name;
             personal-email = vars.personal-email;
             git-email = vars.git-email;
-            wm = [ "hyprland" "niri" "gnome" ];
+            wm = [ "hyprland" "niri" "gnome" "plasma" ];
             dm = "tuigreet";
             theme = "stella"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/t440p_explodedview.png;
