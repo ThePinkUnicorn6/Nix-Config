@@ -136,8 +136,8 @@
             name = vars.name;
             personal-email = vars.personal-email;
             git-email = vars.git-email;
-            wm = [ "hyprland" "niri" "gnome" "plasma" ];
-            dm = "gdm";
+            wm = [  "sway" ];
+            dm = "tuigreet";
             theme = "stella"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/t440p_explodedview.png;
             reThemeWall = true;
