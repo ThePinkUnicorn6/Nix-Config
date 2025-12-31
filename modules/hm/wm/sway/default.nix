@@ -21,6 +21,8 @@
     checkConfig = false;
     package = pkgs.swayfx;
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
+    swaynag.enable = true;
+    systemd.enable = true;
     config = rec {
       modifier = "Mod4";
       # Use kitty as default terminal
@@ -35,9 +37,28 @@
       in lib.mkOptionDefault {
         "${modifier}+Return" = "exec kitty";
         "${modifier}+q" = "kill";
-        "${modifier}+d" = "exec fuzzel";
+        "${modifier}+r" = "exec fuzzel";
       };
-
+      input = {
+        "type:touchpad" = {
+          dwt = "enabled";
+          dwtp = "enabled";
+          tap = "enabled";
+          tap_button_map = "lrm";
+          natural_scroll = "enabled";
+        };
+      };
+      window = {
+        titlebar = false;
+      };
+      bars = [];
     };
+    extraConfig = ''
+      blur enable
+      shadows enable
+
+      bindgesture swipe:right workspace prev
+      bindgesture swipe:left workspace next
+    '';
   };
 }
