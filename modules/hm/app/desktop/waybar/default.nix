@@ -74,6 +74,18 @@ let
         empty = "";
       };
     };
+    "sway/workspaces" = {
+      format = "{icon}";
+      persistent-workspaces = {
+        "*" = [ 1 2 3 4 5 ];
+        DP-2 = [ 6 7 8 9 10 ];
+      };
+      format-icons = {
+        active = "";
+        default = "";
+        empty = "";
+      };
+    };
   };
 
 in{
@@ -88,10 +100,10 @@ in{
         
         modules-left = let
           extraModules = if osConfig.networking.hostName == "laptop" then [ "battery" "backlight"] else [];
-        in [ "hyprland/workspaces" ] ++ extraModules;
+        in [ "hyprland/workspaces" "sway/workspaces" ] ++ extraModules;
         modules-center = [ "clock" ];
         modules-right = [ "wireplumber" "network" "temperature" "disk" "cpu" "memory" "tray"];
-        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces" battery temperature backlight;
+        inherit (moduleConfig) cpu clock wireplumber network disk memory "hyprland/workspaces" "sway/workspaces" battery temperature backlight;
       };
 
       rightBar = {
