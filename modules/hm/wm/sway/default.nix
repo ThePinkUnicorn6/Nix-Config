@@ -39,6 +39,10 @@
         "${modifier}+r" = "exec fuzzel";
         "${modifier}+y" = "exec freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\"";
         "${modifier}+t" = "exec emacs -c";
+        "XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pamixer} -i 5";
+        "XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pamixer} -d 5";
+        "XF86MonBrightnessUp" = "exec ${lib.getExe pkgs.brightnessctl} s 10%+";
+        "XF86MonBrightnessDown" = "exec ${lib.getExe pkgs.brightnessctl} s 10%-";
       };
       input = {
         "type:keyboard" = {
