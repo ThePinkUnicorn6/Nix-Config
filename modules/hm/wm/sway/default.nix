@@ -10,7 +10,6 @@
 
   home.packages = with pkgs; [
     wl-clipboard
-    wl-clipboard
     grim
     grimblast
     slurp
@@ -38,8 +37,13 @@
         "${modifier}+Return" = "exec kitty";
         "${modifier}+q" = "kill";
         "${modifier}+r" = "exec fuzzel";
+        "${modifier}+y" = "exec freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\"";
+        "${modifier}+t" = "exec emacs -c";
       };
       input = {
+        "type:keyboard" = {
+          xkb_variant = "en_gb";
+        };
         "type:touchpad" = {
           dwt = "enabled";
           dwtp = "enabled";

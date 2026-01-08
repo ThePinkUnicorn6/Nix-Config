@@ -77,13 +77,16 @@ let
     "sway/workspaces" = {
       format = "{icon}";
       persistent-workspaces = {
-        "*" = [ 1 2 3 4 5 ];
-        DP-2 = [ 6 7 8 9 10 ];
+        "1" = [];
+        "2" = [];
+        "3" = [];
+        "4" = [];
+        "5" = [];
       };
       format-icons = {
-        active = "";
+        focused = "";
         default = "";
-        empty = "";
+        persistent = "";
       };
     };
   };

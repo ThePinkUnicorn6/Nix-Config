@@ -138,7 +138,7 @@
             git-email = vars.git-email;
             wm = [  "sway" ];
             dm = "tuigreet";
-            theme = "stella"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            theme = "everforest"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/t440p_explodedview.png;
             reThemeWall = true;
             loc = vars.loc;

@@ -82,15 +82,15 @@ in
     fonts = {
       monospace = {
         name = "Iosevka Term";
-        package = pkgs.iosevka;
+        package = pkgs.nerd-fonts.iosevka;
       };
       serif = {
         name = "Iosevka Aile";
-        package = pkgs.iosevka;
+        package = pkgs.nerd-fonts.iosevka;
       };
       sansSerif = {
         name = "Iosevka Etoile";
-        package = pkgs.iosevka;
+        package = pkgs.nerd-fonts.iosevka;
       };
     };
     cursor = {

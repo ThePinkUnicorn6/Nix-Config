@@ -4,7 +4,7 @@
     nerd-fonts.inconsolata
     powerline
     inconsolata
-    iosevka
+    nerd-fonts.iosevka
     font-awesome
     ubuntu-classic
     terminus_font
