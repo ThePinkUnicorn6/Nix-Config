@@ -139,8 +139,8 @@
             wm = [  "sway" ];
             dm = "tuigreet";
             theme = "everforest"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/t440p_explodedview.png;
-            reThemeWall = true;
+            wallpaper = ./wallpapers/national-geographic-water.jpg;
+            reThemeWall = false;
             loc = vars.loc;
           };
         in lib.nixosSystem {
