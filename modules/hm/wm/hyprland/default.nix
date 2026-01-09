@@ -237,18 +237,4 @@ in{
       };
     };
   };
-  xdg.portal = {
-    enable = true;
-    # config = {
-    #   common = {
-    #     default = [
-    #       "gtk"
-    #       "hyprland"
-    #     ];
-    #   };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
 }

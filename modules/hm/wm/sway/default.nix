@@ -36,10 +36,12 @@
       in lib.mkOptionDefault {
         "${modifier}+Return" = "exec kitty";
         "${modifier}+q" = "kill";
-        "${modifier}+p" = "power-menu";
+        "${modifier}+p" = "exec power-menu";
         "${modifier}+r" = "exec fuzzel";
         "${modifier}+y" = "exec freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\"";
-        "${modifier}+t" = "exec emacs -c -a=''";
+        "${modifier}+t" = "exec emacsclient -c -a=''";
+        "${modifier}+Shift+s" = "exec ${lib.getExe pkgs.sway-contrib.grimshot} copy area";
+        "${modifier}+l" = "exec ${lib.getExe pkgs.swaylock}";
         "XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pamixer} -i 5";
         "XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pamixer} -d 5";
         "XF86MonBrightnessUp" = "exec ${lib.getExe pkgs.brightnessctl} s 10%+";
@@ -47,7 +49,7 @@
       };
       input = {
         "type:keyboard" = {
-          xkb_variant = "en_gb";
+          xkb_layout = "gb";
         };
         "type:touchpad" = {
           dwt = "enabled";
