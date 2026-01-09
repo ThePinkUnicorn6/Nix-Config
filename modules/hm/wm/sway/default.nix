@@ -38,7 +38,7 @@
         "${modifier}+q" = "kill";
         "${modifier}+r" = "exec fuzzel";
         "${modifier}+y" = "exec freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\"";
-        "${modifier}+t" = "exec emacs -c";
+        "${modifier}+t" = "exec emacs -c -a=''";
         "XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pamixer} -i 5";
         "XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pamixer} -d 5";
         "XF86MonBrightnessUp" = "exec ${lib.getExe pkgs.brightnessctl} s 10%+";
@@ -56,6 +56,10 @@
           natural_scroll = "enabled";
         };
       };
+      gaps = {
+        inner = 3;
+        outer = 8;
+      };
       window = {
         titlebar = false;
       };
@@ -67,6 +71,7 @@
 
       bindgesture swipe:right workspace prev
       bindgesture swipe:left workspace next
+      corner_radius 8
     '';
   };
 }
