@@ -36,6 +36,7 @@
       in lib.mkOptionDefault {
         "${modifier}+Return" = "exec kitty";
         "${modifier}+q" = "kill";
+        "${modifier}+p" = "power-menu";
         "${modifier}+r" = "exec fuzzel";
         "${modifier}+y" = "exec freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\"";
         "${modifier}+t" = "exec emacs -c -a=''";
