@@ -2,7 +2,7 @@
 @define-color text @base00;
 window#waybar {
     background: @base00;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 0 0;
 }
 
 window#waybar.hidden {

@@ -1,6 +1,5 @@
-{ config, pkgs, settings, lib, osConfig, ... }:
+{ config, pkgs, lib, osConfig, ... }:
 let
-  colours = config.lib.stylix.colors;
   moduleConfig = {
     cpu = {
       interval = 3;
@@ -128,22 +127,22 @@ in{
       }
 ''+(builtins.readFile ./style.css);
   };
-  home.file.".config/waybar/colours.css".text = ''
-    @define-color base00 #''+colours.base00+'';
-    @define-color base01 #''+colours.base01+'';
-    @define-color base02 #''+colours.base02+'';
-    @define-color base03 #''+colours.base03+'';
-    @define-color base04 #''+colours.base04+'';
-    @define-color base05 #''+colours.base05+'';
-    @define-color base06 #''+colours.base06+'';
-    @define-color base07 #''+colours.base07+'';
-    @define-color base08 #''+colours.base08+'';
-    @define-color base09 #''+colours.base09+'';
-    @define-color base0A #''+colours.base0A+'';
-    @define-color base0B #''+colours.base0B+'';
-    @define-color base0C #''+colours.base0C+'';
-    @define-color base0D #''+colours.base0D+'';
-    @define-color base0E #''+colours.base0E+'';
-    @define-color base0F #''+colours.base0F+'';
+  home.file.".config/waybar/colours.css".text = with config.lib.stylix.colors.withHashtag; ''
+    @define-color base00 ${base00};
+    @define-color base01 ${base01};
+    @define-color base02 ${base02};
+    @define-color base03 ${base03};
+    @define-color base04 ${base04};
+    @define-color base05 ${base05};
+    @define-color base06 ${base06};
+    @define-color base07 ${base07};
+    @define-color base08 ${base08};
+    @define-color base09 ${base09};
+    @define-color base0A ${base0A};
+    @define-color base0B ${base0B};
+    @define-color base0C ${base0C};
+    @define-color base0D ${base0D};
+    @define-color base0E ${base0E};
+    @define-color base0F ${base0F};
   '';
 }
