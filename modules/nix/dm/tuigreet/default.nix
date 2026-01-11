@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --command 'dbus-run-session say' --remember --asterisks";
+       command = "${pkgs.tuigreet}/bin/tuigreet --time --c 'dbus-run-session sway' --remember --asterisks";
         user = "greeter";
       };
     };
