@@ -26,8 +26,6 @@
       terminal = "${lib.getExe pkgs.kitty}";
       menu = "${lib.getExe pkgs.fuzzel}";
       startup = [
-        # Launch Firefox on start
-        {command = "firefox";}
         {command = "waybar";}
       ];
       keybindings ={
@@ -137,6 +135,7 @@
       corner_radius 8
 
       workspace 1
+      exec firefox
     '';
   };
 }
