@@ -130,13 +130,13 @@
         laptop = let
           system = "x86_64-linux";
           pkgs = nixpkgsFor system;
-          settings = {
-            dotDir = "/home/${vars.name}/nix";
+          settings = rec {
+            dotDir = "/home/${username}/nix";
             username = vars.name;
             name = vars.name;
             personal-email = vars.personal-email;
             git-email = vars.git-email;
-            wm = [  "sway" ];
+            wm = [ "sway" ];
             dm = "tuigreet";
             theme = "everforest"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = ./wallpapers/national-geographic-water.jpg;
@@ -151,7 +151,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${vars.name}".imports = [ ./hosts/laptop/hm ];
+              home-manager.users."${settings.username}".imports = [ ./hosts/laptop/hm ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit settings;
@@ -163,32 +163,31 @@
             inherit settings;
           };
         };
-       mac = let
+	hp = let
           system = "x86_64-linux";
           pkgs = nixpkgsFor system;
-          settings = {
-            dotDir = "/home/${vars.name}/nix";
-            username = vars.name;
-            name = vars.name;
+          settings = rec {
+            dotDir = "/home/${username}/nix";
+            username = "hp";
+            name = "hp";
             personal-email = vars.personal-email;
             git-email = vars.git-email;
-            wm = [ "hyprland" ];
+            wm = [ "sway" ];
             dm = "tuigreet";
-            theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
+            theme = "everforest"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            wallpaper = ./wallpapers/national-geographic-water.jpg;
             reThemeWall = false;
             loc = vars.loc;
           };
         in lib.nixosSystem {
           modules = [
-            ./hosts/mac/nix
-            musnix.nixosModules.musnix
+            ./hosts/hp/nix
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${vars.name}".imports = [ ./hosts/mac/hm ];
+              home-manager.users."${settings.username}".imports = [ ./hosts/hp/hm ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit settings;

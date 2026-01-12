@@ -12,35 +12,45 @@
     ../../desktop-base/hm
   ] ++
   (map (m: ../../../modules/hm + m) [
-#    "/app/chat/discord"
+    "/app/chat/discord"
     "/app/video/mpv"
-#    "/app/emacs"
     "/app/desktop/gammastep"
+    "/app/fido2"
+    /app/browser/firefox
+ 
+     "/style"
+  ]++(map (wm: ../../../modules/hm/wm/${wm}) settings.wm));
 
-    "/wm/${settings.wm}"
-    /wm/xfce
-    "/style"
-  ]);
-
-#  services = {
-#    kdeconnect = {
-#      enable = true;
-#      indicator = true;
-#    };
-#  };
+  services = {
+    syncthing.enable = true;
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
+  };
 
   #services.syncthing.tray.enable = true;
   home.packages = with pkgs; [
     # System
-    librewolf
+    brightnessctl
     baobab
     gnome-disk-utility
     nautilus
     file-roller
-    mission-center
- 
+    dust
+    resources
+    bluetuith
+    
+    # Wine
+    wine
+    bottles
+
     # Text
     gnome-text-editor
+    libreoffice
+    hunspell
+    hunspellDicts.en_GB-ise
+    rnote
 
     # Video
     yt-dlp
@@ -48,7 +58,20 @@
     delfin
     freetube
 
-    # Chat
+    # Photo
+    loupe
+    gthumb
+    
+    # Audio
+    lollypop
+    gqrx
+    musescore
 
+    # Chat
+    wasistlos
+    signal-desktop
+    
+    # Other
+    pandoc
   ];
 }
