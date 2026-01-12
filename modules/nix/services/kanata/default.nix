@@ -42,7 +42,7 @@
             caps @swqw
             q w f p b [ j l u y ' ;
             @nav @met-a @alt-r @ctl-s @shft-t g ] m @shft-n @ctl-e @alt-i @met-o #
-            z x c d v lsgt / k h , . /
+            z x c d v lsgt z k h , . /
             _ _ _ _ @navspc @numbk @symdel _
           )
           (deflayermap qwerty

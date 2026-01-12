@@ -9,7 +9,7 @@
     "/app/shell/scripts/update.nix"
     "/app/git"
     "/app/shell/kitty"
-#    "/app/browser/zen"
+    "/style"
   ]);
 
   home.packages = with pkgs; [

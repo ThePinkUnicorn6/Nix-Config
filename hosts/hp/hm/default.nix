@@ -15,10 +15,10 @@
     "/app/chat/discord"
     "/app/video/mpv"
     "/app/desktop/gammastep"
+    /app/emacs
     "/app/fido2"
     /app/browser/firefox
- 
-     "/style"
+    /app/distrobox
   ]++(map (wm: ../../../modules/hm/wm/${wm}) settings.wm));
 
   services = {
