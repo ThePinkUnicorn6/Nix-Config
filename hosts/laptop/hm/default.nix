@@ -24,7 +24,7 @@
     "/app/desktop/gammastep"
     "/app/fido2"
     /app/browser/firefox
-    /app/distrobox
+#    /app/distrobox
      "/style"
   ]++(map (wm: ../../../modules/hm/wm/${wm}) settings.wm));
 
@@ -64,6 +64,7 @@
     vlc
     delfin
     freetube
+    ani-cli
 
     # Photo
     loupe
