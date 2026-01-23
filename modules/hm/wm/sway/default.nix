@@ -28,6 +28,15 @@
       startup = [
         {command = "waybar";}
       ];
+      output = {
+        "HDMI-A-1" = {
+          position = "0 550";
+        };
+        "DP-2" = {
+          position = "1920 0";
+          transform = "90";
+        };
+      };
       keybindings ={
         "${modifier}+Return" = "exec kitty";
         "${modifier}+f" = "fullscreen toggle";
