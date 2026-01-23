@@ -66,7 +66,7 @@
             wm = ["sway"];
             dm = "tuigreet";
             theme = "everforest"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
+            wallpaper = ./wallpapers/bubble.png;
             reThemeWall = true;
             loc = vars.loc;
           };

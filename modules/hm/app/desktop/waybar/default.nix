@@ -112,10 +112,10 @@ in{
         layer = "top";
         position = "top";
         output = "DP-2";
-        modules-left = [ "hyprland/workspaces" ];
+        modules-left = [ "hyprland/workspaces" "sway/workspaces"];
         modules-center = [ "clock" ];
         modules-right = [ ];
-        inherit (moduleConfig) clock "hyprland/workspaces";
+        inherit (moduleConfig) clock "hyprland/workspaces" "sway/workspaces";
       };
     };
     style = ''

@@ -28,6 +28,7 @@
       startup = [
         {command = "waybar";}
       ];
+      defaultWorkspace = "workspace number 1";
       output = {
         "HDMI-A-1" = {
           position = "0 550";
@@ -37,6 +38,48 @@
           transform = "90";
         };
       };
+      workspaceOutputAssign = [
+        {
+          output = "HDMI-A-1 *";
+          workspace = "workspace number 1";
+        }
+        {
+          output = "HDMI-A-1 *";
+          workspace = "workspace number 2";
+        }
+        {
+          output = "HDMI-A-1 *";
+          workspace = "workspace number 3";
+        }
+        {
+          output = "HDMI-A-1 *";
+          workspace = "workspace number 4";
+        }
+        {
+          output = "HDMI-A-1 *";
+          workspace = "workspace number 5";
+        }
+        {
+          output = "DP-2 *";
+          workspace = "workspace number 6";
+        }
+        {
+          output = "DP-2 *";
+          workspace = "workspace number 7";
+        }
+        {
+          output = "DP-2 *";
+          workspace = "workspace number 8";
+        }
+        {
+          output = "DP-2 *";
+          workspace = "workspace number 9";
+        }
+        {
+          output = "DP-2 *";
+          workspace = "workspace number 10";
+        }
+      ];
       keybindings ={
         "${modifier}+Return" = "exec kitty";
         "${modifier}+f" = "fullscreen toggle";
