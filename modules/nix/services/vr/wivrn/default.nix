@@ -21,7 +21,7 @@
     config = {
       enable = true;
       json = {
-        application = pkgs.wlx-overlay-s;
+        application = pkgs.wayvr;
         # 1.0x foveation scaling
         scale = 1.0;
         # 100 Mb/s

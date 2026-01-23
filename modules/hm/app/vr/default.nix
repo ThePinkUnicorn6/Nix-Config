@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     envision
-    wlx-overlay-s
+    wayvr
     corectrl
     glslang
     libdrm
