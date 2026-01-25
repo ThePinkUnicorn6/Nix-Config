@@ -72,6 +72,7 @@
     delfin
     freetube
     pkgsRocm.blender
+    ani-cli
     
     # Photo
     loupe
