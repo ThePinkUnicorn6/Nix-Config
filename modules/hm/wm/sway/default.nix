@@ -38,48 +38,6 @@
           transform = "90";
         };
       };
-      workspaceOutputAssign = [
-        {
-          output = "HDMI-A-1 *";
-          workspace = "1";
-        }
-        {
-          output = "HDMI-A-1 *";
-          workspace = "2";
-        }
-        {
-          output = "HDMI-A-1 *";
-          workspace = "3";
-        }
-        {
-          output = "HDMI-A-1 *";
-          workspace = "4";
-        }
-        {
-          output = "HDMI-A-1 *";
-          workspace = "5";
-        }
-        {
-          output = "DP-2 *";
-          workspace = "6";
-        }
-        {
-          output = "DP-2 *";
-          workspace = "7";
-        }
-        {
-          output = "DP-2 *";
-          workspace = "8";
-        }
-        {
-          output = "DP-2 *";
-          workspace = "9";
-        }
-        {
-          output = "DP-2 *";
-          workspace = "10";
-        }
-      ];
       keybindings ={
         "${modifier}+Return" = "exec kitty";
         "${modifier}+f" = "fullscreen toggle";
@@ -185,7 +143,16 @@
       bindgesture swipe:right workspace prev
       bindgesture swipe:left workspace next
       corner_radius 8
-
+      workspace 1 output "HDMI-A-1 *"
+      workspace 2 output "HDMI-A-1 *"
+      workspace 3 output "HDMI-A-1 *"
+      workspace 4 output "HDMI-A-1 *"
+      workspace 5 output "HDMI-A-1 *"
+      workspace 6 output "DP-2 *"
+      workspace 7 output "DP-2 *"
+      workspace 8 output "DP-2 *"
+      workspace 9 output "DP-2 *"
+      workspace 10 output "DP-2 *"
       workspace 1
       exec firefox
     '';
