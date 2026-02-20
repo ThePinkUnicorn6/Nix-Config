@@ -27,6 +27,7 @@
       menu = "${lib.getExe pkgs.fuzzel}";
       startup = [
         {command = "waybar";}
+        {command = "gammastep";}
       ];
       defaultWorkspace = "workspace number 1";
       output = {
@@ -80,7 +81,7 @@
         
         "${modifier}+p" = "exec power-menu";
         "${modifier}+r" = "exec ${menu}";
-        "${modifier}+y" = "exec freetube $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\"";
+        "${modifier}+y" = "exec freetube $(wl-paste) --new-window & notify-send \"Opening $(wl-paste) in freetube.\"";
         "${modifier}+t" = "exec emacsclient -c -a=''";
         "${modifier}+l" = "exec ${lib.getExe pkgs.swaylock}";
         "${modifier}+h" = "splith";
