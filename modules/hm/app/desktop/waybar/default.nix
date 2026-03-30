@@ -1,5 +1,6 @@
 { config, pkgs, lib, osConfig, ... }:
 let
+  mainDisplay = if osConfig.networking.hostName == "laptop" then "eDP-1" else "HDMI-A-1";
   moduleConfig = {
     cpu = {
       interval = 3;
@@ -76,11 +77,16 @@ let
     "sway/workspaces" = {
       format = "{icon}";
       persistent-workspaces = {
-        "1" = [];
-        "2" = [];
-        "3" = [];
-        "4" = [];
-        "5" = [];
+        "1" = [mainDisplay];
+        "2" = [mainDisplay];
+        "3" = [mainDisplay];
+        "4" = [mainDisplay];
+        "5" = [mainDisplay];
+        "6" = ["DP-2"];
+        "7" = ["DP-2"];
+        "8" = ["DP-2"];
+        "9" = ["DP-2"];
+        "10" = ["DP-2"];
       };
       format-icons = {
         focused = "";
@@ -112,10 +118,10 @@ in{
         layer = "top";
         position = "top";
         output = "DP-2";
-        modules-left = [ "hyprland/workspaces" ];
+        modules-left = [ "hyprland/workspaces" "sway/workspaces"];
         modules-center = [ "clock" ];
         modules-right = [ ];
-        inherit (moduleConfig) clock "hyprland/workspaces";
+        inherit (moduleConfig) clock "hyprland/workspaces" "sway/workspaces";
       };
     };
     style = ''

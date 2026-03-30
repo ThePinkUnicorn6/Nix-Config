@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, settings, ... }:
+{ config, pkgs, inputs, lib, settings, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -10,6 +10,7 @@
     "/app/fido2"
     "/services/kanata"
     /services/tlp
+    
   ])++(map (wm: ../../../modules/nix/wm/${wm}.nix) settings.wm);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -50,6 +51,15 @@
     enable = true;
     powerOnBoot = true;
   };
+ # services.udev.extraRules = "SUBSYSTEM==\"usb\", ATTR{idVendor}==\"05c6\", ATTR{idProduct}==\"9008\", MODE=\"0666\", GROUP=\"plugdev\"";
+
+  services.udev.packages = lib.singleton (pkgs.writeTextFile
+      { name = "qdl-rules";
+        text = ''
+         SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", ATTR{idProduct}=="9008", MODE="0666", GROUP="plugdev"
+        '';
+        destination = "/etc/udev/rules.d/60-qdl.rules";
+      });
 #  services.blueman.enable = true;
   system.stateVersion = "25.05"; 
 }

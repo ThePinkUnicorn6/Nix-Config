@@ -63,10 +63,10 @@
             name = vars.name;
             personal-email = vars.personal-email;
             git-email = vars.git-email;
-            wm = ["hyprland"];
+            wm = ["sway"];
             dm = "tuigreet";
-            theme = "stella"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/tanger_prefer_not_to_say_wallpaper_4K.png;
+            theme = "everforest"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            wallpaper = ./wallpapers/bubble.png;
             reThemeWall = true;
             loc = vars.loc;
           };

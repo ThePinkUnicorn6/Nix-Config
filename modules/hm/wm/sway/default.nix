@@ -26,10 +26,19 @@
       terminal = "${lib.getExe pkgs.kitty}";
       menu = "${lib.getExe pkgs.fuzzel}";
       startup = [
-        # Launch Firefox on start
-        {command = "firefox";}
         {command = "waybar";}
+        {command = "gammastep";}
       ];
+      defaultWorkspace = "workspace number 1";
+      output = {
+        "HDMI-A-1" = {
+          position = "0 550";
+        };
+        "DP-2" = {
+          position = "1920 0";
+          transform = "90";
+        };
+      };
       keybindings ={
         "${modifier}+Return" = "exec kitty";
         "${modifier}+f" = "fullscreen toggle";
@@ -72,7 +81,7 @@
         
         "${modifier}+p" = "exec power-menu";
         "${modifier}+r" = "exec ${menu}";
-        "${modifier}+y" = "exec freetube --new-window $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\"";
+        "${modifier}+y" = "exec freetube --new-window '$(wl-paste)' & notify-send \"Opening $(wl-paste) in freetube.\"";
         "${modifier}+t" = "exec emacsclient -c -a=''";
         "${modifier}+l" = "exec ${lib.getExe pkgs.swaylock}";
         "${modifier}+h" = "splith";
@@ -135,8 +144,18 @@
       bindgesture swipe:right workspace prev
       bindgesture swipe:left workspace next
       corner_radius 8
-
+      workspace 1 output HDMI-A-1 
+      workspace 2 output HDMI-A-1
+      workspace 3 output HDMI-A-1
+      workspace 4 output HDMI-A-1
+      workspace 5 output HDMI-A-1
+      workspace 6 output DP-2
+      workspace 7 output DP-2
+      workspace 8 output DP-2
+      workspace 9 output DP-2
+      workspace 10 output DP-2
       workspace 1
+      exec firefox
     '';
   };
 }

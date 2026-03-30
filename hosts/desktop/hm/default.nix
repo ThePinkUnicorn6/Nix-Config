@@ -71,7 +71,8 @@
     vlc
     delfin
     freetube
-    #blender
+    pkgsRocm.blender
+    ani-cli
     
     # Photo
     loupe

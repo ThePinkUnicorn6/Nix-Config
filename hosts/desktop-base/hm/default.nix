@@ -18,7 +18,7 @@
     networkmanagerapplet
     python3
     mullvad
-
+    android-tools
     # Fonts
     arkpandora_ttf
   ];

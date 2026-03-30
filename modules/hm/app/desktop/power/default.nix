@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, settings, osConfig, ... }:
 
 {
   home.packages = with pkgs; [
@@ -14,7 +14,7 @@
         chosen="$(echo -e "$options" | fuzzel --lines 4 --dmenu)"
         case $chosen in
             $option0)
-                systemctl suspend;;
+                systemctl suspend & ${if (osConfig.networking.hostName == "laptop") then lib.getExe pkgs.swaylock else ""};;
             $option1)
                 systemctl poweroff;;
             $option2)
