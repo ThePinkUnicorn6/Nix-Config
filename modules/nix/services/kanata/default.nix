@@ -10,7 +10,7 @@
   services.kanata = {
     enable = true;
     keyboards = {
-      "laptop" = {
+      "colemak-dh" = {
         config = ''
           (deflocalkeys-linux
             # 163
@@ -75,6 +75,12 @@
         extraDefCfg = ''
           process-unmapped-keys yes
           concurrent-tap-hold     yes
+          linux-dev-names-exclude (
+            "Diego Palacios cantor Keyboard"
+            "Diego Palacios cantor Consumer Control"
+            "Diego Palacios cantor System Control"
+            "Diego Palacios cantor"
+          )
         '';
       };
     };
