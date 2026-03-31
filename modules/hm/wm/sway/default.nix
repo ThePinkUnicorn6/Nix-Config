@@ -81,7 +81,7 @@
         
         "${modifier}+p" = "exec power-menu";
         "${modifier}+r" = "exec ${menu}";
-        "${modifier}+y" = "exec freetube '$(wl-paste)' --new-window & notify-send \"Opening $(wl-paste) in freetube.\"";
+        "${modifier}+y" = "exec freetube --new-window $(wl-paste) & notify-send \"Opening $(wl-paste) in freetube.\"";
         "${modifier}+t" = "exec emacsclient -c -a=''";
         "${modifier}+l" = "exec ${lib.getExe pkgs.swaylock}";
         "${modifier}+h" = "splith";
