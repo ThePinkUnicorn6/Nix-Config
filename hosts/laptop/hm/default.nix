@@ -76,7 +76,7 @@
     musescore
 
     # Chat
-    wasistlos
+    karere 
     signal-desktop
     
     # Other

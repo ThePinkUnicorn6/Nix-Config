@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    surge-XT
+    surge-xt
     helm
     vital
     cardinal

@@ -91,7 +91,7 @@
     gqrx
     
     # Chat
-    wasistlos
+    karere
     
     #discord
     signal-desktop

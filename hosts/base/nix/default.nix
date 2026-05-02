@@ -20,7 +20,13 @@
     };
     efi.canTouchEfiVariables = true;
   };
-
+  nixpkgs.overlays = [
+    (_: prev: {
+      openldap = prev.openldap.overrideAttrs {
+        doCheck = !prev.stdenv.hostPlatform.isi686;
+      };
+    })
+  ];
   networking = {
     hostName = lib.mkDefault "nixos"; # Define your hostname.
     nameservers = [ "100.100.100.100" "1.1.1.1" "1.0.0.1" ];
