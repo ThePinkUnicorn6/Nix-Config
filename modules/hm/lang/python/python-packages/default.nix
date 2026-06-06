@@ -5,7 +5,7 @@
   home.packages = with pkgs.python3Packages; [
     # Dependencies
     pip
-    pipx
+    # pipx
     pygments
     pydantic
     platformdirs

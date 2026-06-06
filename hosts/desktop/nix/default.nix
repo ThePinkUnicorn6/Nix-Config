@@ -43,9 +43,19 @@
     steam.enable = true;
   };
   
+  # fileSystems."/home/${settings.username}/shared-files" = {
+  #   device = "/dev/nvme0n1p4";
+  #   fsType = "ntfs";
+  #   options = [
+  #     "nofail"
+  #   ];
+  # };
   fileSystems."/home/${settings.username}/shared-files" = {
-    device = "/dev/nvme0n1p4";
-    fsType = "ntfs";
+    device = "/dev/disk/by-uuid/db30f62c-7b20-41b9-a536-e571b7ff38ec";
+    fsType = "btrfs";
+    options = [
+      "nofail"
+    ];
   };
   fileSystems."/home/${settings.username}/steamLibrary" = {
     device = "/dev/disk/by-uuid/eccf07d2-930d-48bf-b97e-d349232c2f04";

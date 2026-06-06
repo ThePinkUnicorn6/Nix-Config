@@ -41,6 +41,11 @@
           git add -A
           ${nh}/bin/nh os test . -H "${osConfig.networking.hostName}" $2;;
 
+        "boot")
+          # Add all files to commit so the flake can see them.
+          git add -A
+          ${nh}/bin/nh os boot . -H "${osConfig.networking.hostName}" $2;;
+
         "flake")
           echo "Updating flake lock file..."
           nix flake update --flake .;;
