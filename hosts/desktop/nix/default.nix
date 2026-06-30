@@ -21,7 +21,7 @@
   users.users.${settings.username} = {
     isNormalUser = true;
     description = settings.name;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout" "audio" "camera" "pipewire" ];
   };
 
   networking = {
