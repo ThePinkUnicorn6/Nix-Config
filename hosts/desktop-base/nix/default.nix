@@ -44,7 +44,7 @@
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "client";
 
-  services.mullvad-vpn.enable = true;
+  services.ivpn.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi = {
