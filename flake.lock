@@ -229,11 +229,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1783584231,
-        "narHash": "sha256-HrNeEOdhkqpA1CCYei1o6ILiIrCEMoLMTEffi8czv+Q=",
+        "lastModified": 1783609292,
+        "narHash": "sha256-LeAHQjnDfD/PV7MZ9kHQtDPWPcN2qHEGdQ5g968XGX4=",
         "owner": "DreamMaoMao",
         "repo": "mangowc",
-        "rev": "c58e96db6e80c24041e4282441323bd6aa19d26c",
+        "rev": "deecb4ca33935b3c82326d7522b30eb3a27120ca",
         "type": "github"
       },
       "original": {
@@ -488,11 +488,11 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1734643396,
-        "narHash": "sha256-513ZEJTrFSVSrbT1mcLY96V+cqHtuyI7QWt57M5HdPw=",
+        "lastModified": 1783612489,
+        "narHash": "sha256-yow4xFvnp9rokC3gFVKo/g7MOEfwPJ5QTdAVA07IcYQ=",
         "ref": "main",
-        "rev": "f16e8d69a3bc840d6af75db9f1e5a171448ecc07",
-        "revCount": 20,
+        "rev": "f90a5da2523149c2986dd4c5cfbeee687fbde2ca",
+        "revCount": 21,
         "type": "git",
         "url": "ssh://git@github.com/ThePinkUnicorn6/nix-settings"
       },
