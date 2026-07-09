@@ -66,7 +66,7 @@
             wm = ["sway"];
             dm = "tuigreet";
             theme = "everforest"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/bubble.png;
+            wallpaper = ./wallpapers/gods-die-too.jpg;
             reThemeWall = true;
             loc = vars.loc;
           };
