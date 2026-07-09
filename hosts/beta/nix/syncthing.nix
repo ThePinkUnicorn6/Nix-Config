@@ -29,4 +29,8 @@
     overrideDevices = false;
     overrideFolders = false;
   };
+  systemd.services.syncthing = {
+    requires = [ "tailscaled.service" "network-online.target" ];
+    after = [ "sys-subsystem-net-devices-tailscale0.device" "tailscaled.service" "network-online.target" ];
+  };
 }
