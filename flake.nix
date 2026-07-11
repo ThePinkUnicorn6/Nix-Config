@@ -15,20 +15,13 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    mango = {
-      url = "github:DreamMaoMao/mangowc";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     secrets = {
       url = "git+ssh://git@github.com/ThePinkUnicorn6/nix-settings?ref=main";
       flake = true;
     };
   };
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, stylix, musnix, niri, secrets, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, stylix, musnix, secrets, ... }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -65,9 +58,9 @@
             git-email = vars.git-email;
             wm = ["sway"];
             dm = "tuigreet";
-            theme = "everforest"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = ./wallpapers/gods-die-too.jpg;
-            reThemeWall = true;
+            theme = "rose-pine-moon"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            wallpaper = ./wallpapers/national-geographic-wave.jpg;
+            reThemeWall = false;
             loc = vars.loc;
           };
         in lib.nixosSystem {
