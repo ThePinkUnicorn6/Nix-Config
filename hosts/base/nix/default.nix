@@ -30,7 +30,6 @@
   networking = {
     hostName = lib.mkDefault "nixos"; # Define your hostname.
     nameservers = [ "100.100.100.100" "1.1.1.1" "1.0.0.1" ];
-    networkmanager.dns = "none";
   };
   
   systemd.network.wait-online.enable = false;

@@ -84,7 +84,7 @@
 
     #3D
     orca-slicer
-    freecad-wayland
+    #freecad-wayland
     
     # Audio
     lollypop

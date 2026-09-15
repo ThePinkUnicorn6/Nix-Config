@@ -54,6 +54,7 @@ EOF
     else /. + wallfile;
 in
 {
+  home.pointerCursor.enable = true;
   stylix = {
     enable = true;
     image = wallpaper;
