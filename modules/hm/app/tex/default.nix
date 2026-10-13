@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
-let
-  tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-basic
+
+{
+  home.packages = with pkgs; [
+    (texliveSmall.withPackages (
+      ps: with ps; [
+      scheme-basic
       dvisvgm dvipng # for preview and export as html
       wrapfig
       amsmath
@@ -21,12 +24,10 @@ let
       xurl
       
       # Fonts
-      helvetic;
-  });
-in
-{
-  home.packages = with pkgs; [
-    tex
+      helvetic
+    
+      ]
+    ))
   ];
 }
 
